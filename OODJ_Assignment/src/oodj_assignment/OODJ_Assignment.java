@@ -17,6 +17,7 @@ public class OODJ_Assignment {
         //test again again 10:40pm
         //Please Work GITHUB FFS
         //Github dekstoop
+        //Git desktop is fking powerful
     }
     
 }
