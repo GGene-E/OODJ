@@ -11,4 +11,9 @@ package oodj_assignment;
  */
 public class Admin extends Person{
     
+    /*
+    public String checkInventory(){}
+    */
+    
+    public void checkDuplication(){}
 }
