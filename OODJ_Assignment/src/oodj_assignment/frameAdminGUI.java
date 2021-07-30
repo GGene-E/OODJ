@@ -9,12 +9,12 @@ package oodj_assignment;
  *
  * @author jonat
  */
-public class AdminGUI extends javax.swing.JFrame {
+public class frameAdminGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form AdminGUI
      */
-    public AdminGUI() {
+    public frameAdminGUI() {
         initComponents();
     }
 
@@ -28,6 +28,7 @@ public class AdminGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         mainPanelCard = new javax.swing.JPanel();
+        panelOrderAdd1 = new oodj_assignment.panelOrderAdd();
         mainMenuBar = new javax.swing.JMenuBar();
         menuCustomer = new javax.swing.JMenu();
         menuAddCustomer = new javax.swing.JMenuItem();
@@ -51,11 +52,17 @@ public class AdminGUI extends javax.swing.JFrame {
         mainPanelCard.setLayout(mainPanelCardLayout);
         mainPanelCardLayout.setHorizontalGroup(
             mainPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 900, Short.MAX_VALUE)
+            .addGroup(mainPanelCardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelOrderAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(76, Short.MAX_VALUE))
         );
         mainPanelCardLayout.setVerticalGroup(
             mainPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 454, Short.MAX_VALUE)
+            .addGroup(mainPanelCardLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelOrderAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainMenuBar.setPreferredSize(new java.awt.Dimension(418, 46));
@@ -157,20 +164,21 @@ public class AdminGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameAdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameAdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameAdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(frameAdminGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdminGUI().setVisible(true);
+                new frameAdminGUI().setVisible(true);
             }
         });
     }
@@ -193,5 +201,6 @@ public class AdminGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuViewCustomer;
     private javax.swing.JMenuItem menuViewOrder;
     private javax.swing.JMenuItem menuViewProduct;
+    private oodj_assignment.panelOrderAdd panelOrderAdd1;
     // End of variables declaration//GEN-END:variables
 }
