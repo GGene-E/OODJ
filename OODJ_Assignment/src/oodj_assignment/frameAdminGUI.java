@@ -27,8 +27,8 @@ public class frameAdminGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        mainPanelCard = new javax.swing.JPanel();
-        panelOrderAdd1 = new oodj_assignment.panelOrderAdd();
+        jPanel1 = new javax.swing.JPanel();
+        panelOrderAdd2 = new oodj_assignment.panelOrderAdd();
         mainMenuBar = new javax.swing.JMenuBar();
         menuCustomer = new javax.swing.JMenu();
         menuAddCustomer = new javax.swing.JMenuItem();
@@ -47,30 +47,16 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuConfirmLogOut = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        javax.swing.GroupLayout mainPanelCardLayout = new javax.swing.GroupLayout(mainPanelCard);
-        mainPanelCard.setLayout(mainPanelCardLayout);
-        mainPanelCardLayout.setHorizontalGroup(
-            mainPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelCardLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelOrderAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(76, Short.MAX_VALUE))
-        );
-        mainPanelCardLayout.setVerticalGroup(
-            mainPanelCardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(mainPanelCardLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelOrderAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.setLayout(new java.awt.CardLayout());
 
         mainMenuBar.setPreferredSize(new java.awt.Dimension(418, 46));
 
         menuCustomer.setText("Customer Menu");
         menuCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuCustomer.setPreferredSize(new java.awt.Dimension(180, 22));
+        menuCustomer.setPreferredSize(new java.awt.Dimension(140, 22));
 
         menuAddCustomer.setText("Add Customer");
         menuCustomer.add(menuAddCustomer);
@@ -86,7 +72,7 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuOrder.setText("Order Menu");
         menuOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuOrder.setPreferredSize(new java.awt.Dimension(180, 22));
+        menuOrder.setPreferredSize(new java.awt.Dimension(140, 22));
 
         menuAddOrder.setText("Place Order");
         menuOrder.add(menuAddOrder);
@@ -102,7 +88,7 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuProduct.setText("Product Menu");
         menuProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuProduct.setPreferredSize(new java.awt.Dimension(180, 22));
+        menuProduct.setPreferredSize(new java.awt.Dimension(140, 22));
 
         menuAddProduct.setText("Add New Product");
         menuProduct.add(menuAddProduct);
@@ -118,13 +104,13 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuReport.setText("Report Menu");
         menuReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuReport.setPreferredSize(new java.awt.Dimension(180, 22));
+        menuReport.setPreferredSize(new java.awt.Dimension(140, 22));
         mainMenuBar.add(menuReport);
 
         menuLogOut.setText("Log Out");
         menuLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuLogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuLogOut.setPreferredSize(new java.awt.Dimension(180, 22));
+        menuLogOut.setPreferredSize(new java.awt.Dimension(142, 22));
 
         menuConfirmLogOut.setText("Confirm Log Out?");
         menuLogOut.add(menuConfirmLogOut);
@@ -137,14 +123,25 @@ public class frameAdminGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanelCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(panelOrderAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanelCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(panelOrderAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     /**
@@ -184,8 +181,8 @@ public class frameAdminGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar mainMenuBar;
-    private javax.swing.JPanel mainPanelCard;
     private javax.swing.JMenuItem menuAddCustomer;
     private javax.swing.JMenuItem menuAddOrder;
     private javax.swing.JMenuItem menuAddProduct;
@@ -201,6 +198,6 @@ public class frameAdminGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuViewCustomer;
     private javax.swing.JMenuItem menuViewOrder;
     private javax.swing.JMenuItem menuViewProduct;
-    private oodj_assignment.panelOrderAdd panelOrderAdd1;
+    private oodj_assignment.panelOrderAdd panelOrderAdd2;
     // End of variables declaration//GEN-END:variables
 }
