@@ -28,7 +28,7 @@ public class frameAdminGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        panelOrderAdd2 = new oodj_assignment.panelOrderAdd();
+        panelOrderAdd1 = new oodj_assignment.panelOrderAdd();
         mainMenuBar = new javax.swing.JMenuBar();
         menuCustomer = new javax.swing.JMenu();
         menuAddCustomer = new javax.swing.JMenuItem();
@@ -50,6 +50,7 @@ public class frameAdminGUI extends javax.swing.JFrame {
         setResizable(false);
 
         jPanel1.setLayout(new java.awt.CardLayout());
+        jPanel1.add(panelOrderAdd1, "card2");
 
         mainMenuBar.setPreferredSize(new java.awt.Dimension(418, 46));
 
@@ -123,21 +124,11 @@ public class frameAdminGUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(panelOrderAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
-                .addComponent(panelOrderAdd2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -198,6 +189,6 @@ public class frameAdminGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuViewCustomer;
     private javax.swing.JMenuItem menuViewOrder;
     private javax.swing.JMenuItem menuViewProduct;
-    private oodj_assignment.panelOrderAdd panelOrderAdd2;
+    private oodj_assignment.panelOrderAdd panelOrderAdd1;
     // End of variables declaration//GEN-END:variables
 }
