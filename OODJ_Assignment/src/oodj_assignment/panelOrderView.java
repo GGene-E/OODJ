@@ -27,6 +27,7 @@ public class panelOrderView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnCusDelete1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblCustomer = new javax.swing.JTable();
@@ -35,19 +36,18 @@ public class panelOrderView extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         lblCustomerID = new javax.swing.JLabel();
         lblCustomerName = new javax.swing.JLabel();
-        lblCustomerEmail = new javax.swing.JLabel();
         lblCustomerContact = new javax.swing.JLabel();
-        lblCustomerAge = new javax.swing.JLabel();
         lblCusID = new javax.swing.JLabel();
         lblCusName = new javax.swing.JLabel();
         lblCusContact = new javax.swing.JLabel();
-        lblCusEmail = new javax.swing.JLabel();
-        lblCusAge = new javax.swing.JLabel();
         btnCusDelete = new javax.swing.JButton();
+        btnCusDelete2 = new javax.swing.JButton();
         btnCusAdd = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
 
-        setPreferredSize(new java.awt.Dimension(702, 395));
+        btnCusDelete1.setText("Cancel Order");
+
+        setPreferredSize(new java.awt.Dimension(673, 452));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -113,55 +113,44 @@ public class panelOrderView extends javax.swing.JPanel {
         lblCustomerID.setText("Customer ID :");
 
         lblCustomerName.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        lblCustomerName.setText("Name :");
-
-        lblCustomerEmail.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        lblCustomerEmail.setText("Email :");
+        lblCustomerName.setText("Order ID :");
 
         lblCustomerContact.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        lblCustomerContact.setText("Contact :");
-
-        lblCustomerAge.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
-        lblCustomerAge.setText("Age :");
+        lblCustomerContact.setText("Price :");
 
         lblCusID.setText("ID");
 
-        lblCusName.setText("Name");
+        lblCusName.setText("ID");
 
-        lblCusContact.setText("Contact");
-
-        lblCusEmail.setText("Email");
-
-        lblCusAge.setText("Age");
+        lblCusContact.setText("Price");
 
         btnCusDelete.setText("Cancel Order");
+
+        btnCusDelete2.setText("View Items");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCustomerAge)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblCustomerID)
-                                .addComponent(lblCustomerName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblCustomerContact, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(lblCustomerEmail, javax.swing.GroupLayout.Alignment.TRAILING)))
+                            .addComponent(lblCustomerID, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCustomerName)
+                            .addComponent(lblCustomerContact))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCusID)
                             .addComponent(lblCusName)
-                            .addComponent(lblCusContact)
-                            .addComponent(lblCusEmail)
-                            .addComponent(lblCusAge)))
+                            .addComponent(lblCusContact)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnCusDelete)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnCusDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCusDelete2, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,17 +167,11 @@ public class panelOrderView extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerContact)
                     .addComponent(lblCusContact))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCustomerEmail)
-                    .addComponent(lblCusEmail))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCustomerAge)
-                    .addComponent(lblCusAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                .addComponent(btnCusDelete2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCusDelete)
-                .addContainerGap())
+                .addGap(23, 23, 23))
         );
 
         btnCusAdd.setText("Place New Order");
@@ -198,12 +181,12 @@ public class panelOrderView extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(txtCusSearch)
                     .addComponent(btnCusSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnCusAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -230,11 +213,11 @@ public class panelOrderView extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 673, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,19 +234,17 @@ public class panelOrderView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCusAdd;
     private javax.swing.JButton btnCusDelete;
+    private javax.swing.JButton btnCusDelete1;
+    private javax.swing.JButton btnCusDelete2;
     private javax.swing.JButton btnCusSearch;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JLabel lblCusAge;
     private javax.swing.JLabel lblCusContact;
-    private javax.swing.JLabel lblCusEmail;
     private javax.swing.JLabel lblCusID;
     private javax.swing.JLabel lblCusName;
-    private javax.swing.JLabel lblCustomerAge;
     private javax.swing.JLabel lblCustomerContact;
-    private javax.swing.JLabel lblCustomerEmail;
     private javax.swing.JLabel lblCustomerID;
     private javax.swing.JLabel lblCustomerName;
     private javax.swing.JTable tblCustomer;
