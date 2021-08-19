@@ -9,12 +9,12 @@ package oodj_assignment;
  *
  * @author jonat
  */
-public class panelCustomerView extends javax.swing.JPanel {
+public class panelOrderView extends javax.swing.JPanel {
 
     /**
      * Creates new form panelOrderAdd
      */
-    public panelCustomerView() {
+    public panelOrderView() {
         initComponents();
     }
 
@@ -43,7 +43,6 @@ public class panelCustomerView extends javax.swing.JPanel {
         lblCusContact = new javax.swing.JLabel();
         lblCusEmail = new javax.swing.JLabel();
         lblCusAge = new javax.swing.JLabel();
-        btnCusEdit = new javax.swing.JButton();
         btnCusDelete = new javax.swing.JButton();
         btnCusAdd = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
@@ -54,40 +53,40 @@ public class panelCustomerView extends javax.swing.JPanel {
 
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Name", "Date Added"
+                "Order ID", "Date Added"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -102,10 +101,9 @@ public class panelCustomerView extends javax.swing.JPanel {
         if (tblCustomer.getColumnModel().getColumnCount() > 0) {
             tblCustomer.getColumnModel().getColumn(0).setResizable(false);
             tblCustomer.getColumnModel().getColumn(1).setResizable(false);
-            tblCustomer.getColumnModel().getColumn(2).setResizable(false);
         }
 
-        txtCusSearch.setText("Search for Customer");
+        txtCusSearch.setText("Search for Order");
 
         btnCusSearch.setText("Search");
 
@@ -136,9 +134,7 @@ public class panelCustomerView extends javax.swing.JPanel {
 
         lblCusAge.setText("Age");
 
-        btnCusEdit.setText("Edit");
-
-        btnCusDelete.setText("Delete");
+        btnCusDelete.setText("Cancel Order");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -164,10 +160,8 @@ public class panelCustomerView extends javax.swing.JPanel {
                             .addComponent(lblCusAge)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(btnCusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnCusDelete)))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -193,20 +187,18 @@ public class panelCustomerView extends javax.swing.JPanel {
                     .addComponent(lblCustomerAge)
                     .addComponent(lblCusAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCusDelete)
-                    .addComponent(btnCusEdit))
+                .addComponent(btnCusDelete)
                 .addContainerGap())
         );
 
-        btnCusAdd.setText("Add New Customer");
+        btnCusAdd.setText("Place New Order");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 418, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCusSearch)
@@ -220,11 +212,11 @@ public class panelCustomerView extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(txtCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addComponent(btnCusAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5))
             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -232,7 +224,7 @@ public class panelCustomerView extends javax.swing.JPanel {
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("View Customer");
+        jLabel11.setText("View Order");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -259,7 +251,6 @@ public class panelCustomerView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCusAdd;
     private javax.swing.JButton btnCusDelete;
-    private javax.swing.JButton btnCusEdit;
     private javax.swing.JButton btnCusSearch;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
