@@ -32,7 +32,6 @@ public class frameCustomerGUI extends javax.swing.JFrame {
         btnMenuAdd = new javax.swing.JMenu();
         btnMenuEdit = new javax.swing.JMenu();
         btnMenuView = new javax.swing.JMenu();
-        btnMenuDelete = new javax.swing.JMenu();
         menuLogOut = new javax.swing.JMenu();
         menuConfirmLogOut = new javax.swing.JMenuItem();
 
@@ -60,12 +59,6 @@ public class frameCustomerGUI extends javax.swing.JFrame {
         btnMenuView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         btnMenuView.setPreferredSize(new java.awt.Dimension(140, 22));
         mainMenuBar.add(btnMenuView);
-
-        btnMenuDelete.setText("Delete Order");
-        btnMenuDelete.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMenuDelete.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMenuDelete.setPreferredSize(new java.awt.Dimension(140, 22));
-        mainMenuBar.add(btnMenuDelete);
 
         menuLogOut.setText("Log Out");
         menuLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -134,7 +127,6 @@ public class frameCustomerGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu btnMenuAdd;
-    private javax.swing.JMenu btnMenuDelete;
     private javax.swing.JMenu btnMenuEdit;
     private javax.swing.JMenu btnMenuView;
     private javax.swing.JPanel jPanel1;

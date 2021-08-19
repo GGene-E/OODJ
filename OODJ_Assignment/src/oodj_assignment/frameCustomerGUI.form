@@ -39,16 +39,6 @@
             </Property>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="btnMenuDelete">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Delete Order"/>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="horizontalTextPosition" type="int" value="0"/>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[140, 22]"/>
-            </Property>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="menuLogOut">
           <Properties>
             <Property name="text" type="java.lang.String" value="Log Out"/>
