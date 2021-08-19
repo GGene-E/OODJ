@@ -30,9 +30,10 @@ public class frameAdminGUI extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         panelOrderAdd1 = new oodj_assignment.panelOrderAdd();
         mainMenuBar = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
         menuCustomer = new javax.swing.JMenu();
         menuAddCustomer = new javax.swing.JMenuItem();
-        menuUpdateRemoveCustomer = new javax.swing.JMenuItem();
+        menuManageCustomer = new javax.swing.JMenuItem();
         menuViewCustomer = new javax.swing.JMenuItem();
         menuOrder = new javax.swing.JMenu();
         menuAddOrder = new javax.swing.JMenuItem();
@@ -42,7 +43,6 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuAddProduct = new javax.swing.JMenuItem();
         menuUpdateRemoveProduct = new javax.swing.JMenuItem();
         menuViewProduct = new javax.swing.JMenuItem();
-        menuReport = new javax.swing.JMenu();
         menuLogOut = new javax.swing.JMenu();
         menuConfirmLogOut = new javax.swing.JMenuItem();
 
@@ -54,6 +54,10 @@ public class frameAdminGUI extends javax.swing.JFrame {
 
         mainMenuBar.setPreferredSize(new java.awt.Dimension(418, 46));
 
+        jMenu1.setText("jMenu1");
+        jMenu1.setPreferredSize(new java.awt.Dimension(140, 22));
+        mainMenuBar.add(jMenu1);
+
         menuCustomer.setText("Customer Menu");
         menuCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         menuCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -62,8 +66,8 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuAddCustomer.setText("Add Customer");
         menuCustomer.add(menuAddCustomer);
 
-        menuUpdateRemoveCustomer.setText("Update / Remove Customer Details");
-        menuCustomer.add(menuUpdateRemoveCustomer);
+        menuManageCustomer.setText("Update / Remove Customer Details");
+        menuCustomer.add(menuManageCustomer);
 
         menuViewCustomer.setText("View Customer Details");
         menuCustomer.add(menuViewCustomer);
@@ -101,12 +105,6 @@ public class frameAdminGUI extends javax.swing.JFrame {
         menuProduct.add(menuViewProduct);
 
         mainMenuBar.add(menuProduct);
-
-        menuReport.setText("Report Menu");
-        menuReport.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menuReport.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuReport.setPreferredSize(new java.awt.Dimension(140, 22));
-        mainMenuBar.add(menuReport);
 
         menuLogOut.setText("Log Out");
         menuLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -172,6 +170,7 @@ public class frameAdminGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JMenuBar mainMenuBar;
     private javax.swing.JMenuItem menuAddCustomer;
@@ -180,11 +179,10 @@ public class frameAdminGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuConfirmLogOut;
     private javax.swing.JMenu menuCustomer;
     private javax.swing.JMenu menuLogOut;
+    private javax.swing.JMenuItem menuManageCustomer;
     private javax.swing.JMenu menuOrder;
     private javax.swing.JMenu menuProduct;
-    private javax.swing.JMenu menuReport;
     private javax.swing.JMenuItem menuUpdateCancelOrder;
-    private javax.swing.JMenuItem menuUpdateRemoveCustomer;
     private javax.swing.JMenuItem menuUpdateRemoveProduct;
     private javax.swing.JMenuItem menuViewCustomer;
     private javax.swing.JMenuItem menuViewOrder;

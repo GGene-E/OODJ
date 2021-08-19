@@ -91,7 +91,7 @@ public class panelOrderAdd extends javax.swing.JPanel {
         btnViewCart.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         btnViewCart.setText("View Cart");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Item List");
 
@@ -100,7 +100,7 @@ public class panelOrderAdd extends javax.swing.JPanel {
         jLabel6.setText("Description");
         jLabel6.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Product Type");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);

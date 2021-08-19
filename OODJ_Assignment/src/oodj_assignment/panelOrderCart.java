@@ -49,18 +49,22 @@ public class panelOrderCart extends javax.swing.JPanel {
 
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
                 "No.", "Item Name", "Quantity"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -69,8 +73,10 @@ public class panelOrderCart extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblCart);
         if (tblCart.getColumnModel().getColumnCount() > 0) {
             tblCart.getColumnModel().getColumn(0).setResizable(false);
+            tblCart.getColumnModel().getColumn(0).setPreferredWidth(5);
             tblCart.getColumnModel().getColumn(1).setResizable(false);
             tblCart.getColumnModel().getColumn(2).setResizable(false);
+            tblCart.getColumnModel().getColumn(2).setPreferredWidth(5);
         }
 
         btnCartAdd.setText("Add Item");
