@@ -27,106 +27,80 @@ public class frameAdminGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        panelOrderAdd1 = new oodj_assignment.panelOrderAdd();
-        mainMenuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        menuCustomer = new javax.swing.JMenu();
-        menuAddCustomer = new javax.swing.JMenuItem();
-        menuManageCustomer = new javax.swing.JMenuItem();
-        menuViewCustomer = new javax.swing.JMenuItem();
-        menuOrder = new javax.swing.JMenu();
-        menuAddOrder = new javax.swing.JMenuItem();
-        menuUpdateCancelOrder = new javax.swing.JMenuItem();
-        menuViewOrder = new javax.swing.JMenuItem();
-        menuProduct = new javax.swing.JMenu();
-        menuAddProduct = new javax.swing.JMenuItem();
-        menuUpdateRemoveProduct = new javax.swing.JMenuItem();
-        menuViewProduct = new javax.swing.JMenuItem();
-        menuLogOut = new javax.swing.JMenu();
-        menuConfirmLogOut = new javax.swing.JMenuItem();
+        pnlAdminMain = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        pnlAdminCard = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jPanel1.setLayout(new java.awt.CardLayout());
-        jPanel1.add(panelOrderAdd1, "card2");
+        pnlAdminMain.setBackground(new java.awt.Color(255, 153, 153));
 
-        mainMenuBar.setPreferredSize(new java.awt.Dimension(418, 46));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setText("Home");
+        jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        jMenu1.setText("jMenu1");
-        jMenu1.setPreferredSize(new java.awt.Dimension(140, 22));
-        mainMenuBar.add(jMenu1);
+        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton2.setText("Customer");
+        jButton2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        menuCustomer.setText("Customer Menu");
-        menuCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menuCustomer.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuCustomer.setPreferredSize(new java.awt.Dimension(140, 22));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton3.setText("Order");
+        jButton3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        menuAddCustomer.setText("Add Customer");
-        menuCustomer.add(menuAddCustomer);
+        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton4.setText("Product");
+        jButton4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        menuManageCustomer.setText("Update / Remove Customer Details");
-        menuCustomer.add(menuManageCustomer);
+        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton5.setText("Log Out");
+        jButton5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        menuViewCustomer.setText("View Customer Details");
-        menuCustomer.add(menuViewCustomer);
+        pnlAdminCard.setLayout(new java.awt.CardLayout());
 
-        mainMenuBar.add(menuCustomer);
-
-        menuOrder.setText("Order Menu");
-        menuOrder.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menuOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuOrder.setPreferredSize(new java.awt.Dimension(140, 22));
-
-        menuAddOrder.setText("Place Order");
-        menuOrder.add(menuAddOrder);
-
-        menuUpdateCancelOrder.setText("Update / Cancel Order");
-        menuOrder.add(menuUpdateCancelOrder);
-
-        menuViewOrder.setText("View Order Details");
-        menuOrder.add(menuViewOrder);
-
-        mainMenuBar.add(menuOrder);
-
-        menuProduct.setText("Product Menu");
-        menuProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menuProduct.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuProduct.setPreferredSize(new java.awt.Dimension(140, 22));
-
-        menuAddProduct.setText("Add New Product");
-        menuProduct.add(menuAddProduct);
-
-        menuUpdateRemoveProduct.setText("Update / Remove Product Details");
-        menuProduct.add(menuUpdateRemoveProduct);
-
-        menuViewProduct.setText("View Product Details");
-        menuProduct.add(menuViewProduct);
-
-        mainMenuBar.add(menuProduct);
-
-        menuLogOut.setText("Log Out");
-        menuLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menuLogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuLogOut.setPreferredSize(new java.awt.Dimension(142, 22));
-
-        menuConfirmLogOut.setText("Confirm Log Out?");
-        menuLogOut.add(menuConfirmLogOut);
-
-        mainMenuBar.add(menuLogOut);
-
-        setJMenuBar(mainMenuBar);
+        javax.swing.GroupLayout pnlAdminMainLayout = new javax.swing.GroupLayout(pnlAdminMain);
+        pnlAdminMain.setLayout(pnlAdminMainLayout);
+        pnlAdminMainLayout.setHorizontalGroup(
+            pnlAdminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pnlAdminCard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlAdminMainLayout.createSequentialGroup()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+        pnlAdminMainLayout.setVerticalGroup(
+            pnlAdminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminMainLayout.createSequentialGroup()
+                .addGroup(pnlAdminMainLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, 0)
+                .addComponent(pnlAdminCard, javax.swing.GroupLayout.DEFAULT_SIZE, 437, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlAdminMain, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(pnlAdminMain, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -170,23 +144,12 @@ public class frameAdminGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuBar mainMenuBar;
-    private javax.swing.JMenuItem menuAddCustomer;
-    private javax.swing.JMenuItem menuAddOrder;
-    private javax.swing.JMenuItem menuAddProduct;
-    private javax.swing.JMenuItem menuConfirmLogOut;
-    private javax.swing.JMenu menuCustomer;
-    private javax.swing.JMenu menuLogOut;
-    private javax.swing.JMenuItem menuManageCustomer;
-    private javax.swing.JMenu menuOrder;
-    private javax.swing.JMenu menuProduct;
-    private javax.swing.JMenuItem menuUpdateCancelOrder;
-    private javax.swing.JMenuItem menuUpdateRemoveProduct;
-    private javax.swing.JMenuItem menuViewCustomer;
-    private javax.swing.JMenuItem menuViewOrder;
-    private javax.swing.JMenuItem menuViewProduct;
-    private oodj_assignment.panelOrderAdd panelOrderAdd1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JPanel pnlAdminCard;
+    private javax.swing.JPanel pnlAdminMain;
     // End of variables declaration//GEN-END:variables
 }
