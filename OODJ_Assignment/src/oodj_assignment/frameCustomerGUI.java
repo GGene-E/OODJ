@@ -28,64 +28,94 @@ public class frameCustomerGUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        mainMenuBar = new javax.swing.JMenuBar();
-        btnMenuAdd = new javax.swing.JMenu();
-        btnMenuEdit = new javax.swing.JMenu();
-        btnMenuView = new javax.swing.JMenu();
-        menuLogOut = new javax.swing.JMenu();
-        menuConfirmLogOut = new javax.swing.JMenuItem();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        btnCusMenuHome = new javax.swing.JButton();
+        btnCusMenuBuy = new javax.swing.JButton();
+        btnCusMenuManage = new javax.swing.JButton();
+        btnCusMenuLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setLayout(new java.awt.CardLayout());
 
-        mainMenuBar.setPreferredSize(new java.awt.Dimension(418, 46));
+        btnCusMenuHome.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCusMenuHome.setText("Home");
+        btnCusMenuHome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        btnMenuAdd.setText("Add Order");
-        btnMenuAdd.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMenuAdd.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMenuAdd.setPreferredSize(new java.awt.Dimension(140, 22));
-        mainMenuBar.add(btnMenuAdd);
+        btnCusMenuBuy.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCusMenuBuy.setText("Buy Items");
+        btnCusMenuBuy.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        btnCusMenuBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCusMenuBuyActionPerformed(evt);
+            }
+        });
 
-        btnMenuEdit.setText("Edit Order");
-        btnMenuEdit.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMenuEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMenuEdit.setPreferredSize(new java.awt.Dimension(140, 22));
-        mainMenuBar.add(btnMenuEdit);
+        btnCusMenuManage.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCusMenuManage.setText("Manage Orders");
+        btnCusMenuManage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        btnMenuView.setText("View Order");
-        btnMenuView.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        btnMenuView.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMenuView.setPreferredSize(new java.awt.Dimension(140, 22));
-        mainMenuBar.add(btnMenuView);
+        btnCusMenuLogout.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnCusMenuLogout.setText("Logout");
+        btnCusMenuLogout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
 
-        menuLogOut.setText("Log Out");
-        menuLogOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        menuLogOut.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        menuLogOut.setPreferredSize(new java.awt.Dimension(142, 22));
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(btnCusMenuHome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnCusMenuBuy, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnCusMenuManage, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnCusMenuLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCusMenuHome, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCusMenuBuy, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCusMenuManage, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCusMenuLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 397, Short.MAX_VALUE))
+        );
 
-        menuConfirmLogOut.setText("Confirm Log Out?");
-        menuLogOut.add(menuConfirmLogOut);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
-        mainMenuBar.add(menuLogOut);
-
-        setJMenuBar(mainMenuBar);
+        jPanel1.add(jPanel2, "card2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCusMenuBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusMenuBuyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCusMenuBuyActionPerformed
 
     /**
      * @param args the command line arguments
@@ -126,12 +156,12 @@ public class frameCustomerGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu btnMenuAdd;
-    private javax.swing.JMenu btnMenuEdit;
-    private javax.swing.JMenu btnMenuView;
+    private javax.swing.JButton btnCusMenuBuy;
+    private javax.swing.JButton btnCusMenuHome;
+    private javax.swing.JButton btnCusMenuLogout;
+    private javax.swing.JButton btnCusMenuManage;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenuBar mainMenuBar;
-    private javax.swing.JMenuItem menuConfirmLogOut;
-    private javax.swing.JMenu menuLogOut;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
