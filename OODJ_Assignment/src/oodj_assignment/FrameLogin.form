@@ -48,7 +48,7 @@
         <Container class="javax.swing.JPanel" name="PanelLogin">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card2"/>
+              <CardConstraints cardName="login"/>
             </Constraint>
           </Constraints>
 
@@ -150,7 +150,7 @@
         <Container class="javax.swing.JPanel" name="PanelRegister">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="Registration"/>
+              <CardConstraints cardName="registration"/>
             </Constraint>
           </Constraints>
 
@@ -313,7 +313,7 @@
         <Container class="javax.swing.JPanel" name="pnlCustomerAdd">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card4"/>
+              <CardConstraints cardName="customerAdd"/>
             </Constraint>
           </Constraints>
 
@@ -519,7 +519,7 @@
         <Container class="javax.swing.JPanel" name="pnlCustomerEdit">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card5"/>
+              <CardConstraints cardName="customerEdit"/>
             </Constraint>
           </Constraints>
 
@@ -835,7 +835,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card6"/>
+              <CardConstraints cardName="customerView"/>
             </Constraint>
           </Constraints>
 
@@ -1124,7 +1124,7 @@
         <Container class="javax.swing.JPanel" name="pnlOrderAdd">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card7"/>
+              <CardConstraints cardName="orderAdd"/>
             </Constraint>
           </Constraints>
 
@@ -1533,7 +1533,7 @@
         <Container class="javax.swing.JPanel" name="pnlOrderCart">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card8"/>
+              <CardConstraints cardName="orderCart"/>
             </Constraint>
           </Constraints>
 
@@ -1783,7 +1783,7 @@
         <Container class="javax.swing.JPanel" name="pnlOrderMenu">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card9"/>
+              <CardConstraints cardName="orderMenu"/>
             </Constraint>
           </Constraints>
 
@@ -1857,7 +1857,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card10"/>
+              <CardConstraints cardName="orderView"/>
             </Constraint>
           </Constraints>
 
@@ -2123,7 +2123,7 @@
         <Container class="javax.swing.JPanel" name="pnlOrderItem">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card11"/>
+              <CardConstraints cardName="orderItem"/>
             </Constraint>
           </Constraints>
 
@@ -2425,7 +2425,7 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card12"/>
+              <CardConstraints cardName="productAdd"/>
             </Constraint>
           </Constraints>
 
@@ -2625,7 +2625,7 @@
         <Container class="javax.swing.JPanel" name="pnlProductEdit">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card13"/>
+              <CardConstraints cardName="productEdit"/>
             </Constraint>
           </Constraints>
 
@@ -2868,7 +2868,7 @@
         <Container class="javax.swing.JPanel" name="pnlProductView">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
-              <CardConstraints cardName="card14"/>
+              <CardConstraints cardName="productView"/>
             </Constraint>
           </Constraints>
 

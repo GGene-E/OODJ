@@ -327,7 +327,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap(176, Short.MAX_VALUE))
         );
 
-        MainPanel.add(PanelLogin, "card2");
+        MainPanel.add(PanelLogin, "login");
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -427,7 +427,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
-        MainPanel.add(PanelRegister, "Registration");
+        MainPanel.add(PanelRegister, "registration");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -550,7 +550,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlCustomerAdd, "card4");
+        MainPanel.add(pnlCustomerAdd, "customerAdd");
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -729,7 +729,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlCustomerEdit, "card5");
+        MainPanel.add(pnlCustomerEdit, "customerEdit");
 
         pnlCustomerView.setPreferredSize(new java.awt.Dimension(702, 395));
 
@@ -934,7 +934,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainPanel.add(pnlCustomerView, "card6");
+        MainPanel.add(pnlCustomerView, "customerView");
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1152,7 +1152,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlOrderAdd, "card7");
+        MainPanel.add(pnlOrderAdd, "orderAdd");
 
         lblTitleCart.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitleCart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1311,7 +1311,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
         );
 
-        MainPanel.add(pnlOrderCart, "card8");
+        MainPanel.add(pnlOrderCart, "orderCart");
 
         lblTitleOrderMenu.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitleOrderMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1352,7 +1352,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlOrderMenu, "card9");
+        MainPanel.add(pnlOrderMenu, "orderMenu");
 
         pnlOrderView.setPreferredSize(new java.awt.Dimension(673, 452));
 
@@ -1545,7 +1545,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        MainPanel.add(pnlOrderView, "card10");
+        MainPanel.add(pnlOrderView, "orderView");
 
         jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -1735,7 +1735,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlOrderItem, "card11");
+        MainPanel.add(pnlOrderItem, "orderItem");
 
         pnlProductAdd.setPreferredSize(new java.awt.Dimension(710, 422));
 
@@ -1852,7 +1852,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlProductAdd, "card12");
+        MainPanel.add(pnlProductAdd, "productAdd");
 
         lblTitleEditProduct.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitleEditProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1993,7 +1993,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlProductEdit, "card13");
+        MainPanel.add(pnlProductEdit, "productEdit");
 
         lblTitleProduct.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitleProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -2184,7 +2184,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        MainPanel.add(pnlProductView, "card14");
+        MainPanel.add(pnlProductView, "productView");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2208,12 +2208,12 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "Registration");
+        card.show(MainPanel, "registration");
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "card2");
+        card.show(MainPanel, "login");
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
