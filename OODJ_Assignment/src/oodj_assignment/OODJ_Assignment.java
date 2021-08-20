@@ -18,6 +18,8 @@ public class OODJ_Assignment {
         //Please Work GITHUB FFS
         //Github dekstoop
         //Git desktop is fking powerful
+        FrameLogin fr = new FrameLogin();
+        fr.setVisible(true);
     }
     
 }
