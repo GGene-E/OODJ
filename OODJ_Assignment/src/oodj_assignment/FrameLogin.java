@@ -56,7 +56,7 @@ public class FrameLogin extends javax.swing.JFrame {
         txtPassword1 = new javax.swing.JTextField();
         pnlCustomerAdd = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        btnCusClear = new javax.swing.JButton();
+        btnCusAddClear = new javax.swing.JButton();
         txtCusName = new javax.swing.JTextField();
         txtCusContact = new javax.swing.JTextField();
         txtCusEmail = new javax.swing.JTextField();
@@ -74,7 +74,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblTitleNewCustomer = new javax.swing.JLabel();
         pnlCustomerEdit = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        btnCusClear1 = new javax.swing.JButton();
+        btnCusEditCancel = new javax.swing.JButton();
         txtCusName1 = new javax.swing.JTextField();
         txtCusContact1 = new javax.swing.JTextField();
         txtCusEmail1 = new javax.swing.JTextField();
@@ -431,7 +431,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnCusClear.setText("Clear");
+        btnCusAddClear.setText("Cancel");
 
         lblCustomerName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerName.setText("Name :");
@@ -483,7 +483,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnCusAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCusClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCusAddClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(222, 222, 222))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -522,7 +522,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(77, 77, 77)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCusAddNew)
-                    .addComponent(btnCusClear))
+                    .addComponent(btnCusAddClear))
                 .addGap(46, 46, 46))
         );
 
@@ -554,7 +554,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnCusClear1.setText("Clear");
+        btnCusEditCancel.setText("Cancel");
 
         txtCusName1.setText("jTextField1");
 
@@ -661,7 +661,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnCusSave, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCusClear1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCusEditCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblCustomerAge1)
@@ -701,7 +701,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCusSave)
-                    .addComponent(btnCusClear1))
+                    .addComponent(btnCusEditCancel))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
 
@@ -2271,13 +2271,13 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCusAdd;
     private javax.swing.JButton btnCusAdd1;
     private javax.swing.JButton btnCusAdd2;
+    private javax.swing.JButton btnCusAddClear;
     private javax.swing.JButton btnCusAddNew;
-    private javax.swing.JButton btnCusClear;
-    private javax.swing.JButton btnCusClear1;
     private javax.swing.JButton btnCusDelete;
     private javax.swing.JButton btnCusDelete1;
     private javax.swing.JButton btnCusDelete2;
     private javax.swing.JButton btnCusEdit;
+    private javax.swing.JButton btnCusEditCancel;
     private javax.swing.JButton btnCusSave;
     private javax.swing.JButton btnCusSearch;
     private javax.swing.JButton btnCusSearch1;
