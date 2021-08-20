@@ -159,13 +159,6 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         lblDiscount = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        pnlAdminMenu = new javax.swing.JPanel();
-        lblTitleAdminMenu = new javax.swing.JLabel();
-        btnAdminLogout = new javax.swing.JButton();
-        btnManageOrder = new javax.swing.JButton();
-        btnCart = new javax.swing.JButton();
-        btnManageProd = new javax.swing.JButton();
-        btnManageCus = new javax.swing.JButton();
         pnlOrderView = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -263,6 +256,19 @@ public class FrameLogin extends javax.swing.JFrame {
         btnProdDelete = new javax.swing.JButton();
         btnProdEdit = new javax.swing.JButton();
         lblProdInstruct = new javax.swing.JLabel();
+        pnlAdminMenu = new javax.swing.JPanel();
+        lblTitleAdminMenu = new javax.swing.JLabel();
+        btnAdminLogout = new javax.swing.JButton();
+        btnAdminManageOrder = new javax.swing.JButton();
+        btnAdminCart = new javax.swing.JButton();
+        btnManageProduct = new javax.swing.JButton();
+        btnManageCustomer = new javax.swing.JButton();
+        pnlCustomerMenu = new javax.swing.JPanel();
+        lblTitleAdminMenu1 = new javax.swing.JLabel();
+        btnCusCart = new javax.swing.JButton();
+        btnCusPlaceOrder = new javax.swing.JButton();
+        btnCusManageOrder = new javax.swing.JButton();
+        btnCusLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -326,7 +332,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLoginRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(176, Short.MAX_VALUE))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
 
         MainPanel.add(PanelLogin, "login");
@@ -390,7 +396,7 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(txtRegName)
                             .addComponent(txtRegPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtRegAge, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(260, Short.MAX_VALUE))
+                .addContainerGap(261, Short.MAX_VALUE))
             .addComponent(lblRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         PanelRegisterLayout.setVerticalGroup(
@@ -495,7 +501,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(50, Short.MAX_VALUE)
+                .addContainerGap(54, Short.MAX_VALUE)
                 .addComponent(lblInstruction)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -536,10 +542,10 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerAdd.setLayout(pnlCustomerAddLayout);
         pnlCustomerAddLayout.setHorizontalGroup(
             pnlCustomerAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleNewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleNewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(pnlCustomerAddLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 690, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         pnlCustomerAddLayout.setVerticalGroup(
@@ -715,7 +721,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerEdit.setLayout(pnlCustomerEditLayout);
         pnlCustomerEditLayout.setHorizontalGroup(
             pnlCustomerEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleEditCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleEditCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(pnlCustomerEditLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -920,7 +926,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerView.setLayout(pnlCustomerViewLayout);
         pnlCustomerViewLayout.setHorizontalGroup(
             pnlCustomerViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleViewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleViewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomerViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1114,7 +1120,7 @@ public class FrameLogin extends javax.swing.JFrame {
                                         .addComponent(cboReviewList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(btnOrderAddBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(lblReduceQty, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1125,7 +1131,6 @@ public class FrameLogin extends javax.swing.JFrame {
                                 .addGap(8, 8, 8)
                                 .addComponent(lblSecondReview, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnViewCart, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1318,55 +1323,6 @@ public class FrameLogin extends javax.swing.JFrame {
 
         MainPanel.add(pnlOrderCart, "orderCart");
 
-        lblTitleAdminMenu.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        lblTitleAdminMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleAdminMenu.setText("Admin Menu");
-
-        btnAdminLogout.setText("Logout");
-
-        btnManageOrder.setText("Manage Order");
-
-        btnCart.setText("View Cart");
-
-        btnManageProd.setText("Manage Product");
-
-        btnManageCus.setText("Manage Customer");
-
-        javax.swing.GroupLayout pnlAdminMenuLayout = new javax.swing.GroupLayout(pnlAdminMenu);
-        pnlAdminMenu.setLayout(pnlAdminMenuLayout);
-        pnlAdminMenuLayout.setHorizontalGroup(
-            pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleAdminMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminMenuLayout.createSequentialGroup()
-                .addContainerGap(259, Short.MAX_VALUE)
-                .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAdminLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageCus, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCart, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnManageProd, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(267, 267, 267))
-        );
-        pnlAdminMenuLayout.setVerticalGroup(
-            pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlAdminMenuLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(lblTitleAdminMenu)
-                .addGap(47, 47, 47)
-                .addComponent(btnCart)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageCus)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageOrder)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnManageProd)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnAdminLogout)
-                .addContainerGap(219, Short.MAX_VALUE))
-        );
-
-        MainPanel.add(pnlAdminMenu, "orderMenu");
-
         pnlOrderView.setPreferredSize(new java.awt.Dimension(673, 452));
 
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -1542,7 +1498,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlOrderView.setLayout(pnlOrderViewLayout);
         pnlOrderViewLayout.setHorizontalGroup(
             pnlOrderViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleViewOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleViewOrder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOrderViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1551,7 +1507,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlOrderViewLayout.setVerticalGroup(
             pnlOrderViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOrderViewLayout.createSequentialGroup()
-                .addContainerGap(26, Short.MAX_VALUE)
+                .addContainerGap(40, Short.MAX_VALUE)
                 .addComponent(lblTitleViewOrder)
                 .addGap(5, 5, 5)
                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1643,7 +1599,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel12Layout.createSequentialGroup()
-                        .addComponent(lblQuantity1, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                        .addComponent(lblQuantity1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnAddQuantity)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1717,7 +1673,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblInstuct1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 141, Short.MAX_VALUE)
                 .addComponent(lblInstruct2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1732,7 +1688,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlOrderItem.setLayout(pnlOrderItemLayout);
         pnlOrderItemLayout.setHorizontalGroup(
             pnlOrderItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleOrderItems, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleOrderItems, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(pnlOrderItemLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1796,7 +1752,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(199, 199, 199)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(btnNewProdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(btnNewProdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNewProdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(txtNewProdDescription)
@@ -1842,14 +1798,14 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNewProdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNewProdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addContainerGap(97, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlProductAddLayout = new javax.swing.GroupLayout(pnlProductAdd);
         pnlProductAdd.setLayout(pnlProductAddLayout);
         pnlProductAddLayout.setHorizontalGroup(
             pnlProductAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleNewProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleNewProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(pnlProductAddLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1990,7 +1946,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlProductEdit.setLayout(pnlProductEditLayout);
         pnlProductEditLayout.setHorizontalGroup(
             pnlProductEditLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleEditProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleEditProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(pnlProductEditLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2159,7 +2115,7 @@ public class FrameLogin extends javax.swing.JFrame {
         );
         jPanel15Layout.setVerticalGroup(
             jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
             .addGroup(jPanel15Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2182,7 +2138,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlProductView.setLayout(pnlProductViewLayout);
         pnlProductViewLayout.setHorizontalGroup(
             pnlProductViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlProductViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2199,6 +2155,107 @@ public class FrameLogin extends javax.swing.JFrame {
         );
 
         MainPanel.add(pnlProductView, "productView");
+
+        lblTitleAdminMenu.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitleAdminMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitleAdminMenu.setText("Admin Menu");
+
+        btnAdminLogout.setText("Logout");
+
+        btnAdminManageOrder.setText("Manage Order");
+
+        btnAdminCart.setText("View Cart");
+
+        btnManageProduct.setText("Manage Product");
+
+        btnManageCustomer.setText("Manage Customer");
+
+        javax.swing.GroupLayout pnlAdminMenuLayout = new javax.swing.GroupLayout(pnlAdminMenu);
+        pnlAdminMenu.setLayout(pnlAdminMenuLayout);
+        pnlAdminMenuLayout.setHorizontalGroup(
+            pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitleAdminMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlAdminMenuLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlAdminMenuLayout.createSequentialGroup()
+                        .addComponent(btnManageProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdminManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 230, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAdminLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlAdminMenuLayout.createSequentialGroup()
+                        .addComponent(btnAdminCart, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnManageCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(25, 25, 25))
+        );
+        pnlAdminMenuLayout.setVerticalGroup(
+            pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAdminMenuLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblTitleAdminMenu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnManageCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                    .addComponent(btnAdminCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnManageProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                    .addComponent(btnAdminLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnAdminManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25))
+        );
+
+        MainPanel.add(pnlAdminMenu, "orderMenu");
+
+        lblTitleAdminMenu1.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitleAdminMenu1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitleAdminMenu1.setText("Customer Menu");
+
+        btnCusCart.setText("View Cart");
+
+        btnCusPlaceOrder.setText("Place Order");
+
+        btnCusManageOrder.setText("Manage Order");
+
+        btnCusLogout.setText("Logout");
+
+        javax.swing.GroupLayout pnlCustomerMenuLayout = new javax.swing.GroupLayout(pnlCustomerMenu);
+        pnlCustomerMenu.setLayout(pnlCustomerMenuLayout);
+        pnlCustomerMenuLayout.setHorizontalGroup(
+            pnlCustomerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitleAdminMenu1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(pnlCustomerMenuLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(pnlCustomerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnlCustomerMenuLayout.createSequentialGroup()
+                        .addComponent(btnCusManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCusLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(pnlCustomerMenuLayout.createSequentialGroup()
+                        .addComponent(btnCusCart, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCusPlaceOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        pnlCustomerMenuLayout.setVerticalGroup(
+            pnlCustomerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCustomerMenuLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblTitleAdminMenu1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlCustomerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCusCart, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(btnCusPlaceOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(pnlCustomerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnCusManageOrder, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                    .addComponent(btnCusLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        MainPanel.add(pnlCustomerMenu, "card15");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -2276,8 +2333,9 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnAddQty;
     private javax.swing.JButton btnAddQuantity;
     private javax.swing.JButton btnAddToCart;
+    private javax.swing.JButton btnAdminCart;
     private javax.swing.JButton btnAdminLogout;
-    private javax.swing.JButton btnCart;
+    private javax.swing.JButton btnAdminManageOrder;
     private javax.swing.JButton btnCartAdd;
     private javax.swing.JButton btnCartQtyAdd;
     private javax.swing.JButton btnCartQtyDec;
@@ -2287,10 +2345,14 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCusAdd2;
     private javax.swing.JButton btnCusAddClear;
     private javax.swing.JButton btnCusAddNew;
+    private javax.swing.JButton btnCusCart;
     private javax.swing.JButton btnCusDelete1;
     private javax.swing.JButton btnCusDelete2;
     private javax.swing.JButton btnCusEditCancel;
     private javax.swing.JButton btnCusEditSave;
+    private javax.swing.JButton btnCusLogout;
+    private javax.swing.JButton btnCusManageOrder;
+    private javax.swing.JButton btnCusPlaceOrder;
     private javax.swing.JButton btnCusSearch;
     private javax.swing.JButton btnCusSearch1;
     private javax.swing.JButton btnCusVIewAdd;
@@ -2299,9 +2361,8 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnEditProdSave;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnLoginRegister;
-    private javax.swing.JButton btnManageCus;
-    private javax.swing.JButton btnManageOrder;
-    private javax.swing.JButton btnManageProd;
+    private javax.swing.JButton btnManageCustomer;
+    private javax.swing.JButton btnManageProduct;
     private javax.swing.JButton btnMinusQuantity;
     private javax.swing.JButton btnNewProdAdd;
     private javax.swing.JButton btnNewProdCancel;
@@ -2444,6 +2505,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblSecondReview;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblTitleAdminMenu;
+    private javax.swing.JLabel lblTitleAdminMenu1;
     private javax.swing.JLabel lblTitleCart;
     private javax.swing.JLabel lblTitleEditCustomer;
     private javax.swing.JLabel lblTitleEditProduct;
@@ -2461,6 +2523,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlAdminMenu;
     private javax.swing.JPanel pnlCustomerAdd;
     private javax.swing.JPanel pnlCustomerEdit;
+    private javax.swing.JPanel pnlCustomerMenu;
     private javax.swing.JPanel pnlCustomerView;
     private javax.swing.JPanel pnlOrderAdd;
     private javax.swing.JPanel pnlOrderCart;
