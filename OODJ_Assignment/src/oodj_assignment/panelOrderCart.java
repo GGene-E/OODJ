@@ -27,7 +27,7 @@ public class panelOrderCart extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel11 = new javax.swing.JLabel();
+        lblTitleCart = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCart = new javax.swing.JTable();
         btnCartAdd = new javax.swing.JButton();
@@ -43,9 +43,9 @@ public class panelOrderCart extends javax.swing.JPanel {
         lblDiscount = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("Cart");
+        lblTitleCart.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitleCart.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitleCart.setText("Cart");
 
         tblCart.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,7 +161,7 @@ public class panelOrderCart extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblTitleCart, javax.swing.GroupLayout.PREFERRED_SIZE, 702, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(40, 40, 40)
@@ -185,7 +185,7 @@ public class panelOrderCart extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel11)
+                .addComponent(lblTitleCart)
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -216,7 +216,6 @@ public class panelOrderCart extends javax.swing.JPanel {
     private javax.swing.JButton btnCartRemove;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
@@ -224,6 +223,7 @@ public class panelOrderCart extends javax.swing.JPanel {
     private javax.swing.JLabel lblDiscount;
     private javax.swing.JLabel lblGrandTotal;
     private javax.swing.JLabel lblQtySelected;
+    private javax.swing.JLabel lblTitleCart;
     private javax.swing.JTable tblCart;
     // End of variables declaration//GEN-END:variables
 }

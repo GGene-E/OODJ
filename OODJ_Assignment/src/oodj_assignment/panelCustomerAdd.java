@@ -43,27 +43,34 @@ public class panelCustomerAdd extends javax.swing.JPanel {
         txtCusUsername = new javax.swing.JTextField();
         txtCusPassword = new javax.swing.JTextField();
         lblInstruction = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        lblTitleNewCustomer = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnCusClear.setText("Clear");
 
+        lblCustomerName.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerName.setText("Name :");
 
+        lblCustomerContact.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerContact.setText("Contact :");
 
+        lblCustomerEmail.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerEmail.setText("Email :");
 
+        lblCustomerAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerAge.setText("Age :");
 
         btnCusAddNew.setText("Add");
 
-        lblUsername.setText("Username");
+        lblUsername.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblUsername.setText("Username :");
 
-        lblPassword.setText("Password");
+        lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        lblPassword.setText("Password :");
 
         lblInstruction.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lblInstruction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblInstruction.setText("Enter Customer Details Below");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -71,20 +78,16 @@ public class panelCustomerAdd extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(204, 204, 204)
+                .addGap(220, 220, 220)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnCusAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCusClear, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblCustomerAge)
-                            .addComponent(lblCustomerEmail)
-                            .addComponent(lblCustomerContact)
-                            .addComponent(lblCustomerName)
-                            .addComponent(lblUsername)
-                            .addComponent(lblPassword))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCustomerContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCustomerAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
@@ -92,17 +95,21 @@ public class panelCustomerAdd extends javax.swing.JPanel {
                             .addComponent(txtCusEmail)
                             .addComponent(txtCusAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCusUsername)
-                            .addComponent(txtCusPassword))))
-                .addContainerGap(202, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblInstruction)
-                .addGap(244, 244, 244))
+                            .addComponent(txtCusPassword)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnCusAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCusClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(222, 222, 222))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblInstruction, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(40, Short.MAX_VALUE)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addComponent(lblInstruction)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -135,27 +142,27 @@ public class panelCustomerAdd extends javax.swing.JPanel {
                 .addGap(46, 46, 46))
         );
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setText("New Customer");
+        lblTitleNewCustomer.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitleNewCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitleNewCustomer.setText("New Customer");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
+            .addComponent(lblTitleNewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel11)
+                .addComponent(lblTitleNewCustomer)
                 .addGap(5, 5, 5)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -164,7 +171,6 @@ public class panelCustomerAdd extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCusAddNew;
     private javax.swing.JButton btnCusClear;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblCustomerAge;
     private javax.swing.JLabel lblCustomerContact;
@@ -172,6 +178,7 @@ public class panelCustomerAdd extends javax.swing.JPanel {
     private javax.swing.JLabel lblCustomerName;
     private javax.swing.JLabel lblInstruction;
     private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblTitleNewCustomer;
     private javax.swing.JLabel lblUsername;
     private javax.swing.JTextField txtCusAge;
     private javax.swing.JTextField txtCusContact;
