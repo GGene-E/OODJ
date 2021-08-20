@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -66,7 +66,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="btnLogin" min="-2" pref="103" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnRegister" max="32767" attributes="0"/>
+                              <Component id="btnLoginRegister" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -75,8 +75,8 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtUsername" max="32767" attributes="0"/>
-                                  <Component id="txtPassword" min="-2" pref="158" max="-2" attributes="0"/>
+                                  <Component id="txtLoginUsername" max="32767" attributes="0"/>
+                                  <Component id="txtLoginPassword" min="-2" pref="158" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -91,18 +91,18 @@
                       <Component id="lblLogin" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLoginUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtLoginPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnLogin" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="btnRegister" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnLoginRegister" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="176" max="32767" attributes="0"/>
                   </Group>
@@ -115,12 +115,12 @@
                 <Property name="text" type="java.lang.String" value="Login"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnRegister">
+            <Component class="javax.swing.JButton" name="btnLoginRegister">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Register"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLoginRegisterActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="lblUsername">
@@ -133,9 +133,9 @@
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUsername">
+            <Component class="javax.swing.JTextField" name="txtLoginUsername">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPassword">
+            <Component class="javax.swing.JTextField" name="txtLoginPassword">
             </Component>
             <Component class="javax.swing.JLabel" name="lblLogin">
               <Properties>
@@ -161,9 +161,9 @@
                       <EmptySpace min="-2" pref="258" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="btnBack" min="-2" pref="95" max="-2" attributes="0"/>
+                              <Component id="btnRegBack" min="-2" pref="95" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="btnRegister1" max="32767" attributes="0"/>
+                              <Component id="btnRegRegister" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -178,12 +178,12 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtUsername1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtContact" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtPassword1" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <Component id="txtAge" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
+                                  <Component id="txtRegUsername" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtRegEmail" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtRegContact" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtRegName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="txtRegPassword" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                                  <Component id="txtRegAge" alignment="0" min="-2" pref="36" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -200,37 +200,37 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegName" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblContact" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegContact" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegAge" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="lblAge" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtUsername1" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+                          <Component id="txtRegUsername" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
                           <Component id="lblUsername1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtRegPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnRegister1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="btnBack" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnRegRegister" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnRegBack" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="127" max="32767" attributes="0"/>
                   </Group>
@@ -238,15 +238,15 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnBack">
+            <Component class="javax.swing.JButton" name="btnRegBack">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Back"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegBackActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnRegister1">
+            <Component class="javax.swing.JButton" name="btnRegRegister">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Register"/>
               </Properties>
@@ -263,9 +263,9 @@
                 <Property name="text" type="java.lang.String" value="Username :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtAge">
+            <Component class="javax.swing.JTextField" name="txtRegAge">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtUsername1">
+            <Component class="javax.swing.JTextField" name="txtRegUsername">
             </Component>
             <Component class="javax.swing.JLabel" name="lblRegister">
               <Properties>
@@ -294,11 +294,11 @@
                 <Property name="text" type="java.lang.String" value="Name :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtEmail">
+            <Component class="javax.swing.JTextField" name="txtRegEmail">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtContact">
+            <Component class="javax.swing.JTextField" name="txtRegContact">
             </Component>
-            <Component class="javax.swing.JTextField" name="txtName">
+            <Component class="javax.swing.JTextField" name="txtRegName">
             </Component>
             <Component class="javax.swing.JLabel" name="lblPassword1">
               <Properties>
@@ -306,7 +306,7 @@
                 <Property name="text" type="java.lang.String" value="Password :"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txtPassword1">
+            <Component class="javax.swing.JTextField" name="txtRegPassword">
             </Component>
           </SubComponents>
         </Container>
@@ -367,12 +367,12 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtCusName" alignment="0" pref="187" max="32767" attributes="0"/>
-                                      <Component id="txtCusContact" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusEmail" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusAge" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Component id="txtCusUsername" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusPassword" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCusAddName" alignment="0" pref="187" max="32767" attributes="0"/>
+                                      <Component id="txtCusAddContact" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCusAddEmail" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCusAddAge" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Component id="txtCusAddUsername" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCusAddPassword" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
@@ -398,32 +398,32 @@
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCustomerName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCusAddName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtCusContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCusAddContact" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCustomerContact" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCustomerEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCusAddEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtCusAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCusAddAge" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCustomerAge" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblUsername2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCusAddUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtCusAddPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -441,13 +441,13 @@
                     <Property name="text" type="java.lang.String" value="Cancel"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusName">
+                <Component class="javax.swing.JTextField" name="txtCusAddName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusContact">
+                <Component class="javax.swing.JTextField" name="txtCusAddContact">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusEmail">
+                <Component class="javax.swing.JTextField" name="txtCusAddEmail">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAge">
+                <Component class="javax.swing.JTextField" name="txtCusAddAge">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCustomerName">
                   <Properties>
@@ -490,9 +490,9 @@
                     <Property name="text" type="java.lang.String" value="Password :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusUsername">
+                <Component class="javax.swing.JTextField" name="txtCusAddUsername">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusPassword">
+                <Component class="javax.swing.JTextField" name="txtCusAddPassword">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblInstruction">
                   <Properties>
@@ -565,7 +565,7 @@
                           <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnCusSave" min="-2" pref="117" max="-2" attributes="0"/>
+                                  <Component id="btnCusEditSave" min="-2" pref="117" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="btnCusEditCancel" min="-2" pref="120" max="-2" attributes="0"/>
                               </Group>
@@ -578,10 +578,10 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtCusAge1" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Component id="txtCusName1" alignment="0" pref="212" max="32767" attributes="0"/>
-                                      <Component id="txtCusContact1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusEmail1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCusEditAge" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                      <Component id="txtCusEditName" alignment="0" pref="212" max="32767" attributes="0"/>
+                                      <Component id="txtCusEditContact" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtCusEditEmail" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -597,29 +597,29 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblCustomerName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCusName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCusEditName" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblCustomerContact1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCusContact1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCusEditContact" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblCustomerEmail1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCusEmail1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCusEditEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="lblCustomerAge1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="txtCusAge1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtCusEditAge" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Component id="jPanel4" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnCusSave" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnCusEditSave" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCusEditCancel" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="119" max="32767" attributes="0"/>
@@ -633,22 +633,22 @@
                     <Property name="text" type="java.lang.String" value="Cancel"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusName1">
+                <Component class="javax.swing.JTextField" name="txtCusEditName">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusContact1">
+                <Component class="javax.swing.JTextField" name="txtCusEditContact">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusEmail1">
+                <Component class="javax.swing.JTextField" name="txtCusEditEmail">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAge1">
+                <Component class="javax.swing.JTextField" name="txtCusEditAge">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
@@ -673,7 +673,7 @@
                     <Property name="text" type="java.lang.String" value="Age :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCusSave">
+                <Component class="javax.swing.JButton" name="btnCusEditSave">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Save"/>
                   </Properties>
@@ -703,11 +703,11 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblCusID" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblCusAge" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblCusEmail" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
-                                  <Component id="lblCusContact" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="lblCusName" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblCusEditID" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblCusEditAge" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblCusEditEmail" alignment="0" min="-2" pref="132" max="-2" attributes="0"/>
+                                  <Component id="lblCusEditContact" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="lblCusEditName" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                           </Group>
@@ -719,27 +719,27 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerID" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusEditID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerName2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusEditName" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerContact2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusEditContact" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerEmail2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusEditEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerAge2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusEditAge" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="20" max="32767" attributes="0"/>
                           </Group>
@@ -787,27 +787,27 @@
                         <Property name="text" type="java.lang.String" value="Age :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusID">
+                    <Component class="javax.swing.JLabel" name="lblCusEditID">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusName">
+                    <Component class="javax.swing.JLabel" name="lblCusEditName">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusContact">
+                    <Component class="javax.swing.JLabel" name="lblCusEditContact">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Contact"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusEmail">
+                    <Component class="javax.swing.JLabel" name="lblCusEditEmail">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusAge">
+                    <Component class="javax.swing.JLabel" name="lblCusEditAge">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Age"/>
                       </Properties>
@@ -882,7 +882,7 @@
                               <Component id="txtCusSearch" alignment="0" max="32767" attributes="0"/>
                               <Component id="btnCusSearch" alignment="0" max="32767" attributes="0"/>
                               <Component id="jPanel6" alignment="0" max="32767" attributes="0"/>
-                              <Component id="btnCusAdd" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnCusVIewAdd" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -898,7 +898,7 @@
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                           <Component id="btnCusSearch" min="-2" pref="28" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnCusAdd" min="-2" pref="95" max="-2" attributes="0"/>
+                          <Component id="btnCusVIewAdd" min="-2" pref="95" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -969,18 +969,18 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblCusID1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusName1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusContact1" alignment="0" pref="114" max="32767" attributes="0"/>
-                                          <Component id="lblCusEmail1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusAge1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusVIewID" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusVIewName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusVIewContact" alignment="0" pref="114" max="32767" attributes="0"/>
+                                          <Component id="lblCusVIewEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusVIewAge" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="btnCusEdit" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="btnCusVIewEdit" min="-2" pref="63" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnCusDelete" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnCusVIewDelete" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -993,32 +993,32 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerID1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusID1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusVIewID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerName3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusVIewName" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerContact3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusContact1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusVIewContact" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerEmail3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusEmail1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusVIewEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerAge3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusAge1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusVIewAge" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnCusDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="btnCusEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCusVIewDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCusVIewEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1066,44 +1066,44 @@
                         <Property name="text" type="java.lang.String" value="Age :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusID1">
+                    <Component class="javax.swing.JLabel" name="lblCusVIewID">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusName1">
+                    <Component class="javax.swing.JLabel" name="lblCusVIewName">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusContact1">
+                    <Component class="javax.swing.JLabel" name="lblCusVIewContact">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Contact"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusEmail1">
+                    <Component class="javax.swing.JLabel" name="lblCusVIewEmail">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusAge1">
+                    <Component class="javax.swing.JLabel" name="lblCusVIewAge">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Age"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnCusEdit">
+                    <Component class="javax.swing.JButton" name="btnCusVIewEdit">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Edit"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnCusDelete">
+                    <Component class="javax.swing.JButton" name="btnCusVIewDelete">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete"/>
                       </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="btnCusAdd">
+                <Component class="javax.swing.JButton" name="btnCusVIewAdd">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add New Customer"/>
                   </Properties>
@@ -1211,9 +1211,9 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="lblSecondReview" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                       <Component id="cboReviewList" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
-                                      <Component id="lblSelectedReview" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                       <Component id="btnViewCart" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
                                       <Component id="lblFirstReview" alignment="0" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Component id="btnOrderAddBack" min="-2" pref="180" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -1255,11 +1255,12 @@
                                           <Component id="jLabel6" min="-2" pref="22" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
                                                   <Component id="cboReviewList" min="-2" max="-2" attributes="0"/>
-                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="btnOrderAddBack" min="-2" pref="34" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jLabel7" alignment="0" pref="115" max="32767" attributes="0"/>
+                                              <Component id="jLabel7" pref="115" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="3" attributes="0">
@@ -1272,8 +1273,7 @@
                                           <Component id="lblFirstReview" min="-2" pref="54" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                                           <Component id="lblSecondReview" min="-2" pref="54" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                          <Component id="lblSelectedReview" max="32767" attributes="0"/>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -1294,18 +1294,6 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="2"/>
                     <Property name="text" type="java.lang.String" value="Quantity Here"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblSelectedReview">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Review Here"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                        <BevelBorder bevelType="1"/>
-                      </Border>
-                    </Property>
-                    <Property name="focusable" type="boolean" value="false"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel5">
@@ -1516,6 +1504,17 @@
                       </Border>
                     </Property>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnOrderAddBack">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI" size="18" style="3"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Back"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnOrderAddBackActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -1780,7 +1779,7 @@
             </Container>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="pnlOrderMenu">
+        <Container class="javax.swing.JPanel" name="pnlAdminMenu">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignCardLayout" value="org.netbeans.modules.form.compat2.layouts.DesignCardLayout$CardConstraintsDescription">
               <CardConstraints cardName="orderMenu"/>
@@ -1790,18 +1789,17 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblTitleOrderMenu" alignment="0" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnCart" alignment="0" max="32767" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnAdd" min="-2" pref="343" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnManage" pref="337" max="32767" attributes="0"/>
-                          </Group>
+                  <Component id="lblTitleAdminMenu" alignment="0" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace pref="259" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btnAdminLogout" min="-2" pref="184" max="-2" attributes="0"/>
+                          <Component id="btnManageCus" alignment="1" min="-2" pref="184" max="-2" attributes="0"/>
+                          <Component id="btnCart" alignment="1" min="-2" pref="184" max="-2" attributes="0"/>
+                          <Component id="btnManageOrder" alignment="1" min="-2" pref="184" max="-2" attributes="0"/>
+                          <Component id="btnManageProd" alignment="1" min="-2" pref="184" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -1809,42 +1807,55 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="lblTitleOrderMenu" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btnManage" alignment="3" min="-2" pref="166" max="-2" attributes="0"/>
-                          <Component id="btnAdd" alignment="3" min="-2" pref="166" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="lblTitleAdminMenu" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="btnCart" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnCart" pref="204" max="32767" attributes="0"/>
+                      <Component id="btnManageCus" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnManageOrder" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnManageProd" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnAdminLogout" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="219" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="lblTitleOrderMenu">
+            <Component class="javax.swing.JLabel" name="lblTitleAdminMenu">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="3"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Order Menu"/>
+                <Property name="text" type="java.lang.String" value="Admin Menu"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnAdd">
+            <Component class="javax.swing.JButton" name="btnAdminLogout">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Create New Order"/>
+                <Property name="text" type="java.lang.String" value="Logout"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="btnManage">
+            <Component class="javax.swing.JButton" name="btnManageOrder">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Manage Existing Orders"/>
+                <Property name="text" type="java.lang.String" value="Manage Order"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btnCart">
               <Properties>
                 <Property name="text" type="java.lang.String" value="View Cart"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageProd">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Product"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="btnManageCus">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Customer"/>
               </Properties>
             </Component>
           </SubComponents>
@@ -1875,10 +1886,10 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="26" max="32767" attributes="0"/>
                       <Component id="lblTitleViewOrder" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                      <Component id="jPanel9" min="-2" pref="363" max="-2" attributes="0"/>
+                      <Component id="jPanel9" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -1932,7 +1943,7 @@
                               </Group>
                               <Component id="jScrollPane4" alignment="0" min="-2" pref="361" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2445,8 +2456,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lblTitleNewProduct" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jPanel13" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -2478,11 +2489,11 @@
                           <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnAdd1" pref="142" max="32767" attributes="0"/>
+                                  <Component id="btnNewProdAdd" pref="142" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnClear" min="-2" pref="142" max="-2" attributes="0"/>
+                                  <Component id="btnNewProdCancel" min="-2" pref="142" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txtDescription" alignment="1" max="32767" attributes="0"/>
+                              <Component id="txtNewProdDescription" alignment="1" max="32767" attributes="0"/>
                               <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
@@ -2493,10 +2504,10 @@
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtName1" alignment="0" pref="200" max="32767" attributes="0"/>
-                                      <Component id="cboProdType" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtPrice" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtQuantity" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNewProdName" alignment="0" pref="200" max="32767" attributes="0"/>
+                                      <Component id="cboNewProdType" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNewProdPrice" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="txtNewProdQuantity" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -2509,34 +2520,34 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtName1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtNewProdName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel14" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel15" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="cboProdType" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cboNewProdType" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtPrice" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtNewProdPrice" alignment="0" max="32767" attributes="0"/>
                               <Component id="jLabel16" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel17" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="txtQuantity" alignment="3" max="32767" attributes="0"/>
+                              <Component id="txtNewProdQuantity" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" pref="22" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtDescription" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="txtNewProdDescription" min="-2" pref="55" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnClear" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                              <Component id="btnAdd1" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="btnNewProdCancel" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                              <Component id="btnNewProdAdd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                          <EmptySpace pref="84" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2560,12 +2571,12 @@
                     <Property name="text" type="java.lang.String" value="Price :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtName1">
+                <Component class="javax.swing.JTextField" name="txtNewProdName">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cboProdType">
+                <Component class="javax.swing.JComboBox" name="cboNewProdType">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -2580,7 +2591,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtPrice">
+                <Component class="javax.swing.JTextField" name="txtNewProdPrice">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                   </Properties>
@@ -2591,12 +2602,12 @@
                     <Property name="text" type="java.lang.String" value="Quantity :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtQuantity">
+                <Component class="javax.swing.JTextField" name="txtNewProdQuantity">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDescription">
+                <Component class="javax.swing.JTextField" name="txtNewProdDescription">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
@@ -2608,12 +2619,12 @@
                     <Property name="text" type="java.lang.String" value="Description"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnClear">
+                <Component class="javax.swing.JButton" name="btnNewProdCancel">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Clear"/>
+                    <Property name="text" type="java.lang.String" value="Cancel"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnAdd1">
+                <Component class="javax.swing.JButton" name="btnNewProdAdd">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
@@ -2678,7 +2689,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnSave1" min="-2" pref="292" max="-2" attributes="0"/>
+                                  <Component id="btnEditProdSave" min="-2" pref="292" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="198" max="-2" attributes="0"/>
@@ -2696,17 +2707,17 @@
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="rbSale" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="txtName2" alignment="0" pref="200" max="32767" attributes="0"/>
-                                                  <Component id="cboProdType1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtPrice1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="txtQuantity1" alignment="0" max="32767" attributes="0"/>
-                                                  <Component id="lblProductID1" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtEditProdName" alignment="0" pref="200" max="32767" attributes="0"/>
+                                                  <Component id="cboEditProdType" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtEditProdPrice" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="txtEditProdQuantity" alignment="0" max="32767" attributes="0"/>
+                                                  <Component id="lblEditProdID" alignment="0" max="32767" attributes="0"/>
                                               </Group>
                                               <Component id="rbDiscontinued" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="txtDescription1" alignment="1" pref="292" max="32767" attributes="0"/>
+                                          <Component id="txtEditProdDescription" alignment="1" pref="292" max="32767" attributes="0"/>
                                           <Component id="jLabel19" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -2722,27 +2733,27 @@
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblID" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lblProductID1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblEditProdID" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtName2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtEditProdName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblName2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblType" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="cboProdType1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cboEditProdType" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="txtPrice1" alignment="0" max="32767" attributes="0"/>
+                              <Component id="txtEditProdPrice" alignment="0" max="32767" attributes="0"/>
                               <Component id="lblPrice2" alignment="0" min="-2" pref="22" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblQuantity2" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
-                              <Component id="txtQuantity1" alignment="3" max="32767" attributes="0"/>
+                              <Component id="txtEditProdQuantity" alignment="3" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
@@ -2754,9 +2765,9 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel19" min="-2" pref="22" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="txtDescription1" min="-2" pref="55" max="-2" attributes="0"/>
+                          <Component id="txtEditProdDescription" min="-2" pref="55" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="btnSave1" min="-2" pref="32" max="-2" attributes="0"/>
+                          <Component id="btnEditProdSave" min="-2" pref="32" max="-2" attributes="0"/>
                           <EmptySpace min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -2781,12 +2792,12 @@
                     <Property name="text" type="java.lang.String" value="Price :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtName2">
+                <Component class="javax.swing.JTextField" name="txtEditProdName">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField1"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JComboBox" name="cboProdType1">
+                <Component class="javax.swing.JComboBox" name="cboEditProdType">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
@@ -2801,7 +2812,7 @@
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtPrice1">
+                <Component class="javax.swing.JTextField" name="txtEditProdPrice">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                   </Properties>
@@ -2812,12 +2823,12 @@
                     <Property name="text" type="java.lang.String" value="Quantity :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtQuantity1">
+                <Component class="javax.swing.JTextField" name="txtEditProdQuantity">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtDescription1">
+                <Component class="javax.swing.JTextField" name="txtEditProdDescription">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="jTextField2"/>
@@ -2829,7 +2840,7 @@
                     <Property name="text" type="java.lang.String" value="Description"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnSave1">
+                <Component class="javax.swing.JButton" name="btnEditProdSave">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Save"/>
                   </Properties>
@@ -2840,7 +2851,7 @@
                     <Property name="text" type="java.lang.String" value="Product ID:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblProductID1">
+                <Component class="javax.swing.JLabel" name="lblEditProdID">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ID"/>
                   </Properties>
@@ -2976,12 +2987,30 @@
                     <Component class="javax.swing.JTable" name="tblProductView">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
-                            <Column editable="false" title="Title 1" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 2" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 3" type="java.lang.Object"/>
-                            <Column editable="false" title="Title 4" type="java.lang.Object"/>
+                          <Table columnCount="3" rowCount="4">
+                            <Column editable="false" title="Product ID" type="java.lang.Object"/>
+                            <Column editable="false" title="Name" type="java.lang.Object"/>
+                            <Column editable="false" title="Quantity" type="java.lang.Object"/>
                           </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="0" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -3108,31 +3137,26 @@
                     <Component class="javax.swing.JLabel" name="lblProdName">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="Name :"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProdType">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="Name :"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProdQuantity">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="Name :"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProdPrice">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="2"/>
-                        <Property name="text" type="java.lang.String" value="Name :"/>
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblProdDesc">
                       <Properties>
                         <Property name="horizontalAlignment" type="int" value="0"/>
-                        <Property name="text" type="java.lang.String" value="Description Here"/>
                       </Properties>
                     </Component>
                   </SubComponents>

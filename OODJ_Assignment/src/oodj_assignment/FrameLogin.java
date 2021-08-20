@@ -32,35 +32,35 @@ public class FrameLogin extends javax.swing.JFrame {
         MainPanel = new javax.swing.JPanel();
         PanelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
-        btnRegister = new javax.swing.JButton();
+        btnLoginRegister = new javax.swing.JButton();
         lblUsername = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
-        txtPassword = new javax.swing.JTextField();
+        txtLoginUsername = new javax.swing.JTextField();
+        txtLoginPassword = new javax.swing.JTextField();
         lblLogin = new javax.swing.JLabel();
         PanelRegister = new javax.swing.JPanel();
-        btnBack = new javax.swing.JButton();
-        btnRegister1 = new javax.swing.JButton();
+        btnRegBack = new javax.swing.JButton();
+        btnRegRegister = new javax.swing.JButton();
         lblAge = new javax.swing.JLabel();
         lblUsername1 = new javax.swing.JLabel();
-        txtAge = new javax.swing.JTextField();
-        txtUsername1 = new javax.swing.JTextField();
+        txtRegAge = new javax.swing.JTextField();
+        txtRegUsername = new javax.swing.JTextField();
         lblRegister = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblContact = new javax.swing.JLabel();
         lblName = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        txtContact = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
+        txtRegEmail = new javax.swing.JTextField();
+        txtRegContact = new javax.swing.JTextField();
+        txtRegName = new javax.swing.JTextField();
         lblPassword1 = new javax.swing.JLabel();
-        txtPassword1 = new javax.swing.JTextField();
+        txtRegPassword = new javax.swing.JTextField();
         pnlCustomerAdd = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnCusAddClear = new javax.swing.JButton();
-        txtCusName = new javax.swing.JTextField();
-        txtCusContact = new javax.swing.JTextField();
-        txtCusEmail = new javax.swing.JTextField();
-        txtCusAge = new javax.swing.JTextField();
+        txtCusAddName = new javax.swing.JTextField();
+        txtCusAddContact = new javax.swing.JTextField();
+        txtCusAddEmail = new javax.swing.JTextField();
+        txtCusAddAge = new javax.swing.JTextField();
         lblCustomerName = new javax.swing.JLabel();
         lblCustomerContact = new javax.swing.JLabel();
         lblCustomerEmail = new javax.swing.JLabel();
@@ -68,33 +68,33 @@ public class FrameLogin extends javax.swing.JFrame {
         btnCusAddNew = new javax.swing.JButton();
         lblUsername2 = new javax.swing.JLabel();
         lblPassword2 = new javax.swing.JLabel();
-        txtCusUsername = new javax.swing.JTextField();
-        txtCusPassword = new javax.swing.JTextField();
+        txtCusAddUsername = new javax.swing.JTextField();
+        txtCusAddPassword = new javax.swing.JTextField();
         lblInstruction = new javax.swing.JLabel();
         lblTitleNewCustomer = new javax.swing.JLabel();
         pnlCustomerEdit = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         btnCusEditCancel = new javax.swing.JButton();
-        txtCusName1 = new javax.swing.JTextField();
-        txtCusContact1 = new javax.swing.JTextField();
-        txtCusEmail1 = new javax.swing.JTextField();
-        txtCusAge1 = new javax.swing.JTextField();
+        txtCusEditName = new javax.swing.JTextField();
+        txtCusEditContact = new javax.swing.JTextField();
+        txtCusEditEmail = new javax.swing.JTextField();
+        txtCusEditAge = new javax.swing.JTextField();
         lblCustomerName1 = new javax.swing.JLabel();
         lblCustomerContact1 = new javax.swing.JLabel();
         lblCustomerEmail1 = new javax.swing.JLabel();
         lblCustomerAge1 = new javax.swing.JLabel();
-        btnCusSave = new javax.swing.JButton();
+        btnCusEditSave = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         lblCustomerID = new javax.swing.JLabel();
         lblCustomerName2 = new javax.swing.JLabel();
         lblCustomerEmail2 = new javax.swing.JLabel();
         lblCustomerContact2 = new javax.swing.JLabel();
         lblCustomerAge2 = new javax.swing.JLabel();
-        lblCusID = new javax.swing.JLabel();
-        lblCusName = new javax.swing.JLabel();
-        lblCusContact = new javax.swing.JLabel();
-        lblCusEmail = new javax.swing.JLabel();
-        lblCusAge = new javax.swing.JLabel();
+        lblCusEditID = new javax.swing.JLabel();
+        lblCusEditName = new javax.swing.JLabel();
+        lblCusEditContact = new javax.swing.JLabel();
+        lblCusEditEmail = new javax.swing.JLabel();
+        lblCusEditAge = new javax.swing.JLabel();
         lblTitleEditCustomer = new javax.swing.JLabel();
         pnlCustomerView = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -108,19 +108,18 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerEmail3 = new javax.swing.JLabel();
         lblCustomerContact3 = new javax.swing.JLabel();
         lblCustomerAge3 = new javax.swing.JLabel();
-        lblCusID1 = new javax.swing.JLabel();
-        lblCusName1 = new javax.swing.JLabel();
-        lblCusContact1 = new javax.swing.JLabel();
-        lblCusEmail1 = new javax.swing.JLabel();
-        lblCusAge1 = new javax.swing.JLabel();
-        btnCusEdit = new javax.swing.JButton();
-        btnCusDelete = new javax.swing.JButton();
-        btnCusAdd = new javax.swing.JButton();
+        lblCusVIewID = new javax.swing.JLabel();
+        lblCusVIewName = new javax.swing.JLabel();
+        lblCusVIewContact = new javax.swing.JLabel();
+        lblCusVIewEmail = new javax.swing.JLabel();
+        lblCusVIewAge = new javax.swing.JLabel();
+        btnCusVIewEdit = new javax.swing.JButton();
+        btnCusVIewDelete = new javax.swing.JButton();
+        btnCusVIewAdd = new javax.swing.JButton();
         lblTitleViewCustomer = new javax.swing.JLabel();
         pnlOrderAdd = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         lblQuantity = new javax.swing.JLabel();
-        lblSelectedReview = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         lblPrice = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -142,6 +141,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblRatings = new javax.swing.JLabel();
         lblFirstReview = new javax.swing.JLabel();
         lblSecondReview = new javax.swing.JLabel();
+        btnOrderAddBack = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
         pnlOrderCart = new javax.swing.JPanel();
         lblTitleCart = new javax.swing.JLabel();
@@ -159,11 +159,13 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         lblDiscount = new javax.swing.JLabel();
         btnCheckout = new javax.swing.JButton();
-        pnlOrderMenu = new javax.swing.JPanel();
-        lblTitleOrderMenu = new javax.swing.JLabel();
-        btnAdd = new javax.swing.JButton();
-        btnManage = new javax.swing.JButton();
+        pnlAdminMenu = new javax.swing.JPanel();
+        lblTitleAdminMenu = new javax.swing.JLabel();
+        btnAdminLogout = new javax.swing.JButton();
+        btnManageOrder = new javax.swing.JButton();
         btnCart = new javax.swing.JButton();
+        btnManageProd = new javax.swing.JButton();
+        btnManageCus = new javax.swing.JButton();
         pnlOrderView = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -211,31 +213,31 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        txtName1 = new javax.swing.JTextField();
-        cboProdType = new javax.swing.JComboBox<>();
-        txtPrice = new javax.swing.JTextField();
+        txtNewProdName = new javax.swing.JTextField();
+        cboNewProdType = new javax.swing.JComboBox<>();
+        txtNewProdPrice = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        txtQuantity = new javax.swing.JTextField();
-        txtDescription = new javax.swing.JTextField();
+        txtNewProdQuantity = new javax.swing.JTextField();
+        txtNewProdDescription = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        btnClear = new javax.swing.JButton();
-        btnAdd1 = new javax.swing.JButton();
+        btnNewProdCancel = new javax.swing.JButton();
+        btnNewProdAdd = new javax.swing.JButton();
         pnlProductEdit = new javax.swing.JPanel();
         lblTitleEditProduct = new javax.swing.JLabel();
         jPanel14 = new javax.swing.JPanel();
         lblName2 = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblPrice2 = new javax.swing.JLabel();
-        txtName2 = new javax.swing.JTextField();
-        cboProdType1 = new javax.swing.JComboBox<>();
-        txtPrice1 = new javax.swing.JTextField();
+        txtEditProdName = new javax.swing.JTextField();
+        cboEditProdType = new javax.swing.JComboBox<>();
+        txtEditProdPrice = new javax.swing.JTextField();
         lblQuantity2 = new javax.swing.JLabel();
-        txtQuantity1 = new javax.swing.JTextField();
-        txtDescription1 = new javax.swing.JTextField();
+        txtEditProdQuantity = new javax.swing.JTextField();
+        txtEditProdDescription = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        btnSave1 = new javax.swing.JButton();
+        btnEditProdSave = new javax.swing.JButton();
         lblID = new javax.swing.JLabel();
-        lblProductID1 = new javax.swing.JLabel();
+        lblEditProdID = new javax.swing.JLabel();
         rbSale = new javax.swing.JRadioButton();
         rbDiscontinued = new javax.swing.JRadioButton();
         lblStatus = new javax.swing.JLabel();
@@ -268,10 +270,10 @@ public class FrameLogin extends javax.swing.JFrame {
 
         btnLogin.setText("Login");
 
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+        btnLoginRegister.setText("Register");
+        btnLoginRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
+                btnLoginRegisterActionPerformed(evt);
             }
         });
 
@@ -296,15 +298,15 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addGroup(PanelLoginLayout.createSequentialGroup()
                         .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnLoginRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelLoginLayout.createSequentialGroup()
                         .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblUsername, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsername)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtLoginUsername)
+                            .addComponent(txtLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(249, Short.MAX_VALUE))
         );
         PanelLoginLayout.setVerticalGroup(
@@ -314,29 +316,29 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addComponent(lblLogin)
                 .addGap(46, 46, 46)
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLoginUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsername))
                 .addGap(18, 18, 18)
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLoginPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblPassword))
                 .addGap(35, 35, 35)
                 .addGroup(PanelLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnLoginRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
 
         MainPanel.add(PanelLogin, "login");
 
-        btnBack.setText("Back");
-        btnBack.addActionListener(new java.awt.event.ActionListener() {
+        btnRegBack.setText("Back");
+        btnRegBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackActionPerformed(evt);
+                btnRegBackActionPerformed(evt);
             }
         });
 
-        btnRegister1.setText("Register");
+        btnRegRegister.setText("Register");
 
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAge.setText("Age :");
@@ -368,9 +370,9 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(258, 258, 258)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(PanelRegisterLayout.createSequentialGroup()
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnRegBack, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnRegister1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnRegRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(PanelRegisterLayout.createSequentialGroup()
                         .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -382,12 +384,12 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(lblPassword1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtUsername1)
-                            .addComponent(txtEmail)
-                            .addComponent(txtContact)
-                            .addComponent(txtName)
-                            .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtRegUsername)
+                            .addComponent(txtRegEmail)
+                            .addComponent(txtRegContact)
+                            .addComponent(txtRegName)
+                            .addComponent(txtRegPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtRegAge, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(260, Short.MAX_VALUE))
             .addComponent(lblRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -399,31 +401,31 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblName)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblContact)
-                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
-                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtUsername1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRegUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblUsername1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword1)
-                    .addComponent(txtPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRegPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(PanelRegisterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegister1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnRegRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegBack, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
@@ -474,12 +476,12 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCusName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(txtCusContact)
-                            .addComponent(txtCusEmail)
-                            .addComponent(txtCusAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCusUsername)
-                            .addComponent(txtCusPassword)))
+                            .addComponent(txtCusAddName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                            .addComponent(txtCusAddContact)
+                            .addComponent(txtCusAddEmail)
+                            .addComponent(txtCusAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCusAddUsername)
+                            .addComponent(txtCusAddPassword)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(btnCusAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -498,27 +500,27 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName)
-                    .addComponent(txtCusName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCusAddName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCusContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCusAddContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerEmail)
-                    .addComponent(txtCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCusAddEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCusAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCusAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername2)
-                    .addComponent(txtCusUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCusAddUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword2)
-                    .addComponent(txtCusPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCusAddPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(77, 77, 77)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCusAddNew)
@@ -556,13 +558,13 @@ public class FrameLogin extends javax.swing.JFrame {
 
         btnCusEditCancel.setText("Cancel");
 
-        txtCusName1.setText("jTextField1");
+        txtCusEditName.setText("jTextField1");
 
-        txtCusContact1.setText("jTextField1");
+        txtCusEditContact.setText("jTextField1");
 
-        txtCusEmail1.setText("jTextField1");
+        txtCusEditEmail.setText("jTextField1");
 
-        txtCusAge1.setText("jTextField1");
+        txtCusEditAge.setText("jTextField1");
 
         lblCustomerName1.setText("Name : ");
 
@@ -572,7 +574,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblCustomerAge1.setText("Age :");
 
-        btnCusSave.setText("Save");
+        btnCusEditSave.setText("Save");
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -591,15 +593,15 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerAge2.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         lblCustomerAge2.setText("Age :");
 
-        lblCusID.setText("ID");
+        lblCusEditID.setText("ID");
 
-        lblCusName.setText("Name");
+        lblCusEditName.setText("Name");
 
-        lblCusContact.setText("Contact");
+        lblCusEditContact.setText("Contact");
 
-        lblCusEmail.setText("Email");
+        lblCusEditEmail.setText("Email");
 
-        lblCusAge.setText("Age");
+        lblCusEditAge.setText("Age");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -616,11 +618,11 @@ public class FrameLogin extends javax.swing.JFrame {
                         .addComponent(lblCustomerEmail2, javax.swing.GroupLayout.Alignment.TRAILING)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblCusID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCusAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCusEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCusContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblCusName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblCusEditID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCusEditAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCusEditEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCusEditContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCusEditName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(49, 49, 49))
         );
         jPanel4Layout.setVerticalGroup(
@@ -629,23 +631,23 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerID)
-                    .addComponent(lblCusID))
+                    .addComponent(lblCusEditID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName2)
-                    .addComponent(lblCusName))
+                    .addComponent(lblCusEditName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerContact2)
-                    .addComponent(lblCusContact))
+                    .addComponent(lblCusEditContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerEmail2)
-                    .addComponent(lblCusEmail))
+                    .addComponent(lblCusEditEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerAge2)
-                    .addComponent(lblCusAge))
+                    .addComponent(lblCusEditAge))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -659,7 +661,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(41, 41, 41)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(btnCusSave, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCusEditSave, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCusEditCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
@@ -670,10 +672,10 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(lblCustomerName1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCusAge1, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCusName1, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                            .addComponent(txtCusContact1)
-                            .addComponent(txtCusEmail1))))
+                            .addComponent(txtCusEditAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtCusEditName, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
+                            .addComponent(txtCusEditContact)
+                            .addComponent(txtCusEditEmail))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -684,23 +686,23 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCustomerName1)
-                            .addComponent(txtCusName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCusEditName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCustomerContact1)
-                            .addComponent(txtCusContact1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCusEditContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCustomerEmail1)
-                            .addComponent(txtCusEmail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtCusEditEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblCustomerAge1)
-                            .addComponent(txtCusAge1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtCusEditAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jPanel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCusSave)
+                    .addComponent(btnCusEditSave)
                     .addComponent(btnCusEditCancel))
                 .addContainerGap(119, Short.MAX_VALUE))
         );
@@ -804,19 +806,19 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerAge3.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         lblCustomerAge3.setText("Age :");
 
-        lblCusID1.setText("ID");
+        lblCusVIewID.setText("ID");
 
-        lblCusName1.setText("Name");
+        lblCusVIewName.setText("Name");
 
-        lblCusContact1.setText("Contact");
+        lblCusVIewContact.setText("Contact");
 
-        lblCusEmail1.setText("Email");
+        lblCusVIewEmail.setText("Email");
 
-        lblCusAge1.setText("Age");
+        lblCusVIewAge.setText("Age");
 
-        btnCusEdit.setText("Edit");
+        btnCusVIewEdit.setText("Edit");
 
-        btnCusDelete.setText("Delete");
+        btnCusVIewDelete.setText("Delete");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -835,16 +837,16 @@ public class FrameLogin extends javax.swing.JFrame {
                                 .addComponent(lblCustomerEmail3, javax.swing.GroupLayout.Alignment.TRAILING)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCusID1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusName1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusContact1, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(lblCusEmail1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusAge1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lblCusVIewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusVIewName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusVIewContact, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(lblCusVIewEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusVIewAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
-                        .addComponent(btnCusEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCusVIewEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCusDelete)))
+                        .addComponent(btnCusVIewDelete)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -853,31 +855,31 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerID1)
-                    .addComponent(lblCusID1))
+                    .addComponent(lblCusVIewID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName3)
-                    .addComponent(lblCusName1))
+                    .addComponent(lblCusVIewName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerContact3)
-                    .addComponent(lblCusContact1))
+                    .addComponent(lblCusVIewContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerEmail3)
-                    .addComponent(lblCusEmail1))
+                    .addComponent(lblCusVIewEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerAge3)
-                    .addComponent(lblCusAge1))
+                    .addComponent(lblCusVIewAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCusDelete)
-                    .addComponent(btnCusEdit))
+                    .addComponent(btnCusVIewDelete)
+                    .addComponent(btnCusVIewEdit))
                 .addContainerGap())
         );
 
-        btnCusAdd.setText("Add New Customer");
+        btnCusVIewAdd.setText("Add New Customer");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -890,7 +892,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addComponent(txtCusSearch)
                     .addComponent(btnCusSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCusAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCusVIewAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -903,7 +905,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(5, 5, 5)
                 .addComponent(btnCusSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCusAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnCusVIewAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -940,11 +942,6 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblQuantity.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         lblQuantity.setText("Quantity Here");
-
-        lblSelectedReview.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSelectedReview.setText("Review Here");
-        lblSelectedReview.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        lblSelectedReview.setFocusable(false);
 
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Quantity :");
@@ -1026,6 +1023,14 @@ public class FrameLogin extends javax.swing.JFrame {
         lblSecondReview.setText("2nd Newest Review Here");
         lblSecondReview.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        btnOrderAddBack.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        btnOrderAddBack.setText("Back");
+        btnOrderAddBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderAddBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -1070,9 +1075,9 @@ public class FrameLogin extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblSecondReview, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cboReviewList, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblSelectedReview, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnViewCart, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFirstReview, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblFirstReview, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOrderAddBack, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(34, 34, 34))
         );
         jPanel7Layout.setVerticalGroup(
@@ -1107,7 +1112,8 @@ public class FrameLogin extends javax.swing.JFrame {
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel7Layout.createSequentialGroup()
                                         .addComponent(cboReviewList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnOrderAddBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -1118,8 +1124,7 @@ public class FrameLogin extends javax.swing.JFrame {
                                 .addComponent(lblFirstReview, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(8, 8, 8)
                                 .addComponent(lblSecondReview, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(38, 38, 38)
-                                .addComponent(lblSelectedReview, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnAddToCart, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1313,46 +1318,54 @@ public class FrameLogin extends javax.swing.JFrame {
 
         MainPanel.add(pnlOrderCart, "orderCart");
 
-        lblTitleOrderMenu.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        lblTitleOrderMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleOrderMenu.setText("Order Menu");
+        lblTitleAdminMenu.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        lblTitleAdminMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitleAdminMenu.setText("Admin Menu");
 
-        btnAdd.setText("Create New Order");
+        btnAdminLogout.setText("Logout");
 
-        btnManage.setText("Manage Existing Orders");
+        btnManageOrder.setText("Manage Order");
 
         btnCart.setText("View Cart");
 
-        javax.swing.GroupLayout pnlOrderMenuLayout = new javax.swing.GroupLayout(pnlOrderMenu);
-        pnlOrderMenu.setLayout(pnlOrderMenuLayout);
-        pnlOrderMenuLayout.setHorizontalGroup(
-            pnlOrderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleOrderMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(pnlOrderMenuLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(pnlOrderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnCart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(pnlOrderMenuLayout.createSequentialGroup()
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnManage, javax.swing.GroupLayout.DEFAULT_SIZE, 337, Short.MAX_VALUE)))
-                .addContainerGap())
+        btnManageProd.setText("Manage Product");
+
+        btnManageCus.setText("Manage Customer");
+
+        javax.swing.GroupLayout pnlAdminMenuLayout = new javax.swing.GroupLayout(pnlAdminMenu);
+        pnlAdminMenu.setLayout(pnlAdminMenuLayout);
+        pnlAdminMenuLayout.setHorizontalGroup(
+            pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblTitleAdminMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAdminMenuLayout.createSequentialGroup()
+                .addContainerGap(259, Short.MAX_VALUE)
+                .addGroup(pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAdminLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageCus, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCart, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnManageProd, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(267, 267, 267))
         );
-        pnlOrderMenuLayout.setVerticalGroup(
-            pnlOrderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(pnlOrderMenuLayout.createSequentialGroup()
+        pnlAdminMenuLayout.setVerticalGroup(
+            pnlAdminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlAdminMenuLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblTitleOrderMenu)
-                .addGap(18, 18, 18)
-                .addGroup(pnlOrderMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnManage, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblTitleAdminMenu)
+                .addGap(47, 47, 47)
+                .addComponent(btnCart)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnCart, javax.swing.GroupLayout.DEFAULT_SIZE, 204, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(btnManageCus)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManageOrder)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnManageProd)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAdminLogout)
+                .addContainerGap(219, Short.MAX_VALUE))
         );
 
-        MainPanel.add(pnlOrderMenu, "orderMenu");
+        MainPanel.add(pnlAdminMenu, "orderMenu");
 
         pnlOrderView.setPreferredSize(new java.awt.Dimension(673, 452));
 
@@ -1518,7 +1531,7 @@ public class FrameLogin extends javax.swing.JFrame {
                         .addGap(11, 11, 11)
                         .addComponent(jLabel13))
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         lblTitleViewOrder.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -1538,10 +1551,10 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlOrderViewLayout.setVerticalGroup(
             pnlOrderViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOrderViewLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(26, Short.MAX_VALUE)
                 .addComponent(lblTitleViewOrder)
                 .addGap(5, 5, 5)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1754,26 +1767,26 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Price :");
 
-        txtName1.setText("jTextField1");
+        txtNewProdName.setText("jTextField1");
 
-        cboProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboNewProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        txtPrice.setText("jTextField2");
+        txtNewProdPrice.setText("jTextField2");
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Quantity :");
 
-        txtQuantity.setText("jTextField2");
+        txtNewProdQuantity.setText("jTextField2");
 
-        txtDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDescription.setText("jTextField2");
+        txtNewProdDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNewProdDescription.setText("jTextField2");
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Description");
 
-        btnClear.setText("Clear");
+        btnNewProdCancel.setText("Cancel");
 
-        btnAdd1.setText("Add");
+        btnNewProdAdd.setText("Add");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1783,10 +1796,10 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(199, 199, 199)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addComponent(btnAdd1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                        .addComponent(btnNewProdAdd, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtDescription)
+                        .addComponent(btnNewProdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNewProdDescription)
                     .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel13Layout.createSequentialGroup()
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -1796,10 +1809,10 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtName1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                            .addComponent(cboProdType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtPrice)
-                            .addComponent(txtQuantity))))
+                            .addComponent(txtNewProdName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                            .addComponent(cboNewProdType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtNewProdPrice)
+                            .addComponent(txtNewProdQuantity))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel13Layout.setVerticalGroup(
@@ -1807,29 +1820,29 @@ public class FrameLogin extends javax.swing.JFrame {
             .addGroup(jPanel13Layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNewProdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboProdType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboNewProdType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPrice)
+                    .addComponent(txtNewProdPrice)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtQuantity))
+                    .addComponent(txtNewProdQuantity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNewProdDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(54, Short.MAX_VALUE))
+                    .addComponent(btnNewProdCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnNewProdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout pnlProductAddLayout = new javax.swing.GroupLayout(pnlProductAdd);
@@ -1847,8 +1860,8 @@ public class FrameLogin extends javax.swing.JFrame {
             .addGroup(pnlProductAddLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(lblTitleNewProduct)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -1869,29 +1882,29 @@ public class FrameLogin extends javax.swing.JFrame {
         lblPrice2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPrice2.setText("Price :");
 
-        txtName2.setText("jTextField1");
+        txtEditProdName.setText("jTextField1");
 
-        cboProdType1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cboEditProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        txtPrice1.setText("jTextField2");
+        txtEditProdPrice.setText("jTextField2");
 
         lblQuantity2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblQuantity2.setText("Quantity :");
 
-        txtQuantity1.setText("jTextField2");
+        txtEditProdQuantity.setText("jTextField2");
 
-        txtDescription1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtDescription1.setText("jTextField2");
+        txtEditProdDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtEditProdDescription.setText("jTextField2");
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Description");
 
-        btnSave1.setText("Save");
+        btnEditProdSave.setText("Save");
 
         lblID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblID.setText("Product ID:");
 
-        lblProductID1.setText("ID");
+        lblEditProdID.setText("ID");
 
         rbSale.setText("Up for Sale");
 
@@ -1908,7 +1921,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel14Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEditProdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel14Layout.createSequentialGroup()
                         .addGap(198, 198, 198)
                         .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1924,14 +1937,14 @@ public class FrameLogin extends javax.swing.JFrame {
                                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(rbSale)
                                     .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(txtName2, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                        .addComponent(cboProdType1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(txtPrice1)
-                                        .addComponent(txtQuantity1)
-                                        .addComponent(lblProductID1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(txtEditProdName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(cboEditProdType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(txtEditProdPrice)
+                                        .addComponent(txtEditProdQuantity)
+                                        .addComponent(lblEditProdID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                     .addComponent(rbDiscontinued)))
                             .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(txtDescription1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                                .addComponent(txtEditProdDescription, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
                                 .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(198, 198, 198))
         );
@@ -1941,23 +1954,23 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblID)
-                    .addComponent(lblProductID1))
+                    .addComponent(lblEditProdID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEditProdName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblName2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblType, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cboProdType1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cboEditProdType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtPrice1)
+                    .addComponent(txtEditProdPrice)
                     .addComponent(lblPrice2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblQuantity2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtQuantity1))
+                    .addComponent(txtEditProdQuantity))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rbSale)
@@ -1967,9 +1980,9 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtDescription1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEditProdDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnSave1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnEditProdSave, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -2003,17 +2016,17 @@ public class FrameLogin extends javax.swing.JFrame {
 
         tblProductView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Product ID", "Name", "Quantity"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -2021,6 +2034,12 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         jScrollPane6.setViewportView(tblProductView);
+        if (tblProductView.getColumnModel().getColumnCount() > 0) {
+            tblProductView.getColumnModel().getColumn(0).setResizable(false);
+            tblProductView.getColumnModel().getColumn(1).setResizable(false);
+            tblProductView.getColumnModel().getColumn(2).setResizable(false);
+            tblProductView.getColumnModel().getColumn(2).setPreferredWidth(0);
+        }
 
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
@@ -2045,19 +2064,14 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel24.setText("Description");
 
         lblProdName.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblProdName.setText("Name :");
 
         lblProdType.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblProdType.setText("Name :");
 
         lblProdQuantity.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblProdQuantity.setText("Name :");
 
         lblProdPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblProdPrice.setText("Name :");
 
         lblProdDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblProdDesc.setText("Description Here");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -2206,15 +2220,19 @@ public class FrameLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+    private void btnLoginRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginRegisterActionPerformed
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "registration");
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_btnLoginRegisterActionPerformed
 
-    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+    private void btnRegBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegBackActionPerformed
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "login");
-    }//GEN-LAST:event_btnBackActionPerformed
+    }//GEN-LAST:event_btnRegBackActionPerformed
+
+    private void btnOrderAddBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderAddBackActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnOrderAddBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -2255,48 +2273,51 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JPanel MainPanel;
     private javax.swing.JPanel PanelLogin;
     private javax.swing.JPanel PanelRegister;
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnAdd1;
     private javax.swing.JButton btnAddQty;
     private javax.swing.JButton btnAddQuantity;
     private javax.swing.JButton btnAddToCart;
-    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnAdminLogout;
     private javax.swing.JButton btnCart;
     private javax.swing.JButton btnCartAdd;
     private javax.swing.JButton btnCartQtyAdd;
     private javax.swing.JButton btnCartQtyDec;
     private javax.swing.JButton btnCartRemove;
     private javax.swing.JButton btnCheckout;
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnCusAdd;
     private javax.swing.JButton btnCusAdd1;
     private javax.swing.JButton btnCusAdd2;
     private javax.swing.JButton btnCusAddClear;
     private javax.swing.JButton btnCusAddNew;
-    private javax.swing.JButton btnCusDelete;
     private javax.swing.JButton btnCusDelete1;
     private javax.swing.JButton btnCusDelete2;
-    private javax.swing.JButton btnCusEdit;
     private javax.swing.JButton btnCusEditCancel;
-    private javax.swing.JButton btnCusSave;
+    private javax.swing.JButton btnCusEditSave;
     private javax.swing.JButton btnCusSearch;
     private javax.swing.JButton btnCusSearch1;
+    private javax.swing.JButton btnCusVIewAdd;
+    private javax.swing.JButton btnCusVIewDelete;
+    private javax.swing.JButton btnCusVIewEdit;
+    private javax.swing.JButton btnEditProdSave;
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnManage;
+    private javax.swing.JButton btnLoginRegister;
+    private javax.swing.JButton btnManageCus;
+    private javax.swing.JButton btnManageOrder;
+    private javax.swing.JButton btnManageProd;
     private javax.swing.JButton btnMinusQuantity;
+    private javax.swing.JButton btnNewProdAdd;
+    private javax.swing.JButton btnNewProdCancel;
+    private javax.swing.JButton btnOrderAddBack;
     private javax.swing.JButton btnProdAdd;
     private javax.swing.JButton btnProdDelete;
     private javax.swing.JButton btnProdEdit;
     private javax.swing.JButton btnProdSearch;
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JButton btnRegister1;
+    private javax.swing.JButton btnRegBack;
+    private javax.swing.JButton btnRegRegister;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnSave1;
     private javax.swing.JButton btnViewCart;
+    private javax.swing.JComboBox<String> cboEditProdType;
     private javax.swing.JComboBox<String> cboItemList;
-    private javax.swing.JComboBox<String> cboProdType;
-    private javax.swing.JComboBox<String> cboProdType1;
+    private javax.swing.JComboBox<String> cboNewProdType;
     private javax.swing.JComboBox<String> cboReviewList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -2346,19 +2367,19 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblContact;
-    private javax.swing.JLabel lblCusAge;
-    private javax.swing.JLabel lblCusAge1;
-    private javax.swing.JLabel lblCusContact;
-    private javax.swing.JLabel lblCusContact1;
     private javax.swing.JLabel lblCusContact2;
-    private javax.swing.JLabel lblCusEmail;
-    private javax.swing.JLabel lblCusEmail1;
-    private javax.swing.JLabel lblCusID;
-    private javax.swing.JLabel lblCusID1;
+    private javax.swing.JLabel lblCusEditAge;
+    private javax.swing.JLabel lblCusEditContact;
+    private javax.swing.JLabel lblCusEditEmail;
+    private javax.swing.JLabel lblCusEditID;
+    private javax.swing.JLabel lblCusEditName;
     private javax.swing.JLabel lblCusID2;
-    private javax.swing.JLabel lblCusName;
-    private javax.swing.JLabel lblCusName1;
     private javax.swing.JLabel lblCusName2;
+    private javax.swing.JLabel lblCusVIewAge;
+    private javax.swing.JLabel lblCusVIewContact;
+    private javax.swing.JLabel lblCusVIewEmail;
+    private javax.swing.JLabel lblCusVIewID;
+    private javax.swing.JLabel lblCusVIewName;
     private javax.swing.JLabel lblCustomerAge;
     private javax.swing.JLabel lblCustomerAge1;
     private javax.swing.JLabel lblCustomerAge2;
@@ -2381,6 +2402,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblCustomerName3;
     private javax.swing.JLabel lblCustomerName4;
     private javax.swing.JLabel lblDiscount;
+    private javax.swing.JLabel lblEditProdID;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFirstReview;
     private javax.swing.JLabel lblGrandTotal;
@@ -2411,7 +2433,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdQuantity;
     private javax.swing.JLabel lblProdType;
     private javax.swing.JLabel lblProductID;
-    private javax.swing.JLabel lblProductID1;
     private javax.swing.JLabel lblQtySelected;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblQuantity1;
@@ -2421,15 +2442,14 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton lblReduceQty;
     private javax.swing.JLabel lblRegister;
     private javax.swing.JLabel lblSecondReview;
-    private javax.swing.JLabel lblSelectedReview;
     private javax.swing.JLabel lblStatus;
+    private javax.swing.JLabel lblTitleAdminMenu;
     private javax.swing.JLabel lblTitleCart;
     private javax.swing.JLabel lblTitleEditCustomer;
     private javax.swing.JLabel lblTitleEditProduct;
     private javax.swing.JLabel lblTitleNewCustomer;
     private javax.swing.JLabel lblTitleNewProduct;
     private javax.swing.JLabel lblTitleOrderItems;
-    private javax.swing.JLabel lblTitleOrderMenu;
     private javax.swing.JLabel lblTitleProduct;
     private javax.swing.JLabel lblTitleViewCustomer;
     private javax.swing.JLabel lblTitleViewOrder;
@@ -2438,13 +2458,13 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblUsername1;
     private javax.swing.JLabel lblUsername2;
     private javax.swing.JList<String> lstProductTypeList;
+    private javax.swing.JPanel pnlAdminMenu;
     private javax.swing.JPanel pnlCustomerAdd;
     private javax.swing.JPanel pnlCustomerEdit;
     private javax.swing.JPanel pnlCustomerView;
     private javax.swing.JPanel pnlOrderAdd;
     private javax.swing.JPanel pnlOrderCart;
     private javax.swing.JPanel pnlOrderItem;
-    private javax.swing.JPanel pnlOrderMenu;
     private javax.swing.JPanel pnlOrderView;
     private javax.swing.JPanel pnlProductAdd;
     private javax.swing.JPanel pnlProductEdit;
@@ -2456,33 +2476,33 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomer1;
     private javax.swing.JTable tblOrderItem;
     private javax.swing.JTable tblProductView;
-    private javax.swing.JTextField txtAge;
-    private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtCusAge;
-    private javax.swing.JTextField txtCusAge1;
-    private javax.swing.JTextField txtCusContact;
-    private javax.swing.JTextField txtCusContact1;
-    private javax.swing.JTextField txtCusEmail;
-    private javax.swing.JTextField txtCusEmail1;
-    private javax.swing.JTextField txtCusName;
-    private javax.swing.JTextField txtCusName1;
-    private javax.swing.JTextField txtCusPassword;
+    private javax.swing.JTextField txtCusAddAge;
+    private javax.swing.JTextField txtCusAddContact;
+    private javax.swing.JTextField txtCusAddEmail;
+    private javax.swing.JTextField txtCusAddName;
+    private javax.swing.JTextField txtCusAddPassword;
+    private javax.swing.JTextField txtCusAddUsername;
+    private javax.swing.JTextField txtCusEditAge;
+    private javax.swing.JTextField txtCusEditContact;
+    private javax.swing.JTextField txtCusEditEmail;
+    private javax.swing.JTextField txtCusEditName;
     private javax.swing.JTextField txtCusSearch;
     private javax.swing.JTextField txtCusSearch1;
-    private javax.swing.JTextField txtCusUsername;
-    private javax.swing.JTextField txtDescription;
-    private javax.swing.JTextField txtDescription1;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName1;
-    private javax.swing.JTextField txtName2;
-    private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtPassword1;
-    private javax.swing.JTextField txtPrice;
-    private javax.swing.JTextField txtPrice1;
-    private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtQuantity1;
-    private javax.swing.JTextField txtUsername;
-    private javax.swing.JTextField txtUsername1;
+    private javax.swing.JTextField txtEditProdDescription;
+    private javax.swing.JTextField txtEditProdName;
+    private javax.swing.JTextField txtEditProdPrice;
+    private javax.swing.JTextField txtEditProdQuantity;
+    private javax.swing.JTextField txtLoginPassword;
+    private javax.swing.JTextField txtLoginUsername;
+    private javax.swing.JTextField txtNewProdDescription;
+    private javax.swing.JTextField txtNewProdName;
+    private javax.swing.JTextField txtNewProdPrice;
+    private javax.swing.JTextField txtNewProdQuantity;
+    private javax.swing.JTextField txtRegAge;
+    private javax.swing.JTextField txtRegContact;
+    private javax.swing.JTextField txtRegEmail;
+    private javax.swing.JTextField txtRegName;
+    private javax.swing.JTextField txtRegPassword;
+    private javax.swing.JTextField txtRegUsername;
     // End of variables declaration//GEN-END:variables
 }
