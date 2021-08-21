@@ -12,4 +12,16 @@ public class FileOperator {
     {
         
     }
+    
+    public Boolean compareSimilarities(Person personObject)
+    {
+        if(personObject.getUserName().equals("A"))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }
