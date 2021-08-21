@@ -1,11 +1,10 @@
 
 package oodj_assignment;
-
+import java.io.*;
 enum productStatus 
 {
     SALE, DISCONTINUED;
 }
-
 
 
 
@@ -18,6 +17,18 @@ abstract class Product {
     protected productStatus productStat;
     protected String name;
     protected String description; 
+    
+    //Constructor
+    public Product(){};
+    public Product(String ID, double price, String type, productStatus status, String name, String description)
+    {
+        productID = ID;
+        productPrice = price;
+        productType = type;
+        productStat = status;
+        this.name = name;
+        this.description = description;
+    }
     
     //Getters OPTIONAL
     public String getProductID() {
@@ -70,7 +81,8 @@ abstract class Product {
     }
     
     //Methods
-    public abstract String provideDetail();
+    
+    public abstract String provideDetail() throws FileNotFoundException,IOException,EOFException;
     public abstract double calcPackPrice();
     public abstract double calcGrandTotal();
 }
