@@ -30,13 +30,18 @@ public class FileOperator {
         catch (ClassNotFoundException ex) {
             //Logger.getLogger(Non_Fragile.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         for (Non_Fragile p : prodList) 
         {
-            if (p.productID.equals(id))
+            if (!p.productID.equals(id))
+            {
+                continue;
+            }
+            else 
             {
                 return p;
             }
-        }    
+        }
         return null;
     }        
     
