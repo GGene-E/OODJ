@@ -15,7 +15,7 @@ public class FileOperator {
     
     public Boolean compareSimilarities(Person personObject)
     {
-        if(personObject.getUserName().equals("A"))
+        if(personObject.getUsername().equals("A"))
         {
             return false;
         }

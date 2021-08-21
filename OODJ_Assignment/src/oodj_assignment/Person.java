@@ -21,6 +21,8 @@ public class Person {
     // Getters
     public String getPersonID(){return personID;}
     public String getName(){return name;}
+    public String getUsername(){return username;}
+    public String getPassword(){return password;}
     public int getAge(){return age;}
     public String getContact(){return contact;}
     public String getEmail(){return email;}
@@ -29,6 +31,8 @@ public class Person {
     // Setters
     public void setPersonID(String Id){personID = Id;}
     public void setName(String Nm){name = Nm;}
+    public void setUsername(String Un){username = Un;}
+    public void setPassword(String Pw){password = Pw;}
     public void setAge(int Ag){age = Ag;}
     public void setContact(String Ct){contact = Ct;}
     public void setEmail(String Em){email = Em;}
