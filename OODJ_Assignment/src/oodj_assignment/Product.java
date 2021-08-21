@@ -19,7 +19,7 @@ abstract class Product {
     protected String name;
     protected String description; 
     
-    //Getters
+    //Getters OPTIONAL
     public String getProductID() {
         return productID;
     }
