@@ -6,6 +6,7 @@
 package oodj_assignment;
 
 import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -361,6 +362,11 @@ public class FrameLogin extends javax.swing.JFrame {
         });
 
         btnRegRegister.setText("Register");
+        btnRegRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegRegisterActionPerformed(evt);
+            }
+        });
 
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAge.setText("Age :");
@@ -2721,6 +2727,42 @@ public class FrameLogin extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "login"); //JONATHAN
     }//GEN-LAST:event_btnCusLogoutActionPerformed
+
+    private void btnRegRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegRegisterActionPerformed
+        // TODO add your handling code here:
+        if(txtRegName.getText().isBlank() || txtRegContact.getText().isBlank() || 
+                txtRegEmail.getText().isBlank() || txtRegAge.getText().isBlank() || 
+                txtRegUsername.getText().isBlank() || txtRegPassword.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else
+        {
+            try
+            {
+                String name = txtRegName.getText().trim();
+                String username = txtRegUsername.getText().trim();
+                String password = txtRegPassword.getText().trim();
+                int age = Integer.parseInt(txtRegAge.getText().trim());
+                String contact = txtRegContact.getText().trim();
+                String email = txtRegEmail.getText().trim();
+                Customer customerObject = new Customer(name, username, password, age, contact, email);
+                Boolean state = customerObject.add(customerObject);
+                if(state) // True = writes to file
+                {
+                    JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                }
+                else if (!state)// Invalid Password
+                {
+                    JOptionPane.showMessageDialog(null, "Username is taken. Please choose another username.");
+                }
+            }
+            catch(NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Please fill in numeric values in the age field.");
+            }
+        }
+    }//GEN-LAST:event_btnRegRegisterActionPerformed
 
     /**
      * @param args the command line arguments

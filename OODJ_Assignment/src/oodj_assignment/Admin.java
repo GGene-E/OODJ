@@ -11,9 +11,30 @@ package oodj_assignment;
  */
 public class Admin extends Person{
     
-    /*
-    public String checkInventory(){}
-    */
+    // Admin Constructors
+    public Admin() //Default Constructor
+    {
+        super();
+    }
+    
+    public Admin(String name, String username, String password, int age, String contact, String email)
+    {
+        super(name, username, password, age, contact, email);
+    }
+    
+    public Admin(String personID, String name, String username, String password, int age, String contact, String email)
+    {
+        super(personID, name, username, password, age, contact, email);
+    }
+    
+    // Methods
+    public Boolean add(Admin adminObject)
+    {
+        return true;
+    }
+    
+    
+    //public String checkInventory(){}
     
     public void checkDuplication(){}
 }
