@@ -20,6 +20,9 @@ public class OODJ_Assignment {
         //Git desktop is fking powerful
         FrameLogin fr = new FrameLogin();
         fr.setVisible(true);
+        FileOperator op = new FileOperator();
+        Person x = new Person();
+        op.writeCustomer(x);
     }
     
 }

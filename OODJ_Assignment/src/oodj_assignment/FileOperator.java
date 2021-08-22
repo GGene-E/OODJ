@@ -13,15 +13,34 @@ public class FileOperator {
         
     }
     
-    public Boolean compareSimilarities(Person personObject)
+    public void writeCustomer(Person personObject)
     {
-        if(personObject.getUsername().equals("A"))
+        //Check For Similarties
+        
+        //Add Customer
+        File personFile = new File("Person.txt");
+        if(personFile.exists())
         {
-            return false;
+            System.out.println("Yes");
+            try(FileWriter fileWriter = new FileWriter(personFile, true))//Try With Resources
+            {
+                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+                {
+                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
+                    {
+                        //Code
+                    }
+                }
+            }
+            catch(IOException ex)
+            {
+                
+            }
         }
         else
         {
-            return true;
+            System.out.println("No");
         }
-    }
+        
+    }  
 }
