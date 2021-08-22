@@ -8,9 +8,11 @@ import java.util.ArrayList;
 public class FileOperator {
     
     
-    public void writeFile(String file)
+    public void addProduct()
     {
-        
+        File file = new File("product.txt");
+        FileOutputStream foutput = new FileOutputStream(file, true);
+        //ObjectOutputStream ooutput = new ObjectOutputStream(foutput);
     }
     
     public Product getProduct(String id) throws FileNotFoundException,IOException,EOFException
