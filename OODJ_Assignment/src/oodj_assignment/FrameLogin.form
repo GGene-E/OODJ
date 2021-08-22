@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="rbgFragility">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -2470,30 +2474,40 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnNewProdAdd" pref="144" max="32767" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="btnNewProdCancel" min="-2" pref="142" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="txtNewProdDescription" alignment="1" max="32767" attributes="0"/>
-                              <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="jLabel17" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
-                                      <Component id="jLabel16" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="btnNewProdAdd" pref="144" max="32767" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="btnNewProdCancel" min="-2" pref="142" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="txtNewProdDescription" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jLabel18" alignment="0" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" attributes="0">
+                                              <Component id="jLabel17" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Component id="jLabel15" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Component id="jLabel14" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                                              <Component id="jLabel16" alignment="1" min="-2" pref="86" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="txtNewProdName" alignment="0" pref="200" max="32767" attributes="0"/>
+                                              <Component id="cboNewProdType" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtNewProdPrice" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="txtNewProdQuantity" alignment="0" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtNewProdName" alignment="0" pref="200" max="32767" attributes="0"/>
-                                      <Component id="cboNewProdType" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtNewProdPrice" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtNewProdQuantity" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="269" max="-2" attributes="0"/>
+                                  <Component id="rbFragile" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                                  <Component id="rbNonFragile" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -2523,7 +2537,12 @@
                               <Component id="jLabel17" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                               <Component id="txtNewProdQuantity" alignment="3" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="rbFragile" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbNonFragile" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="jLabel18" min="-2" pref="22" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txtNewProdDescription" min="-2" pref="55" max="-2" attributes="0"/>
@@ -2532,7 +2551,7 @@
                               <Component id="btnNewProdCancel" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                               <Component id="btnNewProdAdd" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="97" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -2615,6 +2634,22 @@
                 <Component class="javax.swing.JButton" name="btnNewProdAdd">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbFragile">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rbgFragility"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Fragile"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbNonFragile">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rbgFragility"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Non-Fragile"/>
                   </Properties>
                 </Component>
               </SubComponents>

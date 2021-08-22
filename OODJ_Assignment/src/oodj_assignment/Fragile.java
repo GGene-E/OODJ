@@ -8,6 +8,8 @@ package oodj_assignment;
 public class Fragile extends Product {
 
     private static double packageMulti = 1.12;
+    private double basePrice;
+    private double netPrice = basePrice * packageMulti;
     
     @Override
     public String provideDetail() {

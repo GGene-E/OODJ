@@ -6,9 +6,6 @@ enum productStatus
     SALE, DISCONTINUED;
 }
 
-
-
-
 abstract class Product {
     
     //Attributes
@@ -18,6 +15,7 @@ abstract class Product {
     protected productStatus productStat;
     protected String name;
     protected String description; 
+    protected boolean fragility; 
     
     //Getters OPTIONAL
     public String getProductID() {
