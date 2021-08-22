@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="rbgAddUser">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -365,28 +369,35 @@
                           <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="lblUsername2" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblCustomerName" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblCustomerContact" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblCustomerEmail" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblCustomerAge" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="lblPassword2" alignment="1" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="txtCusAddName" alignment="0" pref="187" max="32767" attributes="0"/>
-                                      <Component id="txtCusAddContact" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusAddEmail" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusAddAge" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
-                                      <Component id="txtCusAddUsername" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="txtCusAddPassword" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="btnCusAddNew" min="-2" pref="121" max="-2" attributes="0"/>
+                                  <Component id="btnUserAddNew" min="-2" pref="121" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="btnCusAddClear" min="-2" pref="124" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Component id="rbAdmin" min="-2" pref="122" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="rbCustomer" pref="124" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="lblUsername2" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="lblCustomerName" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="lblCustomerContact" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="lblCustomerEmail" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="lblCustomerAge" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="lblPassword2" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="txtUserAddName" alignment="0" pref="187" max="32767" attributes="0"/>
+                                          <Component id="txtUserAddContact" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtUserAddEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtUserAddAge" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <Component id="txtUserAddUsername" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtUserAddPassword" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
@@ -401,41 +412,46 @@
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace pref="54" max="32767" attributes="0"/>
+                          <EmptySpace pref="73" max="32767" attributes="0"/>
                           <Component id="lblInstruction" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCustomerName" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusAddName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUserAddName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtCusAddContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUserAddContact" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCustomerContact" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblCustomerEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusAddEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUserAddEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtCusAddAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUserAddAge" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblCustomerAge" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblUsername2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusAddUsername" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUserAddUsername" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="lblPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="txtCusAddPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtUserAddPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="btnCusAddNew" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbAdmin" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="rbCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="btnUserAddNew" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="btnCusAddClear" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
@@ -452,13 +468,13 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCusAddClearActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAddName">
+                <Component class="javax.swing.JTextField" name="txtUserAddName">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAddContact">
+                <Component class="javax.swing.JTextField" name="txtUserAddContact">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAddEmail">
+                <Component class="javax.swing.JTextField" name="txtUserAddEmail">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAddAge">
+                <Component class="javax.swing.JTextField" name="txtUserAddAge">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCustomerName">
                   <Properties>
@@ -484,10 +500,13 @@
                     <Property name="text" type="java.lang.String" value="Age :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnCusAddNew">
+                <Component class="javax.swing.JButton" name="btnUserAddNew">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Add"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnUserAddNewActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblUsername2">
                   <Properties>
@@ -501,9 +520,9 @@
                     <Property name="text" type="java.lang.String" value="Password :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAddUsername">
+                <Component class="javax.swing.JTextField" name="txtUserAddUsername">
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtCusAddPassword">
+                <Component class="javax.swing.JTextField" name="txtUserAddPassword">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblInstruction">
                   <Properties>
@@ -511,7 +530,23 @@
                       <Font name="Tahoma" size="12" style="0"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Enter Customer Details Below"/>
+                    <Property name="text" type="java.lang.String" value="Enter User Details Below"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbAdmin">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rbgAddUser"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Admin"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbCustomer">
+                  <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="rbgAddUser"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Customer"/>
                   </Properties>
                 </Component>
               </SubComponents>
@@ -522,7 +557,7 @@
                   <Font name="Segoe UI" size="24" style="3"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="New Customer"/>
+                <Property name="text" type="java.lang.String" value="New User"/>
               </Properties>
             </Component>
           </SubComponents>

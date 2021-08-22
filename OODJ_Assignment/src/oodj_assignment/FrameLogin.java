@@ -35,6 +35,7 @@ public class FrameLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rbgAddUser = new javax.swing.ButtonGroup();
         MainPanel = new javax.swing.JPanel();
         PanelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
@@ -63,20 +64,22 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerAdd = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnCusAddClear = new javax.swing.JButton();
-        txtCusAddName = new javax.swing.JTextField();
-        txtCusAddContact = new javax.swing.JTextField();
-        txtCusAddEmail = new javax.swing.JTextField();
-        txtCusAddAge = new javax.swing.JTextField();
+        txtUserAddName = new javax.swing.JTextField();
+        txtUserAddContact = new javax.swing.JTextField();
+        txtUserAddEmail = new javax.swing.JTextField();
+        txtUserAddAge = new javax.swing.JTextField();
         lblCustomerName = new javax.swing.JLabel();
         lblCustomerContact = new javax.swing.JLabel();
         lblCustomerEmail = new javax.swing.JLabel();
         lblCustomerAge = new javax.swing.JLabel();
-        btnCusAddNew = new javax.swing.JButton();
+        btnUserAddNew = new javax.swing.JButton();
         lblUsername2 = new javax.swing.JLabel();
         lblPassword2 = new javax.swing.JLabel();
-        txtCusAddUsername = new javax.swing.JTextField();
-        txtCusAddPassword = new javax.swing.JTextField();
+        txtUserAddUsername = new javax.swing.JTextField();
+        txtUserAddPassword = new javax.swing.JTextField();
         lblInstruction = new javax.swing.JLabel();
+        rbAdmin = new javax.swing.JRadioButton();
+        rbCustomer = new javax.swing.JRadioButton();
         lblTitleNewCustomer = new javax.swing.JLabel();
         pnlCustomerEdit = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -480,7 +483,12 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerAge.setText("Age :");
 
-        btnCusAddNew.setText("Add");
+        btnUserAddNew.setText("Add");
+        btnUserAddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserAddNewActionPerformed(evt);
+            }
+        });
 
         lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblUsername2.setText("Username :");
@@ -490,7 +498,13 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblInstruction.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblInstruction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInstruction.setText("Enter Customer Details Below");
+        lblInstruction.setText("Enter User Details Below");
+
+        rbgAddUser.add(rbAdmin);
+        rbAdmin.setText("Admin");
+
+        rbgAddUser.add(rbCustomer);
+        rbCustomer.setText("Customer");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -500,25 +514,30 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(220, 220, 220)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnUserAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCusAddName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(txtCusAddContact)
-                            .addComponent(txtCusAddEmail)
-                            .addComponent(txtCusAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCusAddUsername)
-                            .addComponent(txtCusAddPassword)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnCusAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCusAddClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCusAddClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(rbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(rbCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUserAddName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                                .addComponent(txtUserAddContact)
+                                .addComponent(txtUserAddEmail)
+                                .addComponent(txtUserAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtUserAddUsername)
+                                .addComponent(txtUserAddPassword)))))
                 .addGap(222, 222, 222))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -528,42 +547,46 @@ public class FrameLogin extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(lblInstruction)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName)
-                    .addComponent(txtCusAddName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAddName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCusAddContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUserAddContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerEmail)
-                    .addComponent(txtCusAddEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAddEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCusAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUserAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername2)
-                    .addComponent(txtCusAddUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAddUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword2)
-                    .addComponent(txtCusAddPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
+                    .addComponent(txtUserAddPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCusAddNew)
+                    .addComponent(rbAdmin)
+                    .addComponent(rbCustomer))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUserAddNew)
                     .addComponent(btnCusAddClear))
                 .addGap(46, 46, 46))
         );
 
         lblTitleNewCustomer.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitleNewCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleNewCustomer.setText("New Customer");
+        lblTitleNewCustomer.setText("New User");
 
         javax.swing.GroupLayout pnlCustomerAddLayout = new javax.swing.GroupLayout(pnlCustomerAdd);
         pnlCustomerAdd.setLayout(pnlCustomerAddLayout);
@@ -2764,6 +2787,77 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnRegRegisterActionPerformed
 
+    private void btnUserAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserAddNewActionPerformed
+        // TODO add your handling code here:
+        if(txtUserAddName.getText().isBlank() || txtUserAddContact.getText().isBlank() || 
+                txtUserAddEmail.getText().isBlank() || txtUserAddAge.getText().isBlank() || 
+                txtUserAddUsername.getText().isBlank() || txtUserAddPassword.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else
+        {
+            if(rbAdmin.isSelected())
+            {
+                try
+                {
+                    String name = txtUserAddName.getText().trim();
+                    String username = txtUserAddUsername.getText().trim();
+                    String password = txtUserAddPassword.getText().trim();
+                    int age = Integer.parseInt(txtUserAddAge.getText().trim());
+                    String contact = txtUserAddContact.getText().trim();
+                    String email = txtUserAddEmail.getText().trim();
+                    Admin adminObject = new Admin(name, username, password, age, contact, email);
+                    Boolean state = adminObject.add(adminObject);
+                    if(state) // True = writes to file
+                    {
+                        JOptionPane.showMessageDialog(null, "Successfully added admin.");
+                    }
+                    else if (!state)// Invalid Password
+                    {
+                        JOptionPane.showMessageDialog(null, "Username is taken. Please choose another username.");
+                    }
+                }
+                catch(NumberFormatException ex)
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in numeric values in the age field.");
+                }
+            }
+            else if(rbCustomer.isSelected())
+            {
+                try
+                {
+                    String name = txtUserAddName.getText().trim();
+                    String username = txtUserAddUsername.getText().trim();
+                    String password = txtUserAddPassword.getText().trim();
+                    int age = Integer.parseInt(txtUserAddAge.getText().trim());
+                    String contact = txtUserAddContact.getText().trim();
+                    String email = txtUserAddEmail.getText().trim();
+                    Customer customerObject = new Customer(name, username, password, age, contact, email);
+                    Boolean state = customerObject.add(customerObject);
+                    if(state) // True = writes to file
+                    {
+                        JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                    }
+                    else if (!state)// Invalid Password
+                    {
+                        JOptionPane.showMessageDialog(null, "Username is taken. Please choose another username.");
+                    }
+                }
+                catch(NumberFormatException ex)
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in numeric values in the age field.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please select a radiobutton.");
+            }        
+        }
+        
+
+    }//GEN-LAST:event_btnUserAddNewActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2816,7 +2910,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCartRemove;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnCusAddClear;
-    private javax.swing.JButton btnCusAddNew;
     private javax.swing.JButton btnCusCart;
     private javax.swing.JButton btnCusDelete1;
     private javax.swing.JButton btnCusEditCancel;
@@ -2850,6 +2943,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnRegRegister;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUserAddNew;
     private javax.swing.JButton btnViewOrderBack;
     private javax.swing.JButton btnViewOrderItems;
     private javax.swing.JButton btnViewOrderModify;
@@ -3007,8 +3101,11 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlProductAdd;
     private javax.swing.JPanel pnlProductEdit;
     private javax.swing.JPanel pnlProductView;
+    private javax.swing.JRadioButton rbAdmin;
+    private javax.swing.JRadioButton rbCustomer;
     private javax.swing.JRadioButton rbDiscontinued;
     private javax.swing.JRadioButton rbSale;
+    private javax.swing.ButtonGroup rbgAddUser;
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblCart1;
     private javax.swing.JTable tblCart2;
@@ -3016,12 +3113,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomer1;
     private javax.swing.JTable tblOrderItem;
     private javax.swing.JTable tblProductView;
-    private javax.swing.JTextField txtCusAddAge;
-    private javax.swing.JTextField txtCusAddContact;
-    private javax.swing.JTextField txtCusAddEmail;
-    private javax.swing.JTextField txtCusAddName;
-    private javax.swing.JTextField txtCusAddPassword;
-    private javax.swing.JTextField txtCusAddUsername;
     private javax.swing.JTextField txtCusEditAge;
     private javax.swing.JTextField txtCusEditContact;
     private javax.swing.JTextField txtCusEditEmail;
@@ -3044,5 +3135,11 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtRegName;
     private javax.swing.JTextField txtRegPassword;
     private javax.swing.JTextField txtRegUsername;
+    private javax.swing.JTextField txtUserAddAge;
+    private javax.swing.JTextField txtUserAddContact;
+    private javax.swing.JTextField txtUserAddEmail;
+    private javax.swing.JTextField txtUserAddName;
+    private javax.swing.JTextField txtUserAddPassword;
+    private javax.swing.JTextField txtUserAddUsername;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,6 +5,8 @@
  */
 package oodj_assignment;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author user
@@ -28,9 +30,40 @@ public class Admin extends Person{
     }
     
     // Methods
+    public Boolean add(Customer customerObject)
+    {
+        return super.add(customerObject);
+    }
+    
     public Boolean add(Admin adminObject)
     {
-        return true;
+        //Returns FALSE if there are same username
+        FileOperator fileOperator = new FileOperator();
+        //Compare for username
+        int adminCount = 1;
+        ArrayList<Admin> adminList = fileOperator.getAdminList(); // Check for same username in Admin.txt
+        for(Admin adminCheck:adminList)
+        {
+            if(adminCheck.getUsername().equals(adminObject.getUsername())) // There is a match
+            {
+                return false;
+            }
+            adminCount = adminCount + 1;
+            
+        }
+        
+        ArrayList<Customer> customerList = fileOperator.getCustomerList(); // Check for same username in Customer.txt
+        for(Customer customerCheck:customerList)
+        {
+            if(customerCheck.getUsername().equals(adminObject.getUsername())) // There is a match
+            {
+                return false;
+            }
+        }
+        adminObject.setPersonID("A" + Integer.toString(adminCount));
+        
+        Boolean status = fileOperator.writeAdmin(adminObject);
+        return status;
     }
     
     

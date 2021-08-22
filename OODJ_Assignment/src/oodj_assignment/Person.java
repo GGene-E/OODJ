@@ -94,6 +94,7 @@ public class Person {
             }
             customerCount = customerCount + 1;
         }
+        customerObject.setPersonID("C" + Integer.toString(customerCount));
         
         Boolean status = fileOperator.writeCustomer(customerObject);
         return status;
