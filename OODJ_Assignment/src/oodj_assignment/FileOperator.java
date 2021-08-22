@@ -15,8 +15,7 @@ public class FileOperator {
 
         if (frag == true)
         {
-            Fragile tempProd = new Fragile();
-            price = price * tempProd.getPACKAGEMULTI();
+            price = price * Fragile.getPACKAGEMULTI();
             
             Fragile newProd = new Fragile(Integer.toString(Product.ID),price,type,status,name,description,frag,stock);
             File file = new File("PRODUCT.txt");
@@ -48,7 +47,6 @@ public class FileOperator {
         } 
         else 
         {
-            Non_Fragile tempProd = new Non_Fragile();
             price = price * Non_Fragile.getPACKAGEMULTI();
             
             Non_Fragile newProd = new Non_Fragile(Integer.toString(Product.ID),price,type,status,name,description,frag,stock);
