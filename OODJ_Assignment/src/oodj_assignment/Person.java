@@ -1,6 +1,8 @@
 
 package oodj_assignment;
 
+import java.util.ArrayList;
+
 enum PersonType
 {
     ADMIN, CUSTOMER;
@@ -18,6 +20,53 @@ public class Person {
     private String email;
     private PersonType personType;
     // </editor-fold>
+    
+    // Constructors
+    public Person() {}
+    
+    public Person(String ID, String name, String username, String password, int age, String contact, String email) 
+    {
+        this.personID = ID;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.contact = contact;
+        this.email = email;
+    }
+
+    public Person(String name, String username, String password, int age, String contact, String email) 
+    {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.contact = contact;
+        this.email = email;
+    }
+    
+    public Person(String name, String username, String password, int age, String contact, String email, PersonType personType) 
+    {
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.contact = contact;
+        this.email = email;
+        this.personType = personType;
+    }
+    
+    public Person(String ID, String name, String username, String password, int age, String contact, String email, PersonType personType) 
+    {
+        this.personID = ID;
+        this.name = name;
+        this.username = username;
+        this.password = password;
+        this.age = age;
+        this.contact = contact;
+        this.email = email;
+        this.personType = personType;
+    }
     
     // Getters
     // <editor-fold defaultstate="collapsed" desc="Your Fold Comment">
@@ -44,11 +93,35 @@ public class Person {
     // </editor-fold>
     
     // Methods
+    // Person Logs Into the System
+    public String[] getLoginCredentials(String username, String password)
+    {
+        String[] matchedDetails = new String[0];
+        
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<String> personList = fileOperator.getPersonList();
+
+        if(!personList.isEmpty()) //Not empty
+        {
+            for(String personDetail:personList)
+            {
+                String[] personDetailArray = personDetail.split(",");
+                if(personDetailArray[2].equals(username) && personDetailArray[3].equals(password))
+                {
+                   return matchedDetails = personDetailArray;
+                }
+            }
+        }
+        return matchedDetails;
+    }
+    
     // Person Registers Customer / Self Registration
-    public Boolean add(Person a)
+    public int add(Person personObject) //1 = Saved Successfully | 2 = Duplicate Username | 3 = IOException during Checking | 4 = IOException during Appending | 5 = IOException during Writing
     {
         //In FileOperator, run a comparing function. Returns TRUE if there are same username
-        return true;
+        FileOperator fileOperator = new FileOperator();
+        int status = fileOperator.writeCustomer(personObject);
+        return status;
     }
     
     // Person places an ORDER
@@ -66,9 +139,11 @@ public class Person {
     // Person searches for an ORDER
     public void search(){}
 
+    @Override
     public String toString()
     {
-        return "Hoi";
+        String returnedString = String.format("%s,%s,%s,%s,%s,%s,%s,%s", personID, name, username, password, age, contact, email, personType);
+        return returnedString;
     }
     
 }

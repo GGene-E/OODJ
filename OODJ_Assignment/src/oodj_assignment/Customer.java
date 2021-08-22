@@ -11,6 +11,20 @@ package oodj_assignment;
  */
 public class Customer extends Person {
     
+    //Constructors
+    public Customer() {} //Default Constructor
+    
+    public Customer(String ID, String name, String username, String password, int age, String contact, String email) 
+    {
+        super(ID, name, username, password, age, contact, email);
+    }
+    
+    public Customer(String ID, String name, String username, String password, int age, String contact, String email, PersonType personType) 
+    {
+        super(ID, name, username, password, age, contact, email, personType);
+    }
+
+    
     /*
     public String giveReview(){}
     
