@@ -42,6 +42,8 @@ public class FileOperator {
                 return p;
             }
         }
+        finput.close();
+        oinput.close();
         return null;
     }        
     
