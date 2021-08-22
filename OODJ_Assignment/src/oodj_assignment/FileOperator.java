@@ -13,40 +13,49 @@ public class FileOperator {
         
     }
     
-    public Non_Fragile getProduct(String id) throws FileNotFoundException,IOException,EOFException
+    public Product getProduct(String id) throws FileNotFoundException,IOException,EOFException
     {
+        // Open File and deserialize input 
         File file = new File("product.txt");
         FileInputStream finput = new FileInputStream(file);
         ObjectInputStream oinput = new ObjectInputStream(finput);
-        ArrayList<Non_Fragile> prodList = new ArrayList<Non_Fragile>();
+        
+        ArrayList<Product> prodList = new ArrayList<>();
         try 
         { 
             while (true)
             {
-                Non_Fragile prod = (Non_Fragile)oinput.readObject();
+                Product prod = (Product)oinput.readObject();
                 prodList.add(prod);
             }
         }
-        catch (ClassNotFoundException ex) {
-            //Logger.getLogger(Non_Fragile.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        catch (ClassNotFoundException ex) { /*ADD EXCEPTION*/ }
         
-        for (Non_Fragile p : prodList) 
+        finput.close();
+        oinput.close();
+
+        for (Product p : prodList) 
         {
-            if (!p.productID.equals(id))
+            if (p.productID.equals(id) && p instanceof Non_Fragile)
+            {
+                p = (Non_Fragile) p;
+                return p;
+                    
+            }
+            if (p.productID.equals(id) && p instanceof Fragile)
+            {
+                p = (Fragile) p;
+                return p;
+            }
+            else
             {
                 continue;
             }
-            else 
-            {
-                return p;
-            }
         }
-        finput.close();
-        oinput.close();
+        System.out.println("Error getting Product, No such ID");
         return null;
     }        
-    
+        
     public Boolean compareSimilarities(Person personObject)
     {
         if(personObject.getUsername().equals("A"))
