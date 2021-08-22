@@ -9,6 +9,7 @@ enum productStatus
 abstract class Product {
     
     //Attributes
+    protected static int ID = 0;
     protected String productID;
     protected double productPrice;
     protected String productType;
@@ -16,8 +17,34 @@ abstract class Product {
     protected String name;
     protected String description; 
     protected boolean fragility; 
+    protected int stock;
+    
+    public Product(String ID, double price, String type, productStatus status, String name, String description, boolean fragility, int stock)
+    {
+        productID = ID;
+        productPrice = price;
+        productType = type;
+        productStat = status;
+        this.name = name;
+        this.description = description;
+        this.fragility = fragility;
+        this.stock = stock;
+    }
     
     //Getters OPTIONAL
+
+    public int getStock() {
+        return stock;
+    }
+    
+    public static int getID() {
+        return ID;
+    }
+
+    public boolean isFragility() {
+        return fragility;
+    }
+    
     public String getProductID() {
         return productID;
     }
@@ -42,7 +69,19 @@ abstract class Product {
         return description;
     }
     
+    public static void setID(int ID) {
+        Product.ID = ID;
+    }
+
     //Setters
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
+    public void setFragility(boolean fragility) {    
+        this.fragility = fragility;
+    }
+
     public void setProductID(String productID) {
         this.productID = productID;
     }
