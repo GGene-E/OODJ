@@ -9,7 +9,7 @@ enum productStatus
 abstract class Product {
     
     //Attributes
-    protected static int ID = 0;
+    protected static int ID;
     protected String productID;
     protected double productPrice;
     protected String productType;
@@ -69,11 +69,11 @@ abstract class Product {
         return description;
     }
     
+    //Setters
     public static void setID(int ID) {
         Product.ID = ID;
     }
-
-    //Setters
+    
     public void setStock(int stock) {
         this.stock = stock;
     }

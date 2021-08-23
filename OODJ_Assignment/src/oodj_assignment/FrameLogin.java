@@ -1885,11 +1885,17 @@ public class FrameLogin extends javax.swing.JFrame {
         });
 
         btnNewProdAdd.setText("Add");
+        btnNewProdAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNewProdAddActionPerformed(evt);
+            }
+        });
 
         rbgFragility.add(rbFragile);
         rbFragile.setText("Fragile");
 
         rbgFragility.add(rbNonFragile);
+        rbNonFragile.setSelected(true);
         rbNonFragile.setText("Non-Fragile");
 
         javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
@@ -2741,6 +2747,24 @@ public class FrameLogin extends javax.swing.JFrame {
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "login"); //JONATHAN
     }//GEN-LAST:event_btnCusLogoutActionPerformed
+
+    private void btnNewProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProdAddActionPerformed
+        //Construct file operator
+        FileOperator fop = new FileOperator();
+        
+        //Prepare variables
+        double price = Double.parseDouble(txtNewProdPrice.getText());
+        String type = cboNewProdType.getSelectedItem().toString();
+        productStatus sale = productStatus.SALE;
+        String name = txtNewProdName.getText();
+        String desc = txtNewProdDescription.getText();
+        boolean frag = rbFragile.isSelected();
+        int stock = Integer.parseInt(txtNewProdQuantity.getText());
+        
+        //Call file operator method
+        fop.addProduct(price, type, sale, name, desc, frag, stock);
+        
+    }//GEN-LAST:event_btnNewProdAddActionPerformed
 
     /**
      * @param args the command line arguments
