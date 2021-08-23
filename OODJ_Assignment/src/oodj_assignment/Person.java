@@ -24,6 +24,12 @@ public class Person {
     // Constructors
     public Person() {} //Default Constructor
     
+    public Person(String personID, String username) // Login Constructor
+    {
+        this.personID = personID;
+        this.username = username;
+    }
+    
     public Person(String name, String username, String password, int age, String contact, String email)
     {
         this.name = name;
@@ -66,6 +72,34 @@ public class Person {
     public void setPersonType(PersonType Pt){personType = Pt;}
 
     // Methods
+    // Person Logins to the system
+    public String[] login(String username, String password)
+    {
+        String[] foundUser = new String[0];
+        FileOperator fileOperator = new FileOperator();
+        // Check Admin
+        ArrayList<Admin> adminList = fileOperator.getAdminList();
+        for(Admin adminObject:adminList)
+        {
+            if(adminObject.getUsername().equals(username) && adminObject.getPassword().equals(password))
+            {
+                String adminDetail = String.format("%s,%s,%s", adminObject.getPersonID(), adminObject.getUsername(), PersonType.ADMIN);
+                foundUser = adminDetail.split(",");
+            }
+        }
+        
+        ArrayList<Customer> customerList = fileOperator.getCustomerList();
+        for(Customer customerObject:customerList)
+        {
+            if(customerObject.getUsername().equals(username) && customerObject.getPassword().equals(password))
+            {
+                String customerDetail = String.format("%s,%s,%s", customerObject.getPersonID(), customerObject.getUsername(), PersonType.CUSTOMER);
+                foundUser = customerDetail.split(",");
+            }
+        }
+        return foundUser;
+    }
+    
     // Person Registers Customer / Self Registration
     public Boolean add(Customer customerObject)
     {

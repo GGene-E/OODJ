@@ -20,7 +20,11 @@ public class FrameLogin extends javax.swing.JFrame {
     
     int cartSource;
     int addOrderSource;
-    String userType;
+    PersonType userType;
+    // One Frame to handle Admin and Customer Logins.
+    // Admin OR Customer object will be assigned to adminUser/customerUser
+    Admin adminUser;
+    Customer customerUser;
     
     public FrameLogin() {
         initComponents();
@@ -1308,6 +1312,11 @@ public class FrameLogin extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblCart);
 
         btnCartAdd.setText("Add Item");
+        btnCartAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCartAddActionPerformed(evt);
+            }
+        });
 
         btnCartRemove.setText("Remove From Cart");
 
@@ -2535,13 +2544,16 @@ public class FrameLogin extends javax.swing.JFrame {
             CardLayout card = (CardLayout)MainPanel.getLayout();
             card.show(MainPanel, "customerMenu"); 
         }
-        else
+        else if (addOrderSource == 2)
         {
-            if(addOrderSource == 2)
-            {
-                CardLayout card = (CardLayout)MainPanel.getLayout();
-                card.show(MainPanel, "orderView");
-            }
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "orderView");
+        }
+        else if (addOrderSource == 3)
+        {
+            cartSource = 1;
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "orderCart");
         }
 
     }//GEN-LAST:event_btnOrderAddBackActionPerformed
@@ -2555,20 +2567,35 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if(txtLoginUsername.getText().equals("admin"))
+        Person temporaryPerson = new Person();
+        String[] userDetail = temporaryPerson.login(txtLoginUsername.getText().trim(), txtLoginPassword.getText().trim());
+        if(userDetail.length > 0)
         {
-            userType = "admin";
-            CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "adminMenu");
+            JOptionPane.showMessageDialog(null, "Login Successful.");
+            if(PersonType.valueOf(userDetail[2]) == PersonType.ADMIN) // Admin User
+            {
+                adminUser = new Admin(userDetail[0], userDetail[1]);
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "adminMenu");
+                userType = PersonType.ADMIN;
+                
+            }
+            else if(PersonType.valueOf(userDetail[2]) == PersonType.CUSTOMER) // Customer User
+            {
+                customerUser = new Customer(userDetail[0], userDetail[1]);
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "customerMenu");
+                userType = PersonType.CUSTOMER;
+            }
+            
+            txtLoginUsername.setText("");
+            txtLoginPassword.setText("");
         }
         else
         {
-            if(txtLoginUsername.getText().equals("customer"))
-            {
-                userType = "customer";
-                CardLayout card = (CardLayout)MainPanel.getLayout();
-                card.show(MainPanel, "customerMenu");
-            }
+            JOptionPane.showMessageDialog(null, "Incorrect Login Credentials.");
+            txtLoginUsername.setText("");
+            txtLoginPassword.setText("");
         }
         //Later Change This ##JONATHAN
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -2687,12 +2714,12 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (cartSource == 1)
         {
-            if(userType == "admin")
+            if(userType == PersonType.ADMIN)
             {
                 CardLayout card = (CardLayout)MainPanel.getLayout();
                 card.show(MainPanel, "adminMenu");
             }
-            else
+            else if (userType == PersonType.CUSTOMER)
             {
                 CardLayout card = (CardLayout)MainPanel.getLayout();
                 card.show(MainPanel, "customerMenu");
@@ -2720,12 +2747,12 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnViewOrderBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderBackActionPerformed
         // TODO add your handling code here:
-        if(userType == "admin") //User is admin
+        if(userType == PersonType.ADMIN) //User is admin
         {
             CardLayout card = (CardLayout)MainPanel.getLayout();
             card.show(MainPanel, "adminMenu");
         }
-        else //User is Customer
+        else if (userType == PersonType.CUSTOMER)//User is Customer
         {
             CardLayout card = (CardLayout)MainPanel.getLayout();
             card.show(MainPanel, "customerMenu");
@@ -2857,6 +2884,13 @@ public class FrameLogin extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_btnUserAddNewActionPerformed
+
+    private void btnCartAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartAddActionPerformed
+        // TODO add your handling code here:
+        addOrderSource = 3;
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "orderAdd");
+    }//GEN-LAST:event_btnCartAddActionPerformed
 
     /**
      * @param args the command line arguments
