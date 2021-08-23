@@ -40,6 +40,7 @@ public class FrameLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         rbgFragility = new javax.swing.ButtonGroup();
         rbgAddUser = new javax.swing.ButtonGroup();
         MainPanel = new javax.swing.JPanel();
@@ -129,7 +130,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCusViewEmail = new javax.swing.JLabel();
         lblCusViewAge = new javax.swing.JLabel();
         btnCusViewEdit = new javax.swing.JButton();
-        btnCusVIewDelete = new javax.swing.JButton();
+        btnCusViewDelete = new javax.swing.JButton();
         busCusViewDetails = new javax.swing.JButton();
         btnCusViewAdd = new javax.swing.JButton();
         btnCusViewBack = new javax.swing.JButton();
@@ -628,14 +629,6 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
 
-        txtCusEditName.setText("jTextField1");
-
-        txtCusEditContact.setText("jTextField1");
-
-        txtCusEditEmail.setText("jTextField1");
-
-        txtCusEditAge.setText("jTextField1");
-
         lblCustomerName1.setText("Name : ");
 
         lblCustomerContact1.setText("Contact :");
@@ -645,6 +638,11 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerAge1.setText("Age :");
 
         btnCusEditSave.setText("Save");
+        btnCusEditSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCusEditSaveActionPerformed(evt);
+            }
+        });
 
         jPanel4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -904,7 +902,12 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
 
-        btnCusVIewDelete.setText("Delete");
+        btnCusViewDelete.setText("Delete");
+        btnCusViewDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCusViewDeleteActionPerformed(evt);
+            }
+        });
 
         busCusViewDetails.setText("View");
         busCusViewDetails.addActionListener(new java.awt.event.ActionListener() {
@@ -940,7 +943,7 @@ public class FrameLogin extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCusViewEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnCusVIewDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCusViewDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -968,7 +971,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addComponent(lblCusViewAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCusVIewDelete)
+                    .addComponent(btnCusViewDelete)
                     .addComponent(btnCusViewEdit)
                     .addComponent(busCusViewDetails))
                 .addContainerGap())
@@ -2576,6 +2579,12 @@ public class FrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginRegisterActionPerformed
+        txtRegName.setText("");
+        txtRegUsername.setText("");
+        txtRegPassword.setText("");
+        txtRegAge.setText("");
+        txtRegContact.setText("");
+        txtRegEmail.setText("");
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "registration");
     }//GEN-LAST:event_btnLoginRegisterActionPerformed
@@ -2760,8 +2769,32 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnCusViewEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusViewEditActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "customerEdit");
+        
+        if(tblCustomer.getSelectedRow() >= 0)
+        {
+            String edittedID = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 0).toString();
+            edittedID = edittedID.toLowerCase().trim();
+            // Get Customer
+            Customer edittedCustomer = adminUser.view(edittedID);
+            if(edittedCustomer != null)
+            {
+                lblCusEditID.setText(edittedCustomer.getPersonID());
+                lblCusEditName.setText(edittedCustomer.getName());
+                lblCusEditContact.setText(edittedCustomer.getContact());
+                lblCusEditEmail.setText(edittedCustomer.getEmail());
+                lblCusEditAge.setText(Integer.toString(edittedCustomer.getAge()));
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "customerEdit");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Customer not found.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Customer Table.");
+        }
     }//GEN-LAST:event_btnCusViewEditActionPerformed
 
     private void btnCusEditCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusEditCancelActionPerformed
@@ -2772,6 +2805,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnCusAddClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusAddClearActionPerformed
         // TODO add your handling code here:
+        btnManageCustomer.doClick();
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "customerView");
     }//GEN-LAST:event_btnCusAddClearActionPerformed
@@ -2844,7 +2878,6 @@ public class FrameLogin extends javax.swing.JFrame {
         card.show(MainPanel, "login"); //JONATHAN
     }//GEN-LAST:event_btnCusLogoutActionPerformed
 
-
     private void btnNewProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProdAddActionPerformed
         //Construct file operator
         FileOperator fop = new FileOperator();
@@ -2885,7 +2918,13 @@ public class FrameLogin extends javax.swing.JFrame {
                 Boolean state = customerObject.add(customerObject);
                 if(state) // True = writes to file
                 {
-                    JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                    JOptionPane.showMessageDialog(null, "Successfully registered.");
+                    txtRegName.setText("");
+                    txtRegUsername.setText("");
+                    txtRegPassword.setText("");
+                    txtRegAge.setText("");
+                    txtRegContact.setText("");
+                    txtRegEmail.setText("");
                 }
                 else if (!state)// Invalid Password
                 {
@@ -2924,6 +2963,12 @@ public class FrameLogin extends javax.swing.JFrame {
                     if(state) // True = writes to file
                     {
                         JOptionPane.showMessageDialog(null, "Successfully added admin.");
+                        txtUserAddName.setText("");
+                        txtUserAddUsername.setText("");
+                        txtUserAddPassword.setText("");
+                        txtUserAddAge.setText("");
+                        txtUserAddContact.setText("");
+                        txtUserAddEmail.setText("");
                     }
                     else if (!state)// Invalid Password
                     {
@@ -2950,6 +2995,12 @@ public class FrameLogin extends javax.swing.JFrame {
                     if(state) // True = writes to file
                     {
                         JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                        txtUserAddName.setText("");
+                        txtUserAddUsername.setText("");
+                        txtUserAddPassword.setText("");
+                        txtUserAddAge.setText("");
+                        txtUserAddContact.setText("");
+                        txtUserAddEmail.setText("");
                     }
                     else if (!state)// Invalid Password
                     {
@@ -3003,8 +3054,6 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please select a row in the Customer Table.");
         }
-
-        
     }//GEN-LAST:event_busCusViewDetailsActionPerformed
 
     private void btnCusSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusSearchActionPerformed
@@ -3038,6 +3087,68 @@ public class FrameLogin extends javax.swing.JFrame {
         
 
     }//GEN-LAST:event_btnCusSearchActionPerformed
+
+    private void btnCusEditSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusEditSaveActionPerformed
+        // TODO add your handling code here:
+        if(txtCusEditName.getText().isBlank() || txtCusEditContact.getText().isBlank() ||
+                txtCusEditEmail.getText().isBlank() || txtCusEditAge.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else
+        {
+            try
+            {
+                Boolean check = false;
+                String customerID = lblCusEditID.getText();
+                String name = txtCusEditName.getText().trim();
+                String contact = txtCusEditContact.getText().trim();
+                String email = txtCusEditEmail.getText().trim();
+                int age = Integer.parseInt(txtCusEditAge.getText().trim());
+                Customer edittedCustomer = new Customer(customerID, name, contact, email, age);
+                check = adminUser.edit(edittedCustomer); //HERE
+                if(check == true)
+                {
+                    JOptionPane.showMessageDialog(null, "Customer details are saved.");
+                }
+                txtCusEditName.setText("");
+                txtCusEditContact.setText("");
+                txtCusEditEmail.setText("");
+                txtCusEditAge.setText("");
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "customerView");
+            }
+            catch(NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Please enter your age in numbers.");
+            }
+        }
+    }//GEN-LAST:event_btnCusEditSaveActionPerformed
+
+    private void btnCusViewDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusViewDeleteActionPerformed
+        // TODO add your handling code here:
+        if(tblCustomer.getSelectedRow() >= 0)
+        {
+            Boolean status = false;
+            String customerID = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 0).toString();
+            String customerName = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 1).toString();
+            int choice = JOptionPane.showConfirmDialog(null, String.format("Confirm delete?\nCustomer ID: %s\nName: %s", customerID,customerName),
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
+            if(choice == JOptionPane.YES_OPTION)
+            {
+                status = adminUser.delete(customerID);
+            }
+            if(status) // Status is TRUE
+            {
+                JOptionPane.showMessageDialog(null, "Customer Data has been completely deleted.");
+                btnManageCustomer.doClick();
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Customer Table.");
+        }
+    }//GEN-LAST:event_btnCusViewDeleteActionPerformed
 
 
     /**
@@ -3100,9 +3211,9 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCusManageOrder;
     private javax.swing.JButton btnCusPlaceOrder;
     private javax.swing.JButton btnCusSearch;
-    private javax.swing.JButton btnCusVIewDelete;
     private javax.swing.JButton btnCusViewAdd;
     private javax.swing.JButton btnCusViewBack;
+    private javax.swing.JButton btnCusViewDelete;
     private javax.swing.JButton btnCusViewEdit;
     private javax.swing.JButton btnEditProdBack;
     private javax.swing.JButton btnEditProdSave;
@@ -3290,8 +3401,8 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JRadioButton rbFragile;
     private javax.swing.JRadioButton rbNonFragile;
     private javax.swing.JRadioButton rbSale;
-    private javax.swing.ButtonGroup rbgFragility;
     private javax.swing.ButtonGroup rbgAddUser;
+    private javax.swing.ButtonGroup rbgFragility;
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblCart1;
     private javax.swing.JTable tblCart2;

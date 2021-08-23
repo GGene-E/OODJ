@@ -6,7 +6,7 @@
 package oodj_assignment;
 
 import java.util.ArrayList;
-
+import java.util.Iterator;
 /**
  *
  * @author user
@@ -55,7 +55,7 @@ public class Admin extends Person{
         //Returns FALSE if there are same username
         FileOperator fileOperator = new FileOperator();
         //Compare for username
-        int adminCount = 1;
+        String lastAdminID = "a";
         ArrayList<Admin> adminList = fileOperator.getAdminList(); // Check for same username in Admin.txt
         for(Admin adminCheck:adminList)
         {
@@ -63,8 +63,7 @@ public class Admin extends Person{
             {
                 return false;
             }
-            adminCount = adminCount + 1;
-            
+            lastAdminID = adminCheck.getPersonID();
         }
         
         ArrayList<Customer> customerList = fileOperator.getCustomerList(); // Check for same username in Customer.txt
@@ -75,8 +74,10 @@ public class Admin extends Person{
                 return false;
             }
         }
-        adminObject.setPersonID("A" + Integer.toString(adminCount));
-        
+        lastAdminID = lastAdminID.substring(1);
+        String newAdminID = Integer.toString(Integer.parseInt(lastAdminID) + 1);
+        adminObject.setPersonID(String.format("A%s", newAdminID));
+                        
         Boolean status = fileOperator.writeAdmin(adminObject);
         return status;
     }
@@ -97,6 +98,7 @@ public class Admin extends Person{
         return viewedCustomer;
     }
     
+    // Search Customers
     public ArrayList<Customer> search(String searchParameter) // Massive Search
     {
         ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
@@ -117,6 +119,52 @@ public class Admin extends Person{
             }
         }
         return foundCustomer;
+    }
+    
+    // Edit Customers
+    public Boolean edit(Customer edittedCustomer)
+    {
+        Boolean status = false;
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Customer> customerList = fileOperator.getCustomerList();
+        for(Customer customerObject:customerList)
+        {
+            if(customerObject.getPersonID().equals(edittedCustomer.getPersonID()))
+            {
+                customerObject.setName(edittedCustomer.getName());
+                customerObject.setContact(edittedCustomer.getContact());
+                customerObject.setEmail(edittedCustomer.getEmail());
+                customerObject.setAge(edittedCustomer.getAge());
+                status = true;
+            }
+        }
+        if(status == true)
+        {
+            status = fileOperator.overwriteCustomer(customerList);
+        }
+        return status;
+    }
+    
+    // Delete Customer --> No remains of Entry
+    public Boolean delete(String customerID)
+    {
+        Boolean status = false;
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Customer> customerList = fileOperator.getCustomerList();
+        
+        Iterator customerIterator = customerList.iterator();
+        while(customerIterator.hasNext())
+        {
+            Customer customerObject = (Customer)customerIterator.next();
+            if(customerObject.getPersonID().equals(customerID))
+            {
+                customerIterator.remove();
+                status = true;
+            }
+        }
+        
+        fileOperator.overwriteCustomer(customerList);
+        return status;
     }
     
     //public String checkInventory(){}

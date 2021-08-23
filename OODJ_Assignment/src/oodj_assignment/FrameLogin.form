@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-
 <Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="rbgFragility">
-	</Component>
+    </Component>
     <Component class="javax.swing.ButtonGroup" name="rbgAddUser">
     </Component>
   </NonVisualComponents>
@@ -686,24 +685,12 @@
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCusEditName">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCusEditContact">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCusEditEmail">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtCusEditAge">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblCustomerName1">
                   <Properties>
@@ -729,6 +716,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Save"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCusEditSaveActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel4">
                   <Properties>
@@ -1057,7 +1047,7 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="btnCusViewEdit" max="32767" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnCusVIewDelete" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="btnCusViewDelete" min="-2" pref="63" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1094,7 +1084,7 @@
                               </Group>
                               <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnCusVIewDelete" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnCusViewDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnCusViewEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="busCusViewDetails" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -1177,10 +1167,13 @@
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCusViewEditActionPerformed"/>
                       </Events>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnCusVIewDelete">
+                    <Component class="javax.swing.JButton" name="btnCusViewDelete">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCusViewDeleteActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="busCusViewDetails">
                       <Properties>
