@@ -261,7 +261,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblTitleProduct = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        tblProductView = new javax.swing.JTable();
+        tblProduct = new javax.swing.JTable();
         jPanel16 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -273,6 +273,8 @@ public class FrameLogin extends javax.swing.JFrame {
         lblProdQuantity = new javax.swing.JLabel();
         lblProdPrice = new javax.swing.JLabel();
         lblProdDesc = new javax.swing.JLabel();
+        lblProductViewID = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
         btnProdSearch = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         btnProdAdd = new javax.swing.JButton();
@@ -998,7 +1000,7 @@ public class FrameLogin extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 423, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCusSearch)
@@ -1035,7 +1037,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerView.setLayout(pnlCustomerViewLayout);
         pnlCustomerViewLayout.setHorizontalGroup(
             pnlCustomerViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleViewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+            .addComponent(lblTitleViewCustomer, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomerViewLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1044,11 +1046,11 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerViewLayout.setVerticalGroup(
             pnlCustomerViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlCustomerViewLayout.createSequentialGroup()
-                .addContainerGap(31, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitleViewCustomer)
                 .addGap(5, 5, 5)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         MainPanel.add(pnlCustomerView, "customerView");
@@ -2200,7 +2202,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         jPanel15.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        tblProductView.setModel(new javax.swing.table.DefaultTableModel(
+        tblProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -2219,12 +2221,19 @@ public class FrameLogin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(tblProductView);
-        if (tblProductView.getColumnModel().getColumnCount() > 0) {
-            tblProductView.getColumnModel().getColumn(0).setResizable(false);
-            tblProductView.getColumnModel().getColumn(1).setResizable(false);
-            tblProductView.getColumnModel().getColumn(2).setResizable(false);
-            tblProductView.getColumnModel().getColumn(2).setPreferredWidth(0);
+        tblProduct.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblProduct.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblProductMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tblProduct);
+        if (tblProduct.getColumnModel().getColumnCount() > 0) {
+            tblProduct.getColumnModel().getColumn(0).setResizable(false);
+            tblProduct.getColumnModel().getColumn(1).setResizable(false);
+            tblProduct.getColumnModel().getColumn(2).setResizable(false);
+            tblProduct.getColumnModel().getColumn(2).setPreferredWidth(0);
         }
 
         jPanel16.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -2259,6 +2268,12 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblProdDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
+        lblProductViewID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+
+        jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel25.setText("ID :");
+
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
         jPanel16Layout.setHorizontalGroup(
@@ -2266,26 +2281,32 @@ public class FrameLogin extends javax.swing.JFrame {
             .addGroup(jPanel16Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                     .addComponent(lblProdDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
-                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                            .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblProdType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblProdName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblProdQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblProdPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblProdPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblProductViewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProductViewID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblProdName, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2301,7 +2322,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblProdDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2676,11 +2697,30 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnManageCustomerActionPerformed
 
     private void btnManageProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductActionPerformed
-        // TODO add your handling code here:
+        // Brings up view product panel
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "productView");
         
-        
+        // Adds data into table
+
+        ArrayList<Product> productList = adminUser.getProductList();
+        if(!productList.isEmpty())
+        {
+            DefaultTableModel productTable = (DefaultTableModel)tblProduct.getModel();
+            productTable.setRowCount(0);
+            for(Product prod : productList)
+            {
+                String[] productDetails = new String[3];
+                productDetails[0] = prod.getProductID();
+                productDetails[1] = prod.getName();
+                productDetails[2] = Integer.toString(prod.getStock());
+                productTable.addRow(productDetails);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: Product Database is detached or empty.");
+        }  
     }//GEN-LAST:event_btnManageProductActionPerformed
 
     private void btnAdminManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminManageOrderActionPerformed
@@ -3167,6 +3207,33 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCusViewDeleteActionPerformed
 
+    private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
+        if(tblProduct.getSelectedRow() >= 0)
+        {
+            String searchedID = tblProduct.getValueAt(tblProduct.getSelectedRow(), 0).toString();
+            searchedID = searchedID.toLowerCase().trim();
+            // Get Product
+            Product viewedProd = adminUser.viewProd(searchedID);
+            if(viewedProd != null)
+            {
+                lblProductViewID.setText(viewedProd.getProductID());
+                lblProdName.setText(viewedProd.getName());
+                lblProdType.setText(viewedProd.getProductType());
+                lblProdPrice.setText(Double.toString(viewedProd.getProductPrice()));
+                lblProdDesc.setText(viewedProd.getDescription());
+                lblProdQuantity.setText(Integer.toString(viewedProd.getStock()));
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Customer not found.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Customer Table.");
+        }
+    }//GEN-LAST:event_tblProductMouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -3279,6 +3346,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -3376,6 +3444,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdQuantity;
     private javax.swing.JLabel lblProdType;
     private javax.swing.JLabel lblProductID;
+    private javax.swing.JLabel lblProductViewID;
     private javax.swing.JLabel lblQtySelected;
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblQuantity1;
@@ -3426,7 +3495,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomer;
     private javax.swing.JTable tblCustomer1;
     private javax.swing.JTable tblOrderItem;
-    private javax.swing.JTable tblProductView;
+    private javax.swing.JTable tblProduct;
     private javax.swing.JTextField txtCusEditAge;
     private javax.swing.JTextField txtCusEditContact;
     private javax.swing.JTextField txtCusEditEmail;

@@ -113,6 +113,21 @@ public class Admin extends Person{
         return viewedCustomer;
     }
     
+    public Product viewProd(String ID)
+    {
+        Product viewedProd = null;
+        ID = ID.toLowerCase().trim();
+        ArrayList<Product> matchedProduct = searchProd(ID);
+        for(Product prod : matchedProduct)
+        {
+            if(prod.getProductID().toLowerCase().equals(ID))
+            {
+                viewedProd = prod;
+            }
+        }
+        return viewedProd;
+    }
+    
     // Search Customers
     public ArrayList<Customer> search(String searchParameter) // Massive Search
     {
@@ -134,6 +149,30 @@ public class Admin extends Person{
             }
         }
         return foundCustomer;
+    }
+    
+    
+    // Search Customer
+    public ArrayList<Product> searchProd(String searchParameter) // Massive Search
+    {
+        ArrayList<Product> foundProd = new ArrayList<Product>();
+        searchParameter = searchParameter.toLowerCase().trim(); // Reformat for search
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Product> prodList = fileOperator.getProductArray();
+        
+        for(Product prod : prodList)
+        {
+            if(searchParameter.equals(prod.getProductID().toLowerCase()))
+            {
+                foundProd.add(prod);
+            }
+            else if(searchParameter.equals(prod.getName().toLowerCase())|| 
+                    prod.getName().toLowerCase().contains(searchParameter))
+            {
+                foundProd.add(prod);
+            }
+        }
+        return foundProd;
     }
     
     // Edit Customers

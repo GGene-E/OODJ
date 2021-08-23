@@ -33,7 +33,7 @@ abstract class Product {
         this.stock = stock;
     }
     
-    //Getters OPTIONAL
+    //Getters
 
     public int getStock() {
         return stock;

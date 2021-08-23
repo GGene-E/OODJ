@@ -162,7 +162,7 @@ public class FileOperator {
                 if (details[6].equals("true"))
                 {
                     double price = Double.parseDouble(details[1]);
-                    productStatus stat = productStatus.valueOf(details[4]);
+                    productStatus stat = productStatus.valueOf(details[3]);
                     boolean  frag = Boolean.parseBoolean(details[6]);
                     int stock = Integer.parseInt(details[7]);
                     
@@ -173,7 +173,7 @@ public class FileOperator {
                 else
                 {
                     double price = Double.parseDouble(details[1]);
-                    productStatus stat = productStatus.valueOf(details[4]);
+                    productStatus stat = productStatus.valueOf(details[3]);
                     boolean  frag = Boolean.parseBoolean(details[6]);
                     int stock = Integer.parseInt(details[7]);
                     
