@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import java.io.*;
 
 /**
  *
@@ -531,7 +532,7 @@ public class FrameLogin extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(rbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(rbCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                            .addComponent(rbCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE))
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1923,19 +1924,12 @@ public class FrameLogin extends javax.swing.JFrame {
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel16.setText("Price :");
 
-        txtNewProdName.setText("jTextField1");
-
-        cboNewProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        txtNewProdPrice.setText("jTextField2");
+        cboNewProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hammers", "Screws", "Bulbs", "Glass" }));
 
         jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel17.setText("Quantity :");
 
-        txtNewProdQuantity.setText("jTextField2");
-
         txtNewProdDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtNewProdDescription.setText("jTextField2");
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Description");
@@ -2879,21 +2873,42 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCusLogoutActionPerformed
 
     private void btnNewProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProdAddActionPerformed
-        //Construct file operator
-        FileOperator fop = new FileOperator();
+        //If textfield is blank, stop
+        if(txtNewProdPrice.getText().isBlank() || txtNewProdName.getText().isBlank() || 
+                txtNewProdDescription.getText().isBlank() || txtNewProdQuantity.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(this, "Please Enter All Information");
+        }
+        else
+        {
+            //Construct file operator
+            FileOperator fop = new FileOperator();
+            
+            try{
+                //Prepare variables
+                double price = Double.parseDouble(txtNewProdPrice.getText());
+                String type = cboNewProdType.getSelectedItem().toString();
+                productStatus sale = productStatus.SALE;
+                String name = txtNewProdName.getText();
+                String desc = txtNewProdDescription.getText();
+                boolean frag = rbFragile.isSelected();
+                int stock = Integer.parseInt(txtNewProdQuantity.getText());
+                
+                //Call file operator method
+                fop.addProduct(price, type, sale, name, desc, frag, stock);
+                JOptionPane.showMessageDialog(null, "Item Successfully Added");
+            } 
+            catch (NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Please Enter Numbers for Price and Quantity.");
+            }
+        }
         
-        //Prepare variables
-        double price = Double.parseDouble(txtNewProdPrice.getText());
-        String type = cboNewProdType.getSelectedItem().toString();
-        productStatus sale = productStatus.SALE;
-        String name = txtNewProdName.getText();
-        String desc = txtNewProdDescription.getText();
-        boolean frag = rbFragile.isSelected();
-        int stock = Integer.parseInt(txtNewProdQuantity.getText());
-        
-        //Call file operator method
-        fop.addProduct(price, type, sale, name, desc, frag, stock);
-        
+        txtNewProdPrice.setText("");
+        txtNewProdName.setText("");
+        txtNewProdDescription.setText("");
+        txtNewProdQuantity.setText("");
+        cboNewProdType.setSelectedItem("Hammers");
     }//GEN-LAST:event_btnNewProdAddActionPerformed
 
     private void btnRegRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegRegisterActionPerformed
