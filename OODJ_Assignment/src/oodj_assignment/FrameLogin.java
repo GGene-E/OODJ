@@ -6,6 +6,9 @@
 package oodj_assignment;
 
 import java.awt.CardLayout;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -19,7 +22,11 @@ public class FrameLogin extends javax.swing.JFrame {
     
     int cartSource;
     int addOrderSource;
-    String userType;
+    PersonType userType;
+    // One Frame to handle Admin and Customer Logins.
+    // Admin OR Customer object will be assigned to adminUser/customerUser
+    Admin adminUser;
+    Customer customerUser;
     
     public FrameLogin() {
         initComponents();
@@ -33,8 +40,8 @@ public class FrameLogin extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-
         rbgFragility = new javax.swing.ButtonGroup();
+        rbgAddUser = new javax.swing.ButtonGroup();
         MainPanel = new javax.swing.JPanel();
         PanelLogin = new javax.swing.JPanel();
         btnLogin = new javax.swing.JButton();
@@ -63,20 +70,22 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlCustomerAdd = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         btnCusAddClear = new javax.swing.JButton();
-        txtCusAddName = new javax.swing.JTextField();
-        txtCusAddContact = new javax.swing.JTextField();
-        txtCusAddEmail = new javax.swing.JTextField();
-        txtCusAddAge = new javax.swing.JTextField();
+        txtUserAddName = new javax.swing.JTextField();
+        txtUserAddContact = new javax.swing.JTextField();
+        txtUserAddEmail = new javax.swing.JTextField();
+        txtUserAddAge = new javax.swing.JTextField();
         lblCustomerName = new javax.swing.JLabel();
         lblCustomerContact = new javax.swing.JLabel();
         lblCustomerEmail = new javax.swing.JLabel();
         lblCustomerAge = new javax.swing.JLabel();
-        btnCusAddNew = new javax.swing.JButton();
+        btnUserAddNew = new javax.swing.JButton();
         lblUsername2 = new javax.swing.JLabel();
         lblPassword2 = new javax.swing.JLabel();
-        txtCusAddUsername = new javax.swing.JTextField();
-        txtCusAddPassword = new javax.swing.JTextField();
+        txtUserAddUsername = new javax.swing.JTextField();
+        txtUserAddPassword = new javax.swing.JTextField();
         lblInstruction = new javax.swing.JLabel();
+        rbAdmin = new javax.swing.JRadioButton();
+        rbCustomer = new javax.swing.JRadioButton();
         lblTitleNewCustomer = new javax.swing.JLabel();
         pnlCustomerEdit = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
@@ -114,13 +123,14 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerEmail3 = new javax.swing.JLabel();
         lblCustomerContact3 = new javax.swing.JLabel();
         lblCustomerAge3 = new javax.swing.JLabel();
-        lblCusVIewID = new javax.swing.JLabel();
-        lblCusVIewName = new javax.swing.JLabel();
-        lblCusVIewContact = new javax.swing.JLabel();
-        lblCusVIewEmail = new javax.swing.JLabel();
-        lblCusVIewAge = new javax.swing.JLabel();
+        lblCusViewID = new javax.swing.JLabel();
+        lblCusViewName = new javax.swing.JLabel();
+        lblCusViewContact = new javax.swing.JLabel();
+        lblCusViewEmail = new javax.swing.JLabel();
+        lblCusViewAge = new javax.swing.JLabel();
         btnCusViewEdit = new javax.swing.JButton();
         btnCusVIewDelete = new javax.swing.JButton();
+        busCusViewDetails = new javax.swing.JButton();
         btnCusViewAdd = new javax.swing.JButton();
         btnCusViewBack = new javax.swing.JButton();
         lblTitleViewCustomer = new javax.swing.JLabel();
@@ -364,6 +374,11 @@ public class FrameLogin extends javax.swing.JFrame {
         });
 
         btnRegRegister.setText("Register");
+        btnRegRegister.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegRegisterActionPerformed(evt);
+            }
+        });
 
         lblAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblAge.setText("Age :");
@@ -477,7 +492,12 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerAge.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblCustomerAge.setText("Age :");
 
-        btnCusAddNew.setText("Add");
+        btnUserAddNew.setText("Add");
+        btnUserAddNew.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUserAddNewActionPerformed(evt);
+            }
+        });
 
         lblUsername2.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblUsername2.setText("Username :");
@@ -487,7 +507,13 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblInstruction.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         lblInstruction.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblInstruction.setText("Enter Customer Details Below");
+        lblInstruction.setText("Enter User Details Below");
+
+        rbgAddUser.add(rbAdmin);
+        rbAdmin.setText("Admin");
+
+        rbgAddUser.add(rbCustomer);
+        rbCustomer.setText("Customer");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -497,25 +523,30 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGap(220, 220, 220)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCustomerAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(btnUserAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCusAddName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                            .addComponent(txtCusAddContact)
-                            .addComponent(txtCusAddEmail)
-                            .addComponent(txtCusAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCusAddUsername)
-                            .addComponent(txtCusAddPassword)))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnCusAddNew, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCusAddClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btnCusAddClear, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(rbAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(rbCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE))
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(lblUsername2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerContact, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblCustomerAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblPassword2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUserAddName, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
+                                .addComponent(txtUserAddContact)
+                                .addComponent(txtUserAddEmail)
+                                .addComponent(txtUserAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtUserAddUsername)
+                                .addComponent(txtUserAddPassword)))))
                 .addGap(222, 222, 222))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
@@ -525,42 +556,46 @@ public class FrameLogin extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(54, Short.MAX_VALUE)
+                .addContainerGap(73, Short.MAX_VALUE)
                 .addComponent(lblInstruction)
                 .addGap(31, 31, 31)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName)
-                    .addComponent(txtCusAddName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAddName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCusAddContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUserAddContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerEmail)
-                    .addComponent(txtCusAddEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAddEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtCusAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUserAddAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCustomerAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblUsername2)
-                    .addComponent(txtCusAddUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtUserAddUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPassword2)
-                    .addComponent(txtCusAddPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
+                    .addComponent(txtUserAddPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCusAddNew)
+                    .addComponent(rbAdmin)
+                    .addComponent(rbCustomer))
+                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUserAddNew)
                     .addComponent(btnCusAddClear))
                 .addGap(46, 46, 46))
         );
 
         lblTitleNewCustomer.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         lblTitleNewCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitleNewCustomer.setText("New Customer");
+        lblTitleNewCustomer.setText("New User");
 
         javax.swing.GroupLayout pnlCustomerAddLayout = new javax.swing.GroupLayout(pnlCustomerAdd);
         pnlCustomerAdd.setLayout(pnlCustomerAddLayout);
@@ -774,40 +809,40 @@ public class FrameLogin extends javax.swing.JFrame {
 
         tblCustomer.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "ID", "Name", "Date Added"
+                "ID", "Name"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -818,11 +853,22 @@ public class FrameLogin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblCustomer.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane2.setViewportView(tblCustomer);
+        if (tblCustomer.getColumnModel().getColumnCount() > 0) {
+            tblCustomer.getColumnModel().getColumn(0).setResizable(false);
+            tblCustomer.getColumnModel().getColumn(0).setPreferredWidth(1);
+            tblCustomer.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         txtCusSearch.setText("Search for Customer");
 
         btnCusSearch.setText("Search");
+        btnCusSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCusSearchActionPerformed(evt);
+            }
+        });
 
         jPanel6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -841,15 +887,15 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerAge3.setFont(new java.awt.Font("Courier New", 0, 11)); // NOI18N
         lblCustomerAge3.setText("Age :");
 
-        lblCusVIewID.setText("ID");
+        lblCusViewID.setText("ID");
 
-        lblCusVIewName.setText("Name");
+        lblCusViewName.setText("Name");
 
-        lblCusVIewContact.setText("Contact");
+        lblCusViewContact.setText("Contact");
 
-        lblCusVIewEmail.setText("Email");
+        lblCusViewEmail.setText("Email");
 
-        lblCusVIewAge.setText("Age");
+        lblCusViewAge.setText("Age");
 
         btnCusViewEdit.setText("Edit");
         btnCusViewEdit.addActionListener(new java.awt.event.ActionListener() {
@@ -859,6 +905,13 @@ public class FrameLogin extends javax.swing.JFrame {
         });
 
         btnCusVIewDelete.setText("Delete");
+
+        busCusViewDetails.setText("View");
+        busCusViewDetails.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                busCusViewDetailsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -877,16 +930,17 @@ public class FrameLogin extends javax.swing.JFrame {
                                 .addComponent(lblCustomerEmail3, javax.swing.GroupLayout.Alignment.TRAILING)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCusVIewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusVIewName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusVIewContact, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
-                            .addComponent(lblCusVIewEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusVIewAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(lblCusViewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusViewName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusViewContact, javax.swing.GroupLayout.DEFAULT_SIZE, 114, Short.MAX_VALUE)
+                            .addComponent(lblCusViewEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusViewAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnCusViewEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnCusVIewDelete)))
+                        .addComponent(busCusViewDetails, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCusViewEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCusVIewDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
@@ -895,27 +949,28 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerID1)
-                    .addComponent(lblCusVIewID))
+                    .addComponent(lblCusViewID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName3)
-                    .addComponent(lblCusVIewName))
+                    .addComponent(lblCusViewName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerContact3)
-                    .addComponent(lblCusVIewContact))
+                    .addComponent(lblCusViewContact))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerEmail3)
-                    .addComponent(lblCusVIewEmail))
+                    .addComponent(lblCusViewEmail))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerAge3)
-                    .addComponent(lblCusVIewAge))
+                    .addComponent(lblCusViewAge))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCusVIewDelete)
-                    .addComponent(btnCusViewEdit))
+                    .addComponent(btnCusViewEdit)
+                    .addComponent(busCusViewDetails))
                 .addContainerGap())
         );
 
@@ -939,7 +994,7 @@ public class FrameLogin extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtCusSearch)
@@ -1282,6 +1337,11 @@ public class FrameLogin extends javax.swing.JFrame {
         jScrollPane3.setViewportView(tblCart);
 
         btnCartAdd.setText("Add Item");
+        btnCartAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCartAddActionPerformed(evt);
+            }
+        });
 
         btnCartRemove.setText("Remove From Cart");
 
@@ -2532,13 +2592,16 @@ public class FrameLogin extends javax.swing.JFrame {
             CardLayout card = (CardLayout)MainPanel.getLayout();
             card.show(MainPanel, "customerMenu"); 
         }
-        else
+        else if (addOrderSource == 2)
         {
-            if(addOrderSource == 2)
-            {
-                CardLayout card = (CardLayout)MainPanel.getLayout();
-                card.show(MainPanel, "orderView");
-            }
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "orderView");
+        }
+        else if (addOrderSource == 3)
+        {
+            cartSource = 1;
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "orderCart");
         }
 
     }//GEN-LAST:event_btnOrderAddBackActionPerformed
@@ -2552,20 +2615,34 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        if(txtLoginUsername.getText().equals("admin"))
+        Person temporaryPerson = new Person(); // Call login method in Person and return an admin or customer account
+        String[] userDetail = temporaryPerson.login(txtLoginUsername.getText().trim(), txtLoginPassword.getText().trim());
+        if(userDetail.length > 0)
         {
-            userType = "admin";
-            CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "adminMenu");
+            JOptionPane.showMessageDialog(null, "Login Successful.");
+            if(PersonType.valueOf(userDetail[2]) == PersonType.ADMIN) // Admin User
+            {
+                adminUser = new Admin(userDetail[0], userDetail[1]);
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "adminMenu");
+                userType = PersonType.ADMIN;
+                
+            }
+            else if(PersonType.valueOf(userDetail[2]) == PersonType.CUSTOMER) // Customer User
+            {
+                customerUser = new Customer(userDetail[0], userDetail[1]);
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "customerMenu");
+                userType = PersonType.CUSTOMER;
+            }
+            txtLoginUsername.setText("");
+            txtLoginPassword.setText("");
         }
         else
         {
-            if(txtLoginUsername.getText().equals("customer"))
-            {
-                userType = "customer";
-                CardLayout card = (CardLayout)MainPanel.getLayout();
-                card.show(MainPanel, "customerMenu");
-            }
+            JOptionPane.showMessageDialog(null, "Incorrect Login Credentials.");
+            txtLoginUsername.setText("");
+            txtLoginPassword.setText("");
         }
         //Later Change This ##JONATHAN
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -2574,6 +2651,25 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "customerView");
+        //Code Here
+        // Get Customer List
+        ArrayList<Customer> customerList = adminUser.getCustomerList();
+        if(!customerList.isEmpty())
+        {
+            DefaultTableModel customerTable = (DefaultTableModel)tblCustomer.getModel();
+            customerTable.setRowCount(0);
+            for(Customer customerObject:customerList)
+            {
+                String[] customerDetails = new String[2];
+                customerDetails[0] = customerObject.getPersonID();
+                customerDetails[1] = customerObject.getName();
+                customerTable.addRow(customerDetails);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: Customer Database is detached or empty.");
+        }
     }//GEN-LAST:event_btnManageCustomerActionPerformed
 
     private void btnManageProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductActionPerformed
@@ -2684,12 +2780,12 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (cartSource == 1)
         {
-            if(userType == "admin")
+            if(userType == PersonType.ADMIN)
             {
                 CardLayout card = (CardLayout)MainPanel.getLayout();
                 card.show(MainPanel, "adminMenu");
             }
-            else
+            else if (userType == PersonType.CUSTOMER)
             {
                 CardLayout card = (CardLayout)MainPanel.getLayout();
                 card.show(MainPanel, "customerMenu");
@@ -2717,12 +2813,12 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnViewOrderBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderBackActionPerformed
         // TODO add your handling code here:
-        if(userType == "admin") //User is admin
+        if(userType == PersonType.ADMIN) //User is admin
         {
             CardLayout card = (CardLayout)MainPanel.getLayout();
             card.show(MainPanel, "adminMenu");
         }
-        else //User is Customer
+        else if (userType == PersonType.CUSTOMER)//User is Customer
         {
             CardLayout card = (CardLayout)MainPanel.getLayout();
             card.show(MainPanel, "customerMenu");
@@ -2748,6 +2844,7 @@ public class FrameLogin extends javax.swing.JFrame {
         card.show(MainPanel, "login"); //JONATHAN
     }//GEN-LAST:event_btnCusLogoutActionPerformed
 
+
     private void btnNewProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProdAddActionPerformed
         //Construct file operator
         FileOperator fop = new FileOperator();
@@ -2765,6 +2862,183 @@ public class FrameLogin extends javax.swing.JFrame {
         fop.addProduct(price, type, sale, name, desc, frag, stock);
         
     }//GEN-LAST:event_btnNewProdAddActionPerformed
+
+    private void btnRegRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegRegisterActionPerformed
+        // TODO add your handling code here:
+        if(txtRegName.getText().isBlank() || txtRegContact.getText().isBlank() || 
+                txtRegEmail.getText().isBlank() || txtRegAge.getText().isBlank() || 
+                txtRegUsername.getText().isBlank() || txtRegPassword.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else
+        {
+            try
+            {
+                String name = txtRegName.getText().trim();
+                String username = txtRegUsername.getText().trim();
+                String password = txtRegPassword.getText().trim();
+                int age = Integer.parseInt(txtRegAge.getText().trim());
+                String contact = txtRegContact.getText().trim();
+                String email = txtRegEmail.getText().trim();
+                Customer customerObject = new Customer(name, username, password, age, contact, email);
+                Boolean state = customerObject.add(customerObject);
+                if(state) // True = writes to file
+                {
+                    JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                }
+                else if (!state)// Invalid Password
+                {
+                    JOptionPane.showMessageDialog(null, "Username is taken. Please choose another username.");
+                }
+            }
+            catch(NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Please fill in numeric values in the age field.");
+            }
+        }
+    }//GEN-LAST:event_btnRegRegisterActionPerformed
+
+    private void btnUserAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserAddNewActionPerformed
+        // TODO add your handling code here:
+        if(txtUserAddName.getText().isBlank() || txtUserAddContact.getText().isBlank() || 
+                txtUserAddEmail.getText().isBlank() || txtUserAddAge.getText().isBlank() || 
+                txtUserAddUsername.getText().isBlank() || txtUserAddPassword.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else
+        {
+            if(rbAdmin.isSelected())
+            {
+                try
+                {
+                    String name = txtUserAddName.getText().trim();
+                    String username = txtUserAddUsername.getText().trim();
+                    String password = txtUserAddPassword.getText().trim();
+                    int age = Integer.parseInt(txtUserAddAge.getText().trim());
+                    String contact = txtUserAddContact.getText().trim();
+                    String email = txtUserAddEmail.getText().trim();
+                    Admin adminObject = new Admin(name, username, password, age, contact, email);
+                    Boolean state = adminObject.add(adminObject);
+                    if(state) // True = writes to file
+                    {
+                        JOptionPane.showMessageDialog(null, "Successfully added admin.");
+                    }
+                    else if (!state)// Invalid Password
+                    {
+                        JOptionPane.showMessageDialog(null, "Username is taken. Please choose another username.");
+                    }
+                }
+                catch(NumberFormatException ex)
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in numeric values in the age field.");
+                }
+            }
+            else if(rbCustomer.isSelected())
+            {
+                try
+                {
+                    String name = txtUserAddName.getText().trim();
+                    String username = txtUserAddUsername.getText().trim();
+                    String password = txtUserAddPassword.getText().trim();
+                    int age = Integer.parseInt(txtUserAddAge.getText().trim());
+                    String contact = txtUserAddContact.getText().trim();
+                    String email = txtUserAddEmail.getText().trim();
+                    Customer customerObject = new Customer(name, username, password, age, contact, email);
+                    Boolean state = customerObject.add(customerObject);
+                    if(state) // True = writes to file
+                    {
+                        JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                    }
+                    else if (!state)// Invalid Password
+                    {
+                        JOptionPane.showMessageDialog(null, "Username is taken. Please choose another username.");
+                    }
+                }
+                catch(NumberFormatException ex)
+                {
+                    JOptionPane.showMessageDialog(null, "Please fill in numeric values in the age field.");
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please select a radiobutton.");
+            }        
+        }
+        
+
+    }//GEN-LAST:event_btnUserAddNewActionPerformed
+
+    private void btnCartAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartAddActionPerformed
+        // TODO add your handling code here:
+        addOrderSource = 3;
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "orderAdd");
+    }//GEN-LAST:event_btnCartAddActionPerformed
+
+    private void busCusViewDetailsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_busCusViewDetailsActionPerformed
+        // TODO add your handling code here:
+        // Get Customer ID & Format Search ID
+        if(tblCustomer.getSelectedRow() >= 0)
+        {
+            String searchedID = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 0).toString();
+            searchedID = searchedID.toLowerCase().trim();
+            // Get Customer
+            Customer viewedCustomer = adminUser.view(searchedID);
+            if(viewedCustomer != null)
+            {
+                lblCusViewID.setText(viewedCustomer.getPersonID());
+                lblCusViewName.setText(viewedCustomer.getName());
+                lblCusViewContact.setText(viewedCustomer.getContact());
+                lblCusViewEmail.setText(viewedCustomer.getEmail());
+                lblCusViewAge.setText(Integer.toString(viewedCustomer.getAge()));
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Customer not found.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Customer Table.");
+        }
+
+        
+    }//GEN-LAST:event_busCusViewDetailsActionPerformed
+
+    private void btnCusSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusSearchActionPerformed
+        // TODO add your handling code here:
+        if(!(txtCusSearch.getText().isBlank() || txtCusSearch.getText().toLowerCase().trim().equals("search for customer")))
+        {
+            String searchParameter = txtCusSearch.getText();
+            searchParameter = searchParameter.toLowerCase().trim();
+            ArrayList<Customer> matchedCustomer = adminUser.search(searchParameter);
+            if(!matchedCustomer.isEmpty())
+            {
+                DefaultTableModel customerTable = (DefaultTableModel)tblCustomer.getModel();
+                customerTable.setRowCount(0);
+                for(Customer customerObject:matchedCustomer)
+                {
+                    String[] customerDetails = new String[2];
+                    customerDetails[0] = customerObject.getPersonID();
+                    customerDetails[1] = customerObject.getName();
+                    customerTable.addRow(customerDetails);
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "0 Search results.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please enter Customer ID or Name into the Search Field.");
+        }
+        
+
+    }//GEN-LAST:event_btnCusSearchActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -2818,7 +3092,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCartRemove;
     private javax.swing.JButton btnCheckout;
     private javax.swing.JButton btnCusAddClear;
-    private javax.swing.JButton btnCusAddNew;
     private javax.swing.JButton btnCusCart;
     private javax.swing.JButton btnCusDelete1;
     private javax.swing.JButton btnCusEditCancel;
@@ -2852,11 +3125,13 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnRegRegister;
     private javax.swing.JButton btnRemove;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnUserAddNew;
     private javax.swing.JButton btnViewOrderBack;
     private javax.swing.JButton btnViewOrderItems;
     private javax.swing.JButton btnViewOrderModify;
     private javax.swing.JButton btnViewOrderNew;
     private javax.swing.JButton btnViewOrderSearch;
+    private javax.swing.JButton busCusViewDetails;
     private javax.swing.JComboBox<String> cboEditProdType;
     private javax.swing.JComboBox<String> cboNewProdType;
     private javax.swing.JLabel jLabel1;
@@ -2916,11 +3191,11 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblCusEditName;
     private javax.swing.JLabel lblCusID2;
     private javax.swing.JLabel lblCusName2;
-    private javax.swing.JLabel lblCusVIewAge;
-    private javax.swing.JLabel lblCusVIewContact;
-    private javax.swing.JLabel lblCusVIewEmail;
-    private javax.swing.JLabel lblCusVIewID;
-    private javax.swing.JLabel lblCusVIewName;
+    private javax.swing.JLabel lblCusViewAge;
+    private javax.swing.JLabel lblCusViewContact;
+    private javax.swing.JLabel lblCusViewEmail;
+    private javax.swing.JLabel lblCusViewID;
+    private javax.swing.JLabel lblCusViewName;
     private javax.swing.JLabel lblCustomerAge;
     private javax.swing.JLabel lblCustomerAge1;
     private javax.swing.JLabel lblCustomerAge2;
@@ -3009,11 +3284,14 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlProductAdd;
     private javax.swing.JPanel pnlProductEdit;
     private javax.swing.JPanel pnlProductView;
+    private javax.swing.JRadioButton rbAdmin;
+    private javax.swing.JRadioButton rbCustomer;
     private javax.swing.JRadioButton rbDiscontinued;
     private javax.swing.JRadioButton rbFragile;
     private javax.swing.JRadioButton rbNonFragile;
     private javax.swing.JRadioButton rbSale;
     private javax.swing.ButtonGroup rbgFragility;
+    private javax.swing.ButtonGroup rbgAddUser;
     private javax.swing.JTable tblCart;
     private javax.swing.JTable tblCart1;
     private javax.swing.JTable tblCart2;
@@ -3021,12 +3299,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomer1;
     private javax.swing.JTable tblOrderItem;
     private javax.swing.JTable tblProductView;
-    private javax.swing.JTextField txtCusAddAge;
-    private javax.swing.JTextField txtCusAddContact;
-    private javax.swing.JTextField txtCusAddEmail;
-    private javax.swing.JTextField txtCusAddName;
-    private javax.swing.JTextField txtCusAddPassword;
-    private javax.swing.JTextField txtCusAddUsername;
     private javax.swing.JTextField txtCusEditAge;
     private javax.swing.JTextField txtCusEditContact;
     private javax.swing.JTextField txtCusEditEmail;
@@ -3049,5 +3321,11 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtRegName;
     private javax.swing.JTextField txtRegPassword;
     private javax.swing.JTextField txtRegUsername;
+    private javax.swing.JTextField txtUserAddAge;
+    private javax.swing.JTextField txtUserAddContact;
+    private javax.swing.JTextField txtUserAddEmail;
+    private javax.swing.JTextField txtUserAddName;
+    private javax.swing.JTextField txtUserAddPassword;
+    private javax.swing.JTextField txtUserAddUsername;
     // End of variables declaration//GEN-END:variables
 }
