@@ -35,11 +35,21 @@ public class Admin extends Person{
     }
     
     // Methods
+    // Get Customer List
+    public ArrayList<Customer> getCustomerList()
+    {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Customer> customerList = fileOperator.getCustomerList();
+        return customerList;
+    }
+    
+    // Registering new Customers from Admin Account
     public Boolean add(Customer customerObject)
     {
         return super.add(customerObject);
     }
     
+    // Registering new Admin from Admin Account -> Overloaded add()
     public Boolean add(Admin adminObject)
     {
         //Returns FALSE if there are same username
@@ -71,6 +81,43 @@ public class Admin extends Person{
         return status;
     }
     
+    // Viewing Customers
+    public Customer view(String ID) //Specialized Finder
+    {
+        Customer viewedCustomer = null;
+        ID = ID.toLowerCase().trim(); // Reformat for search
+        ArrayList<Customer> matchedCustomer = search(ID);
+        for(Customer customerObject:matchedCustomer)
+        {
+            if(customerObject.getPersonID().toLowerCase().equals(ID))
+            {
+                viewedCustomer = customerObject;
+            }
+        }
+        return viewedCustomer;
+    }
+    
+    public ArrayList<Customer> search(String searchParameter) // Massive Search
+    {
+        ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
+        searchParameter = searchParameter.toLowerCase().trim(); // Reformat for search
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Customer> customerList = fileOperator.getCustomerList();
+        
+        for(Customer customerObject:customerList)
+        {
+            if(searchParameter.equals(customerObject.getPersonID().toLowerCase()))
+            {
+                foundCustomer.add(customerObject);
+            }
+            else if(searchParameter.equals(customerObject.getName().toLowerCase())|| 
+                    customerObject.getName().toLowerCase().contains(searchParameter))
+            {
+                foundCustomer.add(customerObject);
+            }
+        }
+        return foundCustomer;
+    }
     
     //public String checkInventory(){}
     

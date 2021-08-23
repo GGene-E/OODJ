@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+<Form version="1.6" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <NonVisualComponents>
     <Component class="javax.swing.ButtonGroup" name="rbgAddUser">
     </Component>
@@ -926,7 +926,7 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jScrollPane2" pref="0" max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" pref="469" max="32767" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="txtCusSearch" alignment="0" max="32767" attributes="0"/>
@@ -973,11 +973,27 @@
                     <Component class="javax.swing.JTable" name="tblCustomer">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="3" rowCount="24">
+                          <Table columnCount="2" rowCount="24">
                             <Column editable="false" title="ID" type="java.lang.String"/>
                             <Column editable="false" title="Name" type="java.lang.String"/>
-                            <Column editable="false" title="Date Added" type="java.lang.String"/>
                           </Table>
+                        </Property>
+                        <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                          <TableColumnModel selectionModel="0">
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                            <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                              <Title/>
+                              <Editor/>
+                              <Renderer/>
+                            </Column>
+                          </TableColumnModel>
+                        </Property>
+                        <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
+                          <JTableSelectionModel selectionMode="0"/>
                         </Property>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -995,6 +1011,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Search"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCusSearchActionPerformed"/>
+                  </Events>
                 </Component>
                 <Container class="javax.swing.JPanel" name="jPanel6">
                   <Properties>
@@ -1023,18 +1042,19 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="lblCusVIewID" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusVIewName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusVIewContact" alignment="0" pref="114" max="32767" attributes="0"/>
-                                          <Component id="lblCusVIewEmail" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusVIewAge" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusViewID" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusViewName" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusViewContact" alignment="0" pref="114" max="32767" attributes="0"/>
+                                          <Component id="lblCusViewEmail" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblCusViewAge" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Component id="btnCusViewEdit" min="-2" pref="63" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="btnCusVIewDelete" min="-2" max="-2" attributes="0"/>
+                                      <Component id="busCusViewDetails" min="-2" pref="63" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnCusViewEdit" max="32767" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="btnCusVIewDelete" min="-2" pref="63" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1047,32 +1067,33 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerID1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusVIewID" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusViewID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerName3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusVIewName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusViewName" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerContact3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusVIewContact" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusViewContact" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerEmail3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusVIewEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusViewEmail" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerAge3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusVIewAge" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblCusViewAge" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="btnCusVIewDelete" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="btnCusViewEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="busCusViewDetails" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -1120,27 +1141,27 @@
                         <Property name="text" type="java.lang.String" value="Age :"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusVIewID">
+                    <Component class="javax.swing.JLabel" name="lblCusViewID">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusVIewName">
+                    <Component class="javax.swing.JLabel" name="lblCusViewName">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Name"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusVIewContact">
+                    <Component class="javax.swing.JLabel" name="lblCusViewContact">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Contact"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusVIewEmail">
+                    <Component class="javax.swing.JLabel" name="lblCusViewEmail">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Email"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusVIewAge">
+                    <Component class="javax.swing.JLabel" name="lblCusViewAge">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Age"/>
                       </Properties>
@@ -1157,6 +1178,14 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Delete"/>
                       </Properties>
+                    </Component>
+                    <Component class="javax.swing.JButton" name="busCusViewDetails">
+                      <Properties>
+                        <Property name="text" type="java.lang.String" value="View"/>
+                      </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="busCusViewDetailsActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
