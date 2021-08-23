@@ -115,19 +115,16 @@ public class Person {
         //Returns FALSE if there are same username
         FileOperator fileOperator = new FileOperator();
         //Compare for username
-        int adminCount = 1;
         ArrayList<Admin> adminList = fileOperator.getAdminList(); // Check for same username in Admin.txt
         for(Admin adminCheck:adminList)
         {
             if(adminCheck.getUsername().equals(customerObject.getUsername())) // There is a match
             {
                 return false;
-            }
-            adminCount = adminCount + 1;
-            
+            }       
         }
         
-        int customerCount = 1;
+        String lastCustomerID = "a";
         ArrayList<Customer> customerList = fileOperator.getCustomerList(); // Check for same username in Customer.txt
         for(Customer customerCheck:customerList)
         {
@@ -135,9 +132,11 @@ public class Person {
             {
                 return false;
             }
-            customerCount = customerCount + 1;
+            lastCustomerID = customerCheck.getPersonID();
         }
-        customerObject.setPersonID("C" + Integer.toString(customerCount));
+        lastCustomerID = lastCustomerID.substring(1);
+        String newCustomerID = Integer.toString(Integer.parseInt(lastCustomerID) + 1);
+        customerObject.setPersonID(String.format("C%s", newCustomerID));
         
         Boolean status = fileOperator.writeCustomer(customerObject);
         return status;

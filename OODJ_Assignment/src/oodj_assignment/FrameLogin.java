@@ -2579,6 +2579,12 @@ public class FrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginRegisterActionPerformed
+        txtRegName.setText("");
+        txtRegUsername.setText("");
+        txtRegPassword.setText("");
+        txtRegAge.setText("");
+        txtRegContact.setText("");
+        txtRegEmail.setText("");
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "registration");
     }//GEN-LAST:event_btnLoginRegisterActionPerformed
@@ -2799,6 +2805,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnCusAddClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusAddClearActionPerformed
         // TODO add your handling code here:
+        btnManageCustomer.doClick();
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "customerView");
     }//GEN-LAST:event_btnCusAddClearActionPerformed
@@ -2911,7 +2918,13 @@ public class FrameLogin extends javax.swing.JFrame {
                 Boolean state = customerObject.add(customerObject);
                 if(state) // True = writes to file
                 {
-                    JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                    JOptionPane.showMessageDialog(null, "Successfully registered.");
+                    txtRegName.setText("");
+                    txtRegUsername.setText("");
+                    txtRegPassword.setText("");
+                    txtRegAge.setText("");
+                    txtRegContact.setText("");
+                    txtRegEmail.setText("");
                 }
                 else if (!state)// Invalid Password
                 {
@@ -2950,6 +2963,12 @@ public class FrameLogin extends javax.swing.JFrame {
                     if(state) // True = writes to file
                     {
                         JOptionPane.showMessageDialog(null, "Successfully added admin.");
+                        txtUserAddName.setText("");
+                        txtUserAddUsername.setText("");
+                        txtUserAddPassword.setText("");
+                        txtUserAddAge.setText("");
+                        txtUserAddContact.setText("");
+                        txtUserAddEmail.setText("");
                     }
                     else if (!state)// Invalid Password
                     {
@@ -2976,6 +2995,12 @@ public class FrameLogin extends javax.swing.JFrame {
                     if(state) // True = writes to file
                     {
                         JOptionPane.showMessageDialog(null, "Successfully added customer.");
+                        txtUserAddName.setText("");
+                        txtUserAddUsername.setText("");
+                        txtUserAddPassword.setText("");
+                        txtUserAddAge.setText("");
+                        txtUserAddContact.setText("");
+                        txtUserAddEmail.setText("");
                     }
                     else if (!state)// Invalid Password
                     {
@@ -3104,13 +3129,19 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(tblCustomer.getSelectedRow() >= 0)
         {
+            Boolean status = false;
             String customerID = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 0).toString();
             String customerName = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 1).toString();
             int choice = JOptionPane.showConfirmDialog(null, String.format("Confirm delete?\nCustomer ID: %s\nName: %s", customerID,customerName),
                     "Confirm Delete", JOptionPane.YES_NO_OPTION);
             if(choice == JOptionPane.YES_OPTION)
             {
-                //Boolean status = adminUser.;
+                status = adminUser.delete(customerID);
+            }
+            if(status) // Status is TRUE
+            {
+                JOptionPane.showMessageDialog(null, "Customer Data has been completely deleted.");
+                btnManageCustomer.doClick();
             }
         }
         else
