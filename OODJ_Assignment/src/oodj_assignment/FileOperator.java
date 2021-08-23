@@ -81,9 +81,7 @@ public class FileOperator {
         }
     }
 */
-    
 
-    
     public void addProduct(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
     {
         //Get indexing for ID
@@ -149,10 +147,6 @@ public class FileOperator {
         }
     }
     
-    
-    
-
-    
     public ArrayList<Product> getProductArray()
     {   
         ArrayList<Product> prodList = new ArrayList<Product>();
@@ -195,99 +189,6 @@ public class FileOperator {
             
         }
         return prodList;
-    }
- 
-    // Concerning Admin and Customers Data Retrieval
-    public Boolean writePersonToAdmin(Person personObject) // Same implementation as writeAdmin() but writes Person Object instead
-    {
-        Boolean status = false; // False = writing/appending failed.
-        File adminFile = new File("ADMIN.txt");
-        if(adminFile.exists()) // Admin.txt exists
-        {
-            try(FileWriter fileWriter = new FileWriter(adminFile, true))
-            {
-                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
-                {
-                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
-                    {
-                        printWriter.write(personObject.toString());
-                        bufferedWriter.newLine();
-                        status = true;
-                    }
-                }
-            }
-            catch(IOException ex)
-            {
-                JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while appending to Admin database");
-            }
-        }
-        else // Admin.txt has not been created
-        {
-            JOptionPane.showMessageDialog(null, "Admin database not found. Creating a new database.");
-            try(FileWriter fileWriter = new FileWriter(adminFile))
-            {
-                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
-                {
-                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
-                    {
-                        printWriter.write(personObject.toString());
-                        bufferedWriter.newLine();
-                        status = true;
-                    }
-                }
-            }
-            catch(IOException ex)
-            {
-                JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while creating and writing to Admin database.");
-            }
-        }
-        return status;
-    }
-    
-    public Boolean writePersonToCustomer(Person personObject) // Sample implementation as writeCustomer() but writes Person Object instead
-    {
-        Boolean status = false; // False = writing/appending failed.
-        File customerFile = new File("CUSTOMER.txt");
-        if(customerFile.exists()) // Customer.txt exists
-        {
-            try(FileWriter fileWriter = new FileWriter(customerFile, true))
-            {
-                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
-                {
-                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
-                    {
-                        printWriter.write(personObject.toString());
-                        bufferedWriter.newLine();
-                        status = true;
-                    }
-                }
-            }
-            catch(IOException ex)
-            {
-                JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while appending to Customer database");
-            }
-        }
-        else // Customer.txt has not been created
-        {
-            JOptionPane.showMessageDialog(null, "Customer database not found. Creating a new database.");
-            try(FileWriter fileWriter = new FileWriter(customerFile))
-            {
-                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
-                {
-                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
-                    {
-                        printWriter.write(personObject.toString());
-                        bufferedWriter.newLine();
-                        status = true;
-                    }
-                }
-            }
-            catch(IOException ex)
-            {
-                JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while creating and writing to Customer database.");
-            }
-        }
-        return status;
     }
     
     public ArrayList<Admin> getAdminList() // Returns a list of admin objects
