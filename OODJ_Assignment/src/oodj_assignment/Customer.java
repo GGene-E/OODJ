@@ -22,6 +22,11 @@ public class Customer extends Person {
         super(personID, username);
     }
     
+    public Customer(String personID, String name, String contact, String email, int age)
+    {
+        super(personID, name, contact, email, age);
+    }
+    
     public Customer(String name, String username, String password, int age, String contact, String email)
     {
         super(name, username, password, age, contact, email);

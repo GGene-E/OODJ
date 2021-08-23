@@ -30,6 +30,15 @@ public class Person {
         this.username = username;
     }
     
+    public Person(String personID, String name, String contact, String email, int age)
+    {
+        this.personID = personID;
+        this.name = name;
+        this.contact = contact;
+        this.email = email;
+        this.age = age;
+    }
+    
     public Person(String name, String username, String password, int age, String contact, String email)
     {
         this.name = name;

@@ -285,7 +285,7 @@ public class FileOperator {
 
     public Boolean writeCustomer(Customer customerObject) // Write One Customer Object
     {
-        Boolean status = null; // False = writing/appending failed.
+        Boolean status = false; // False = writing/appending failed.
         File customerFile = new File("CUSTOMER.txt");
         if(customerFile.exists()) // Customer.txt exists
         {
@@ -325,6 +325,32 @@ public class FileOperator {
             {
                 JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while creating and writing to Customer database.");
             }
+        }
+        return status;
+    }
+    
+    public Boolean overwriteCustomer(ArrayList<Customer> customerList)
+    {
+        Boolean status = false;
+        File customerFile = new File("CUSTOMER.txt");
+        try(FileWriter fileWriter = new FileWriter(customerFile))
+        {
+            try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+            {
+                try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
+                {
+                    for(Customer customerObject:customerList)
+                    {
+                        printWriter.write(customerObject.toString());
+                        bufferedWriter.newLine();
+                    }
+                }
+            }
+            status = true;
+        }
+        catch(IOException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while writing to Customer database.");
         }
         return status;
     }
