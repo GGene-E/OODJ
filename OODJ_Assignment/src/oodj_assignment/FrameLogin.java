@@ -2679,6 +2679,8 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "productView");
+        
+        
     }//GEN-LAST:event_btnManageProductActionPerformed
 
     private void btnAdminManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminManageOrderActionPerformed
@@ -2882,7 +2884,7 @@ public class FrameLogin extends javax.swing.JFrame {
         else
         {
             //Construct file operator
-            FileOperator fop = new FileOperator();
+            Admin admin = new Admin();
             
             try{
                 //Prepare variables
@@ -2895,7 +2897,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 int stock = Integer.parseInt(txtNewProdQuantity.getText());
                 
                 //Call file operator method
-                fop.addProduct(price, type, sale, name, desc, frag, stock);
+                admin.add(price, type, sale, name, desc, frag, stock);
                 JOptionPane.showMessageDialog(null, "Item Successfully Added");
             } 
             catch (NumberFormatException ex)

@@ -43,6 +43,21 @@ public class Admin extends Person{
         return customerList;
     }
     
+    // Get Product List
+    public ArrayList<Product> getProductList()
+    {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Product> productList = fileOperator.getProductArray();
+        return productList;
+    }
+    
+    // Registering new Product
+    public void add(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
+    {
+        FileOperator fo = new FileOperator();
+        fo.addProduct(price, type, status, name, description, frag, stock);
+    }
+    
     // Registering new Customers from Admin Account
     public Boolean add(Customer customerObject)
     {
