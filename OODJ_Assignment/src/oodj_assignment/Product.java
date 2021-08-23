@@ -19,6 +19,8 @@ abstract class Product {
     protected boolean fragility; 
     protected int stock;
     
+    public Product() {} // Default Constructor
+    
     public Product(String ID, double price, String type, productStatus status, String name, String description, boolean fragility, int stock)
     {
         productID = ID;

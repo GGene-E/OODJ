@@ -201,7 +201,7 @@ public class FileOperator {
     public Boolean writePersonToAdmin(Person personObject) // Same implementation as writeAdmin() but writes Person Object instead
     {
         Boolean status = false; // False = writing/appending failed.
-        File adminFile = new File("Admin.txt");
+        File adminFile = new File("ADMIN.txt");
         if(adminFile.exists()) // Admin.txt exists
         {
             try(FileWriter fileWriter = new FileWriter(adminFile, true))
@@ -247,7 +247,7 @@ public class FileOperator {
     public Boolean writePersonToCustomer(Person personObject) // Sample implementation as writeCustomer() but writes Person Object instead
     {
         Boolean status = false; // False = writing/appending failed.
-        File customerFile = new File("Customer.txt");
+        File customerFile = new File("CUSTOMER.txt");
         if(customerFile.exists()) // Customer.txt exists
         {
             try(FileWriter fileWriter = new FileWriter(customerFile, true))
@@ -294,7 +294,7 @@ public class FileOperator {
     {
         ArrayList<Admin> adminList = new ArrayList<Admin>();
         
-        File adminFile = new File("Admin.txt");
+        File adminFile = new File("ADMIN.txt");
         try(Scanner adminScanner = new Scanner(adminFile))
         {
             while(adminScanner.hasNextLine())
@@ -317,7 +317,7 @@ public class FileOperator {
     {
         ArrayList<Customer> customerList = new ArrayList<Customer>();
         
-        File customerFile = new File("Customer.txt");
+        File customerFile = new File("CUSTOMER.txt");
         try(Scanner customerScanner = new Scanner(customerFile))
         {
             while(customerScanner.hasNextLine())
@@ -339,7 +339,7 @@ public class FileOperator {
     public Boolean writeAdmin(Admin adminObject) // Write One Admin Object
     {
         Boolean status = false; // False = writing/appending failed.
-        File adminFile = new File("Admin.txt");
+        File adminFile = new File("ADMIN.txt");
         if(adminFile.exists()) // Admin.txt exists
         {
             try(FileWriter fileWriter = new FileWriter(adminFile, true))
@@ -385,7 +385,7 @@ public class FileOperator {
     public Boolean writeCustomer(Customer customerObject) // Write One Customer Object
     {
         Boolean status = null; // False = writing/appending failed.
-        File customerFile = new File("Customer.txt");
+        File customerFile = new File("CUSTOMER.txt");
         if(customerFile.exists()) // Customer.txt exists
         {
             try(FileWriter fileWriter = new FileWriter(customerFile, true))
