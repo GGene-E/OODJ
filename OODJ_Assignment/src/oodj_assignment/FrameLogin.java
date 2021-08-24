@@ -276,7 +276,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblProductViewID = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         btnProdSearch = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        txtProdSearch = new javax.swing.JTextField();
         btnProdAdd = new javax.swing.JButton();
         btnProdDelete = new javax.swing.JButton();
         btnProdEdit = new javax.swing.JButton();
@@ -2330,8 +2330,13 @@ public class FrameLogin extends javax.swing.JFrame {
         );
 
         btnProdSearch.setText("Search");
+        btnProdSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdSearchActionPerformed(evt);
+            }
+        });
 
-        jTextField1.setText("Search for Product");
+        txtProdSearch.setText("Search for Product");
 
         btnProdAdd.setText("Add Products");
         btnProdAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -2372,7 +2377,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnProdAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(txtProdSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                             .addComponent(btnProdEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2391,7 +2396,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnProdSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtProdSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -3225,14 +3230,44 @@ public class FrameLogin extends javax.swing.JFrame {
             }
             else
             {
-                JOptionPane.showMessageDialog(null, "Customer not found.");
+                JOptionPane.showMessageDialog(null, "Product not found.");
             }
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Please select a row in the Customer Table.");
+            JOptionPane.showMessageDialog(null, "Please select a row in the Product Table.");
         }
     }//GEN-LAST:event_tblProductMouseClicked
+
+    private void btnProdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdSearchActionPerformed
+        if(!(txtProdSearch.getText().isBlank() || txtProdSearch.getText().toLowerCase().trim().equals("search for product")))
+        {
+            String searchParameter = txtProdSearch.getText();
+            searchParameter = searchParameter.toLowerCase().trim();
+            ArrayList<Product> matchedProd = adminUser.searchProd(searchParameter);
+            if(!matchedProd.isEmpty())
+            {
+                DefaultTableModel productTable = (DefaultTableModel)tblProduct.getModel();
+                productTable.setRowCount(0);
+                for(Product productObject: matchedProd)
+                {
+                    String[] productDetails = new String[3];
+                    productDetails[0] = productObject.getProductID();
+                    productDetails[1] = productObject.getName();
+                    productDetails[2] = Integer.toString(productObject.getStock());
+                    productTable.addRow(productDetails);
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "0 Search results.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please enter Product ID or Name into the Search Field.");
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProdSearchActionPerformed
 
 
     /**
@@ -3376,7 +3411,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblCusContact2;
@@ -3512,6 +3546,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtNewProdName;
     private javax.swing.JTextField txtNewProdPrice;
     private javax.swing.JTextField txtNewProdQuantity;
+    private javax.swing.JTextField txtProdSearch;
     private javax.swing.JTextField txtRegAge;
     private javax.swing.JTextField txtRegContact;
     private javax.swing.JTextField txtRegEmail;
