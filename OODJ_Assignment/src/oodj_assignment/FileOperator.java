@@ -354,4 +354,84 @@ public class FileOperator {
         }
         return status;
     }
+    
+    public Boolean overwriteProduct(ArrayList<Product> prodList)
+    {
+        Boolean status = false;
+        File file = new File("PRODUCT.txt");
+        try(FileWriter fileWriter = new FileWriter(file))
+        {
+            try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+            {
+                try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
+                {
+                    for(Product productObject : prodList)
+                    {
+                        String prod = productObject.getProductID() + "," + 
+                        productObject.getProductPrice() + "," + 
+                        productObject.getProductType() + "," + 
+                        productObject.getProductStat() + "," + 
+                        productObject.getName() + "," + 
+                        productObject.getDescription() + "," + 
+                        productObject.isFragility() + "," +
+                        productObject.stock;
+                        
+                        printWriter.write(prod);
+                        bufferedWriter.newLine();
+                    }
+                }
+            }
+            status = true;
+        }
+        catch(IOException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while writing to Product database.");
+        }
+        return status;
+    }
+    
+    public ArrayList<Product> deleteProductList(Product Prod)
+    {
+        ArrayList<Product> prodRemoved = new ArrayList<>();
+        try
+        {
+            File file = new File("PRODUCT.txt");
+            Scanner sc = new Scanner(file);
+            while (sc.hasNextLine())
+            {
+                String line = sc.nextLine();
+                String[] details = line.split(",");
+                if(!details[0].toLowerCase().equals(Prod.getProductID().toLowerCase()))
+                {
+                    if (details[6].equals("true"))
+                    {
+                        double price = Double.parseDouble(details[1]);
+                        productStatus stat = productStatus.valueOf(details[3]);
+                        boolean  frag = Boolean.parseBoolean(details[6]);
+                        int stock = Integer.parseInt(details[7]);
+
+                        Fragile prod = new Fragile(details[0],price,details[2],stat,details[4],details[5],frag,stock);
+                        prodRemoved.add(prod);
+                    } 
+                    //Creates Non-Fragile Object
+                    else
+                    {
+                        double price = Double.parseDouble(details[1]);
+                        productStatus stat = productStatus.valueOf(details[3]);
+                        boolean  frag = Boolean.parseBoolean(details[6]);
+                        int stock = Integer.parseInt(details[7]);
+
+                        Non_Fragile prod = new Non_Fragile(details[0],price,details[2],stat,details[4],details[5],frag,stock);
+                        prodRemoved.add(prod);                    
+                    }
+                }
+
+            }
+        }
+        catch(IOException ex)
+        {
+            
+        }
+        return prodRemoved;
+    }
 }

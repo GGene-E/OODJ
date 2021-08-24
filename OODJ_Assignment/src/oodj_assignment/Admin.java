@@ -198,6 +198,15 @@ public class Admin extends Person{
         }
         return status;
     }
+    public boolean editProd(Product edittedProd)
+    {
+        FileOperator fop = new FileOperator();
+        ArrayList<Product> removedList = fop.deleteProductList(edittedProd);
+        int index = Integer.parseInt(edittedProd.getProductID()) - 1;
+        removedList.add(index, edittedProd);        
+        boolean check = fop.overwriteProduct(removedList);
+        return check;
+    }
     
     // Delete Customer --> No remains of Entry
     public Boolean delete(String customerID)

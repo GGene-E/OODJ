@@ -145,6 +145,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLoginUsername">
+              <Events>
+                <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtLoginUsernameKeyPressed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="txtLoginPassword">
             </Component>
@@ -2494,7 +2497,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="lblTitleNewProduct" alignment="0" pref="728" max="32767" attributes="0"/>
+                  <Component id="lblTitleNewProduct" alignment="0" pref="710" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jPanel13" max="32767" attributes="0"/>
@@ -2871,19 +2874,20 @@
                     <Property name="text" type="java.lang.String" value="Price :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtEditProdName">
+                <Component class="javax.swing.JLabel" name="lblQuantity2">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField1"/>
+                    <Property name="horizontalAlignment" type="int" value="4"/>
+                    <Property name="text" type="java.lang.String" value="Quantity :"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="cboEditProdType">
                   <Properties>
                     <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                       <StringArray count="4">
-                        <StringItem index="0" value="Item 1"/>
-                        <StringItem index="1" value="Item 2"/>
-                        <StringItem index="2" value="Item 3"/>
-                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="0" value="Hammers"/>
+                        <StringItem index="1" value="Screws"/>
+                        <StringItem index="2" value="Bulbs"/>
+                        <StringItem index="3" value="Glass"/>
                       </StringArray>
                     </Property>
                   </Properties>
@@ -2892,36 +2896,30 @@
                   </AuxValues>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEditProdPrice">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
-                  </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblQuantity2">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="4"/>
-                    <Property name="text" type="java.lang.String" value="Quantity :"/>
-                  </Properties>
+                <Component class="javax.swing.JTextField" name="txtEditProdName">
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEditProdQuantity">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txtEditProdDescription">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="jTextField2"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbDiscontinued">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Discontinued"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JRadioButton" name="rbSale">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Up for Sale"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel19">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="Description"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JButton" name="btnEditProdSave">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Save"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblID">
@@ -2935,21 +2933,19 @@
                     <Property name="text" type="java.lang.String" value="ID"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JRadioButton" name="rbSale">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Up for Sale"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JRadioButton" name="rbDiscontinued">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Discontinued"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JLabel" name="lblStatus">
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="11"/>
                     <Property name="text" type="java.lang.String" value="Status :"/>
                   </Properties>
+                </Component>
+                <Component class="javax.swing.JButton" name="btnEditProdSave">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Save"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEditProdSaveActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnEditProdBack">
                   <Properties>
@@ -3024,16 +3020,14 @@
                                   <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="btnProdAdd" alignment="0" max="32767" attributes="0"/>
                                       <Component id="txtProdSearch" alignment="0" pref="170" max="32767" attributes="0"/>
-                                      <Component id="btnProdEdit1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="lblProdInstruct" alignment="1" max="32767" attributes="0"/>
-                                      <Component id="btnProdDelete" alignment="0" pref="171" max="32767" attributes="0"/>
                                       <Component id="btnProdSearch" alignment="0" max="32767" attributes="0"/>
                                       <Component id="btnProdEdit" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Component id="btnProdEdit1" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -3053,16 +3047,11 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnProdAdd" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="btnProdDelete" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnProdEdit" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="btnProdEdit1" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="lblProdInstruct" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="btnProdEdit1" min="-2" pref="31" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -3301,11 +3290,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProdAddActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnProdDelete">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="Remove Product"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JButton" name="btnProdEdit">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Edit Product"/>
@@ -3313,15 +3297,6 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnProdEditActionPerformed"/>
                   </Events>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblProdInstruct">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI" size="10" style="2"/>
-                    </Property>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="text" type="java.lang.String" value="Pls select something"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JButton" name="btnProdEdit1">
                   <Properties>

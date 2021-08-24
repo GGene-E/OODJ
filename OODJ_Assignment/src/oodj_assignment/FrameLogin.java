@@ -243,19 +243,19 @@ public class FrameLogin extends javax.swing.JFrame {
         lblName2 = new javax.swing.JLabel();
         lblType = new javax.swing.JLabel();
         lblPrice2 = new javax.swing.JLabel();
-        txtEditProdName = new javax.swing.JTextField();
+        lblQuantity2 = new javax.swing.JLabel();
         cboEditProdType = new javax.swing.JComboBox<>();
         txtEditProdPrice = new javax.swing.JTextField();
-        lblQuantity2 = new javax.swing.JLabel();
+        txtEditProdName = new javax.swing.JTextField();
         txtEditProdQuantity = new javax.swing.JTextField();
         txtEditProdDescription = new javax.swing.JTextField();
+        rbDiscontinued = new javax.swing.JRadioButton();
+        rbSale = new javax.swing.JRadioButton();
         jLabel19 = new javax.swing.JLabel();
-        btnEditProdSave = new javax.swing.JButton();
         lblID = new javax.swing.JLabel();
         lblEditProdID = new javax.swing.JLabel();
-        rbSale = new javax.swing.JRadioButton();
-        rbDiscontinued = new javax.swing.JRadioButton();
         lblStatus = new javax.swing.JLabel();
+        btnEditProdSave = new javax.swing.JButton();
         btnEditProdBack = new javax.swing.JButton();
         pnlProductView = new javax.swing.JPanel();
         lblTitleProduct = new javax.swing.JLabel();
@@ -278,9 +278,7 @@ public class FrameLogin extends javax.swing.JFrame {
         btnProdSearch = new javax.swing.JButton();
         txtProdSearch = new javax.swing.JTextField();
         btnProdAdd = new javax.swing.JButton();
-        btnProdDelete = new javax.swing.JButton();
         btnProdEdit = new javax.swing.JButton();
-        lblProdInstruct = new javax.swing.JLabel();
         btnProdEdit1 = new javax.swing.JButton();
         pnlAdminMenu = new javax.swing.JPanel();
         lblTitleAdminMenu = new javax.swing.JLabel();
@@ -319,6 +317,12 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblPassword.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblPassword.setText("Pass");
+
+        txtLoginUsername.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtLoginUsernameKeyPressed(evt);
+            }
+        });
 
         lblLogin.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         lblLogin.setText("Login");
@@ -2029,7 +2033,7 @@ public class FrameLogin extends javax.swing.JFrame {
         pnlProductAdd.setLayout(pnlProductAddLayout);
         pnlProductAddLayout.setHorizontalGroup(
             pnlProductAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitleNewProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 728, Short.MAX_VALUE)
+            .addComponent(lblTitleNewProduct, javax.swing.GroupLayout.DEFAULT_SIZE, 710, Short.MAX_VALUE)
             .addGroup(pnlProductAddLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2062,36 +2066,34 @@ public class FrameLogin extends javax.swing.JFrame {
         lblPrice2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblPrice2.setText("Price :");
 
-        txtEditProdName.setText("jTextField1");
-
-        cboEditProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        txtEditProdPrice.setText("jTextField2");
-
         lblQuantity2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblQuantity2.setText("Quantity :");
 
-        txtEditProdQuantity.setText("jTextField2");
+        cboEditProdType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hammers", "Screws", "Bulbs", "Glass" }));
 
         txtEditProdDescription.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        txtEditProdDescription.setText("jTextField2");
+
+        rbDiscontinued.setText("Discontinued");
+
+        rbSale.setText("Up for Sale");
 
         jLabel19.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel19.setText("Description");
-
-        btnEditProdSave.setText("Save");
 
         lblID.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblID.setText("Product ID:");
 
         lblEditProdID.setText("ID");
 
-        rbSale.setText("Up for Sale");
-
-        rbDiscontinued.setText("Discontinued");
-
         lblStatus.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lblStatus.setText("Status :");
+
+        btnEditProdSave.setText("Save");
+        btnEditProdSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditProdSaveActionPerformed(evt);
+            }
+        });
 
         btnEditProdBack.setText("Back");
         btnEditProdBack.addActionListener(new java.awt.event.ActionListener() {
@@ -2345,18 +2347,12 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
 
-        btnProdDelete.setText("Remove Product");
-
         btnProdEdit.setText("Edit Product");
         btnProdEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProdEditActionPerformed(evt);
             }
         });
-
-        lblProdInstruct.setFont(new java.awt.Font("Segoe UI", 2, 10)); // NOI18N
-        lblProdInstruct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblProdInstruct.setText("Pls select something");
 
         btnProdEdit1.setText("Back");
         btnProdEdit1.addActionListener(new java.awt.event.ActionListener() {
@@ -2377,14 +2373,12 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addGroup(jPanel15Layout.createSequentialGroup()
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnProdAdd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtProdSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(btnProdEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(txtProdSearch, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblProdInstruct, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnProdDelete, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
                             .addComponent(btnProdSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnProdEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(btnProdEdit, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(btnProdEdit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel15Layout.setVerticalGroup(
@@ -2400,14 +2394,10 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnProdAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProdDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnProdEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel15Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProdEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnProdEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblProdInstruct)
-                .addContainerGap())
+                .addComponent(btnProdEdit1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout pnlProductViewLayout = new javax.swing.GroupLayout(pnlProductView);
@@ -2748,8 +2738,10 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnEditProdBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdBackActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "productView");
+        //CardLayout card = (CardLayout)MainPanel.getLayout();
+        //card.show(MainPanel, "productView");
+        
+        btnManageProduct.doClick();
     }//GEN-LAST:event_btnEditProdBackActionPerformed
 
     private void btnProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdAddActionPerformed
@@ -2760,14 +2752,45 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnProdEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdEditActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "productEdit");
+        if(tblProduct.getSelectedRow() >= 0)
+        {
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "productEdit");
+
+            ArrayList<Product> prod2EditList = adminUser.searchProd(lblProductViewID.getText());
+            Product prod2Edit = prod2EditList.get(0);
+
+            //Set old information in text fields
+            lblEditProdID.setText(prod2Edit.getProductID());
+            txtEditProdName.setText(prod2Edit.getName());
+            txtEditProdPrice.setText(Double.toString(prod2Edit.getProductPrice()));
+            txtEditProdQuantity.setText(Integer.toString(prod2Edit.getStock()));
+            txtEditProdDescription.setText(prod2Edit.getDescription());
+            cboEditProdType.setName(prod2Edit.getProductType());
+            if (prod2Edit.getProductStat() == productStatus.SALE)
+            {
+                rbSale.setSelected(true);
+            }
+            else
+            {
+                rbDiscontinued.setSelected(true);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please Select Row from Table");
+        }
     }//GEN-LAST:event_btnProdEditActionPerformed
 
     private void btnNewProdCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProdCancelActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "productView");
+        // TODO add your handling code here: 
+        txtNewProdPrice.setText("");
+        txtNewProdName.setText("");
+        txtNewProdDescription.setText("");
+        txtNewProdQuantity.setText("");
+        cboNewProdType.setSelectedItem("Hammers");
+        
+        btnManageProduct.doClick();
     }//GEN-LAST:event_btnNewProdCancelActionPerformed
 
     private void btnOrdItemBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdItemBackActionPerformed
@@ -2926,6 +2949,11 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(this, "Please Enter All Information");
         }
+        else if(txtNewProdPrice.getText().contains(",") || txtNewProdName.getText().contains(",") ||
+                txtNewProdDescription.getText().contains(",") || txtNewProdQuantity.getText().contains(","))
+        {
+            JOptionPane.showMessageDialog(null, "Inputs cannot contain commas (,).");
+        }
         else
         {
             //Construct file operator
@@ -2944,6 +2972,12 @@ public class FrameLogin extends javax.swing.JFrame {
                 //Call file operator method
                 admin.add(price, type, sale, name, desc, frag, stock);
                 JOptionPane.showMessageDialog(null, "Item Successfully Added");
+                
+                txtNewProdPrice.setText("");
+                txtNewProdName.setText("");
+                txtNewProdDescription.setText("");
+                txtNewProdQuantity.setText("");
+                cboNewProdType.setSelectedItem("Hammers");
             } 
             catch (NumberFormatException ex)
             {
@@ -2951,11 +2985,7 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         }
         
-        txtNewProdPrice.setText("");
-        txtNewProdName.setText("");
-        txtNewProdDescription.setText("");
-        txtNewProdQuantity.setText("");
-        cboNewProdType.setSelectedItem("Hammers");
+        
     }//GEN-LAST:event_btnNewProdAddActionPerformed
 
     private void btnRegRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegRegisterActionPerformed
@@ -3240,7 +3270,11 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_tblProductMouseClicked
 
     private void btnProdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdSearchActionPerformed
-        if(!(txtProdSearch.getText().isBlank() || txtProdSearch.getText().toLowerCase().trim().equals("search for product")))
+        if(txtProdSearch.getText().isBlank())
+        {
+            btnManageProduct.doClick();
+        }
+        else if(!txtProdSearch.getText().toLowerCase().trim().equals("search for product"))
         {
             String searchParameter = txtProdSearch.getText();
             searchParameter = searchParameter.toLowerCase().trim();
@@ -3268,6 +3302,69 @@ public class FrameLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please enter Product ID or Name into the Search Field.");
         }        // TODO add your handling code here:
     }//GEN-LAST:event_btnProdSearchActionPerformed
+
+    private void btnEditProdSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdSaveActionPerformed
+        if(txtEditProdName.getText().isBlank() || txtEditProdPrice.getText().isBlank() ||
+                txtEditProdQuantity.getText().isBlank() || txtEditProdDescription.getText().isBlank())
+        {
+            JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else if(txtEditProdName.getText().contains(",") || txtEditProdPrice.getText().contains(",") ||
+                txtEditProdQuantity.getText().contains(",") || txtEditProdDescription.getText().contains(","))
+        {
+            JOptionPane.showMessageDialog(null, "Inputs cannot contain commas (,).");
+        }
+        else
+        {   
+            try
+            {
+                ArrayList<Product> prod2EditList = adminUser.searchProd(lblProductViewID.getText());
+                Product prod2Edit = prod2EditList.get(0);
+                // Create New Product Object
+                if (rbDiscontinued.isSelected())
+                {
+                    int dialogResult = JOptionPane.showConfirmDialog(null, "Confirm to Discontinue Product?");
+                    if (dialogResult == JOptionPane.YES_OPTION)
+                    {
+                        prod2Edit.setProductStat(productStatus.DISCONTINUED);
+                    }
+                }
+                else
+                {
+                    prod2Edit.setProductStat(productStatus.SALE);
+                    prod2Edit.setName(txtEditProdName.getText().trim());
+                    prod2Edit.setProductPrice(Double.parseDouble(txtEditProdPrice.getText().trim()));
+                    prod2Edit.setStock(Integer.parseInt(txtEditProdQuantity.getText().trim()));
+                    prod2Edit.setDescription(txtEditProdDescription.getText().trim());
+                    prod2Edit.setProductType(cboEditProdType.getSelectedItem().toString().trim());
+                    
+                    boolean check = adminUser.editProd(prod2Edit);
+                    if (check == true)
+                    {
+                        JOptionPane.showMessageDialog(null, "Successfully Updated");
+
+                        txtEditProdName.setText("");
+                        txtEditProdPrice.setText("");
+                        txtEditProdQuantity.setText("");
+                        txtEditProdDescription.setText("");
+                        rbSale.setSelected(true);
+
+                        btnManageProduct.doClick();
+                    }
+                }
+            }
+            catch(NumberFormatException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Please enter Price and Quantity in numbers.");
+            }
+            
+            
+        }   
+    }//GEN-LAST:event_btnEditProdSaveActionPerformed
+
+    private void txtLoginUsernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLoginUsernameKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginUsernameKeyPressed
 
 
     /**
@@ -3347,7 +3444,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnOrdItemBack;
     private javax.swing.JButton btnOrderAddBack;
     private javax.swing.JButton btnProdAdd;
-    private javax.swing.JButton btnProdDelete;
     private javax.swing.JButton btnProdEdit;
     private javax.swing.JButton btnProdEdit1;
     private javax.swing.JButton btnProdSearch;
@@ -3472,7 +3568,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrice2;
     private javax.swing.JLabel lblProdDesc;
     private javax.swing.JLabel lblProdID;
-    private javax.swing.JLabel lblProdInstruct;
     private javax.swing.JLabel lblProdName;
     private javax.swing.JLabel lblProdPrice;
     private javax.swing.JLabel lblProdQuantity;
