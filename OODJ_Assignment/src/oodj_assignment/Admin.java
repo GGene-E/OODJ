@@ -46,9 +46,7 @@ public class Admin extends Person{
     // Get Product List
     public ArrayList<Product> getProductList()
     {
-        FileOperator fileOperator = new FileOperator();
-        ArrayList<Product> productList = fileOperator.getProductArray();
-        return productList;
+        return super.getProductList();
     }
     
     // Registering new Product
@@ -56,12 +54,6 @@ public class Admin extends Person{
     {
         FileOperator fo = new FileOperator();
         fo.addProduct(price, type, status, name, description, frag, stock);
-    }
-    
-    // Registering new Customers from Admin Account
-    public Boolean add(Customer customerObject)
-    {
-        return super.add(customerObject);
     }
     
     // Registering new Admin from Admin Account -> Overloaded add()
@@ -97,6 +89,18 @@ public class Admin extends Person{
         return status;
     }
     
+    // Registering new Customers from Admin Account
+    public Boolean add(Customer customerObject)
+    {
+        return super.add(customerObject);
+    }
+    
+    // Admin placing an Order
+    public Boolean add(Order orderObject)
+    {
+        return super.add(orderObject);
+    }
+    
     // Viewing Customers
     public Customer view(String ID) //Specialized Finder
     {
@@ -113,19 +117,9 @@ public class Admin extends Person{
         return viewedCustomer;
     }
     
-    public Product viewProd(String ID)
+    public Product view(String ID, String x) //JONATHAN -> Overload this with an integer parameter
     {
-        Product viewedProd = null;
-        ID = ID.toLowerCase().trim();
-        ArrayList<Product> matchedProduct = searchProd(ID);
-        for(Product prod : matchedProduct)
-        {
-            if(prod.getProductID().toLowerCase().equals(ID))
-            {
-                viewedProd = prod;
-            }
-        }
-        return viewedProd;
+        return super.view(ID, x);
     }
     
     // Search Customers
@@ -151,14 +145,13 @@ public class Admin extends Person{
         return foundCustomer;
     }
     
-    
     // Search Customer
-    public ArrayList<Product> searchProd(String searchParameter) // Massive Search
+    public ArrayList<Product> search(String searchParameter, String x) // int x is used to Overload
     {
         ArrayList<Product> foundProd = new ArrayList<Product>();
         searchParameter = searchParameter.toLowerCase().trim(); // Reformat for search
         FileOperator fileOperator = new FileOperator();
-        ArrayList<Product> prodList = fileOperator.getProductArray();
+        ArrayList<Product> prodList = fileOperator.getProductList();
         
         for(Product prod : prodList)
         {
@@ -198,7 +191,8 @@ public class Admin extends Person{
         }
         return status;
     }
-    public boolean editProd(Product edittedProd)
+    
+    public boolean editProd(Product edittedProd) //JONATHAN Overload this 
     {
         FileOperator fop = new FileOperator();
         ArrayList<Product> removedList = fop.deleteProductList(edittedProd);
@@ -229,6 +223,8 @@ public class Admin extends Person{
         fileOperator.overwriteCustomer(customerList);
         return status;
     }
+    
+    //public Boolean 
     
     //public String checkInventory(){}
     

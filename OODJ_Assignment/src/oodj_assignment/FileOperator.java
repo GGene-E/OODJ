@@ -9,78 +9,6 @@ import javax.swing.JOptionPane;
 
 
 public class FileOperator {
-    
-    /*
-    public void addProduct(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
-    {
-        //Product.ID++;
-
-        if (frag == true)
-        {
-            price = price * Fragile.getPACKAGEMULTI();
-            
-            Fragile newProd = new Fragile(Integer.toString(Product.ID),price,type,status,name,description,frag,stock);
-            File file = new File("PRODUCT.txt");
-            try
-            {
-                
-                FileWriter fw = new FileWriter(file, true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter pw = new PrintWriter(bw);
-                String prod = newProd.getProductID() + "," + 
-                              newProd.getProductPrice() + "," + 
-                              newProd.getProductType() + "," + 
-                              newProd.getProductStat() + "," + 
-                              newProd.getName() + "," + 
-                              newProd.getDescription() + "," + 
-                              newProd.isFragility() + "," +
-                              newProd.stock;
-                
-                bw.newLine();
-                pw.write(prod);
-                pw.close();
-                bw.close();
-                fw.close();
-            } 
-            catch (IOException Ex)
-            {
-
-            }
-        } 
-        else 
-        {
-            price = price * Non_Fragile.getPACKAGEMULTI();
-            
-            Non_Fragile newProd = new Non_Fragile(Integer.toString(Product.ID),price,type,status,name,description,frag,stock);
-            File file = new File("PRODUCT.txt");
-            try
-            {
-                
-                FileWriter fw = new FileWriter(file, true);
-                BufferedWriter bw = new BufferedWriter(fw);
-                PrintWriter pw = new PrintWriter(bw);
-                String prod = newProd.getProductID() + "," + 
-                              newProd.getProductPrice() + "," + 
-                              newProd.getProductType() + "," + 
-                              newProd.getProductStat() + "," + 
-                              newProd.getName() + "," + 
-                              newProd.getDescription() + "," + 
-                              newProd.isFragility() + "," +
-                              newProd.stock;
-                
-                bw.newLine();
-                pw.write(prod);
-                pw.close();
-                bw.close();
-                fw.close();
-            } 
-            catch (IOException Ex)
-            {
-
-            }    
-        }
-    }
-*/
 
     public void addProduct(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
     {
@@ -147,7 +75,7 @@ public class FileOperator {
         }
     }
     
-    public ArrayList<Product> getProductArray()
+    public ArrayList<Product> getProductList()
     {   
         ArrayList<Product> prodList = new ArrayList<Product>();
         try 
@@ -235,6 +163,75 @@ public class FileOperator {
             JOptionPane.showMessageDialog(null, "Customer database is not found. Please contact an admin or file a report.");
         }
         return customerList;
+    }
+    
+    public ArrayList<Order> getOrderList() // Returns a list of order objects
+    {
+        ArrayList<Order> orderList = new ArrayList<Order>();
+        
+        File orderFile = new File("ORDER.txt");
+        try(Scanner orderScanner = new Scanner(orderFile))
+        {
+            while(orderScanner.hasNextLine())
+            {
+                String tempOrder = orderScanner.nextLine();
+                String[] tempOrderArray = tempOrder.split(",");
+                Order tempOrderObject = new Order(tempOrderArray[0], tempOrderArray[1], OrderStatus.valueOf(tempOrderArray[2]),
+                        Double.parseDouble(tempOrderArray[3]), tempOrderArray[4], tempOrderArray[5]);
+                orderList.add(tempOrderObject);
+            }
+        }
+        catch(FileNotFoundException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Order database is not found. Please contact an admin or file a report.");
+        }
+        return orderList;
+    }
+    
+    public Boolean writeOrder(Order orderObject) // Write One Order Object
+    {
+        Boolean status = false; // False = writing/appending failed.
+        File orderFile = new File("ORDER.txt");
+        if(orderFile.exists()) // Order.txt exists
+        {
+            try(FileWriter fileWriter = new FileWriter(orderFile, true))
+            {
+                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+                {
+                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
+                    {
+                        printWriter.write(orderObject.toString());
+                        bufferedWriter.newLine();
+                        status = true;
+                    }
+                }
+            }
+            catch(IOException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while appending to Admin database");
+            }
+        }
+        else // Order.txt has not been created
+        {
+            JOptionPane.showMessageDialog(null, "Order database not found. Creating a new database.");
+            try(FileWriter fileWriter = new FileWriter(orderFile))
+            {
+                try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+                {
+                    try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
+                    {
+                        printWriter.write(orderObject.toString());
+                        bufferedWriter.newLine();
+                        status = true;
+                    }
+                }
+            }
+            catch(IOException ex)
+            {
+                JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while appending to Admin database");
+            }
+        }
+        return status;
     }
     
     public Boolean writeAdmin(Admin adminObject) // Write One Admin Object
@@ -390,7 +387,7 @@ public class FileOperator {
         return status;
     }
     
-    public ArrayList<Product> deleteProductList(Product Prod)
+    public ArrayList<Product> deleteProductList(Product Prod) //Returns a list excluding the specified product
     {
         ArrayList<Product> prodRemoved = new ArrayList<>();
         try
@@ -407,7 +404,7 @@ public class FileOperator {
                     {
                         double price = Double.parseDouble(details[1]);
                         productStatus stat = productStatus.valueOf(details[3]);
-                        boolean  frag = Boolean.parseBoolean(details[6]);
+                        boolean frag = Boolean.parseBoolean(details[6]);
                         int stock = Integer.parseInt(details[7]);
 
                         Fragile prod = new Fragile(details[0],price,details[2],stat,details[4],details[5],frag,stock);

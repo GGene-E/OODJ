@@ -136,7 +136,7 @@ public class Person {
         }
         lastCustomerID = lastCustomerID.substring(1);
         String newCustomerID = Integer.toString(Integer.parseInt(lastCustomerID) + 1);
-        customerObject.setPersonID(String.format("C%s", newCustomerID));
+        customerObject.setPersonID(String.format("C%s", newCustomerID)); // Assign Customer ID to new Customer
         
         Boolean status = fileOperator.writeCustomer(customerObject);
         return status;
@@ -144,20 +144,72 @@ public class Person {
     }
     
     // Person places an ORDER
-    public void add(){}
+    public Boolean add(Order orderObject)
+    {
+        FileOperator fileOperator = new FileOperator();
+        //fileOperator.getOrderList();
+        //lastOrderID = lastOrderID.substring(1);
+        //String newOrderID = Integer.toString(Integer.parseInt(lastOrderID) + 1);
+        //orderObject.setOrderID(String.format("O%s", newOrderID)); // Assign Order ID to new Order
+        
+        Boolean status = fileOperator.writeOrder(orderObject);
+        return status;
+    }
     
     // Person deletes an ORDER
     public void delete(){}
     
     // Person edits an ORDER
-    public void edit(){}
+    public void edit()
+    {
+        
+    }
     
     // Person views an ORDER
     public void view(){}
     
+    public Product view(String ID, String x)
+    {
+        Product viewedProd = null;
+        ID = ID.toLowerCase().trim();
+        //ArrayList<Product> matchedProduct = search(ID, null);
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Product> matchedProduct = fileOperator.getProductList();
+        for(Product prod : matchedProduct)
+        {
+            if(prod.getProductID().toLowerCase().equals(ID))
+            {
+                viewedProd = prod;
+            }
+        }
+        return viewedProd;
+    }
+    
     // Person searches for an ORDER
     public void search(){}
 
+    public ArrayList<Product> getProductList()
+    {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Product> productList = fileOperator.getProductList();
+        return productList;
+    }
+    
+    public ArrayList<Product> getProductBasedOnType(String productType)
+    {
+        ArrayList<Product> productTypeList = new ArrayList<Product>();
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Product> productList = fileOperator.getProductList();
+        for(Product productObject:productList)
+        {
+            if(productObject.getProductType().equals(productType) && 
+                    productObject.getProductStat() == productStatus.SALE)
+            {
+                productTypeList.add(productObject);
+            }
+        }
+        return productTypeList;
+    }
     
     // Override Inbuilt Methods
     public String toString()

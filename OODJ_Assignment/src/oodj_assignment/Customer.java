@@ -44,11 +44,11 @@ public class Customer extends Person {
         return super.add(customerObject);
     }
     
-    /*
-    public String giveReview(){}
-    
-    public String rateShop(){}
-    */
+    // Customer placing an Order
+    public Boolean add(Order orderObject)
+    {
+        return super.add(orderObject);
+    }
     
     // Override inbuilt toString
     @Override
