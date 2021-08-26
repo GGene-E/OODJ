@@ -1598,7 +1598,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductTypeMouseClicked"/>
+                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductTypeMouseReleased"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -1632,6 +1632,7 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="selectionMode" type="int" value="0"/>
                         <Property name="selectionModel" type="javax.swing.ListSelectionModel" editor="org.netbeans.modules.form.editors2.JTableSelectionModelEditor">
                           <JTableSelectionModel selectionMode="0"/>
                         </Property>
@@ -1640,7 +1641,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductItemMouseClicked"/>
+                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductItemMouseReleased"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -2347,12 +2348,13 @@
                             </Column>
                           </TableColumnModel>
                         </Property>
+                        <Property name="selectionMode" type="int" value="0"/>
                         <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblOrderItemMouseClicked"/>
+                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblOrderItemMouseReleased"/>
                       </Events>
                     </Component>
                   </SubComponents>
@@ -2487,11 +2489,17 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="-"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnMinusQuantityActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnAddQuantity">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="+"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddQuantityActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="lblOrdID8">
                       <Properties>
@@ -2511,28 +2519,37 @@
                       <Layout>
                         <DimensionLayout dim="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblOrdID1" min="-2" pref="72" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="lblOrdID9" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblOrdID2" alignment="0" pref="72" max="32767" attributes="0"/>
+                                          </Group>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblOrdID" min="-2" pref="88" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblOrdDate" min="-2" pref="88" max="-2" attributes="0"/>
+                                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                              </Group>
+                                              <Component id="lblGrandTotalOrd" min="-2" pref="88" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblOrdID2" min="-2" pref="72" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="lblOrdDate" min="-2" pref="88" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblOrdID3" min="-2" pref="72" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblGrandTotalOrd" min="-2" pref="88" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="lblOrdID4" min="-2" pref="72" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblOrdStatus" min="-2" pref="88" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" attributes="0">
+                                                  <Component id="lblOrdID10" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="lblOrdStatus" min="-2" pref="88" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="lblOrdID1" min="-2" pref="72" max="-2" attributes="0"/>
+                                                  <EmptySpace max="-2" attributes="0"/>
+                                                  <Component id="lblOrdID" min="-2" pref="88" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
@@ -2553,16 +2570,16 @@
                                       <Component id="lblOrdDate" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblOrdID3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblGrandTotalOrd" min="-2" pref="16" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="lblOrdID4" alignment="1" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblOrdStatus" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="3" attributes="0">
+                                      <Component id="lblOrdID9" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblGrandTotalOrd" alignment="3" min="-2" pref="16" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="lblOrdID10" alignment="1" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblOrdStatus" alignment="1" min="-2" pref="16" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace max="-2" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -2584,28 +2601,26 @@
                             <Property name="text" type="java.lang.String" value="Order Date:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="lblGrandTotalOrd">
-                          <Properties>
-                            <Property name="horizontalAlignment" type="int" value="2"/>
-                            <Property name="horizontalTextPosition" type="int" value="2"/>
-                          </Properties>
-                        </Component>
-                        <Component class="javax.swing.JLabel" name="lblOrdID3">
+                        <Component class="javax.swing.JLabel" name="lblOrdID9">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="4"/>
-                            <Property name="text" type="java.lang.String" value="Total:"/>
+                            <Property name="text" type="java.lang.String" value="Grand Total:"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="lblOrdID4">
+                        <Component class="javax.swing.JLabel" name="lblOrdID10">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="4"/>
                             <Property name="text" type="java.lang.String" value="Status:"/>
                           </Properties>
                         </Component>
+                        <Component class="javax.swing.JLabel" name="lblGrandTotalOrd">
+                          <Properties>
+                            <Property name="horizontalAlignment" type="int" value="2"/>
+                          </Properties>
+                        </Component>
                         <Component class="javax.swing.JLabel" name="lblOrdStatus">
                           <Properties>
                             <Property name="horizontalAlignment" type="int" value="2"/>
-                            <Property name="horizontalTextPosition" type="int" value="2"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -2629,6 +2644,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Remove Item"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
@@ -3268,7 +3286,7 @@
                         </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductMouseClicked"/>
+                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblProductMouseReleased"/>
                       </Events>
                     </Component>
                   </SubComponents>

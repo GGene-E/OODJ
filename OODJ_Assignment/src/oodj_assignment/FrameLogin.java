@@ -217,9 +217,9 @@ public class FrameLogin extends javax.swing.JFrame {
         lblOrdID = new javax.swing.JLabel();
         lblOrdDate = new javax.swing.JLabel();
         lblOrdID2 = new javax.swing.JLabel();
+        lblOrdID9 = new javax.swing.JLabel();
+        lblOrdID10 = new javax.swing.JLabel();
         lblGrandTotalOrd = new javax.swing.JLabel();
-        lblOrdID3 = new javax.swing.JLabel();
-        lblOrdID4 = new javax.swing.JLabel();
         lblOrdStatus = new javax.swing.JLabel();
         btnOrdItemBack = new javax.swing.JButton();
         btnCompleteOrder = new javax.swing.JButton();
@@ -1198,8 +1198,8 @@ public class FrameLogin extends javax.swing.JFrame {
         tblProductType.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblProductType.getTableHeader().setReorderingAllowed(false);
         tblProductType.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblProductTypeMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblProductTypeMouseReleased(evt);
             }
         });
         jScrollPane7.setViewportView(tblProductType);
@@ -1233,10 +1233,11 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         tblProductItem.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblProductItem.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblProductItem.getTableHeader().setReorderingAllowed(false);
         tblProductItem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblProductItemMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblProductItemMouseReleased(evt);
             }
         });
         jScrollPane8.setViewportView(tblProductItem);
@@ -1773,10 +1774,11 @@ public class FrameLogin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblOrderItem.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblOrderItem.getTableHeader().setReorderingAllowed(false);
         tblOrderItem.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblOrderItemMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblOrderItemMouseReleased(evt);
             }
         });
         jScrollPane5.setViewportView(tblOrderItem);
@@ -1810,8 +1812,18 @@ public class FrameLogin extends javax.swing.JFrame {
         lblOrdProdPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         btnMinusQuantity.setText("-");
+        btnMinusQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMinusQuantityActionPerformed(evt);
+            }
+        });
 
         btnAddQuantity.setText("+");
+        btnAddQuantity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddQuantityActionPerformed(evt);
+            }
+        });
 
         lblOrdID8.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOrdID8.setText("Quantity:");
@@ -1824,17 +1836,15 @@ public class FrameLogin extends javax.swing.JFrame {
         lblOrdID2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         lblOrdID2.setText("Order Date:");
 
+        lblOrdID9.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblOrdID9.setText("Grand Total:");
+
+        lblOrdID10.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        lblOrdID10.setText("Status:");
+
         lblGrandTotalOrd.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblGrandTotalOrd.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-
-        lblOrdID3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblOrdID3.setText("Total:");
-
-        lblOrdID4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        lblOrdID4.setText("Status:");
 
         lblOrdStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        lblOrdStatus.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -1844,21 +1854,26 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblOrdID1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(lblOrdID9, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblOrdID2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblOrdID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblOrdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lblGrandTotalOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblOrdID2, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblOrdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblOrdID3, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblGrandTotalOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lblOrdID4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblOrdStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblOrdID10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblOrdStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(lblOrdID1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblOrdID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -1873,14 +1888,14 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addComponent(lblOrdID2)
                     .addComponent(lblOrdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblOrdID3)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblOrdID9)
                     .addComponent(lblGrandTotalOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblOrdID4)
-                    .addComponent(lblOrdStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblOrdID10, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblOrdStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanel12Layout = new javax.swing.GroupLayout(jPanel12);
@@ -1952,6 +1967,11 @@ public class FrameLogin extends javax.swing.JFrame {
         btnCompleteOrder.setText("Complete Order");
 
         btnRemove.setText("Remove Item");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -2320,8 +2340,8 @@ public class FrameLogin extends javax.swing.JFrame {
         tblProduct.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblProduct.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblProduct.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tblProductMouseClicked(evt);
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblProductMouseReleased(evt);
             }
         });
         jScrollPane6.setViewportView(tblProduct);
@@ -3465,33 +3485,6 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCusViewDeleteActionPerformed
 
-    private void tblProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseClicked
-        if(tblProduct.getSelectedRow() >= 0)
-        {
-            String searchedID = tblProduct.getValueAt(tblProduct.getSelectedRow(), 0).toString();
-            searchedID = searchedID.toLowerCase().trim();
-            // Get Product
-            Product viewedProd = adminUser.view(searchedID, null);
-            if(viewedProd != null)
-            {
-                lblProductViewID.setText(viewedProd.getProductID());
-                lblProdName.setText(viewedProd.getName());
-                lblProdType.setText(viewedProd.getProductType());
-                lblProdPrice.setText(Double.toString(viewedProd.getProductPrice()));
-                lblProdDesc.setText(viewedProd.getDescription());
-                lblProdQuantity.setText(Integer.toString(viewedProd.getStock()));
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "Product not found.");
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Please select a row in the Product Table.");
-        }
-    }//GEN-LAST:event_tblProductMouseClicked
-
     private void btnProdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdSearchActionPerformed
         if(txtProdSearch.getText().isBlank())
         {
@@ -3658,36 +3651,6 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCheckoutActionPerformed
 
-    private void tblProductTypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductTypeMouseClicked
-        // TODO add your handling code here:
-        String productType = tblProductType.getValueAt(tblProductType.getSelectedRow(), 1).toString();
-        ArrayList<Product> productList = systemUser.getProductBasedOnType(productType);
-        if(!productList.isEmpty())
-        {
-            ArrayList<String[]> productDetailList = new ArrayList<String[]>();
-            for(Product productObject:productList)
-            {
-                String[] productDetail = new String[4];
-                productDetail[0] = productObject.getProductID();
-                productDetail[1] = productObject.getName();
-                productDetail[2] = Double.toString(productObject.getProductPrice());
-                productDetail[3] = Integer.toString(productObject.getStock());
-
-                productDetailList.add(productDetail);
-            }
-            DefaultTableModel productItemTable = (DefaultTableModel)tblProductItem.getModel();
-            productItemTable.setRowCount(0);
-            for(String[] productDetail:productDetailList)
-            {
-                productItemTable.addRow(productDetail);
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "ERROR: No product found with the corresponding type.");
-        }
-    }//GEN-LAST:event_tblProductTypeMouseClicked
-
     private void btnAddToCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToCartActionPerformed
         // TODO add your handling code here:
         if(!lblProductQuantity.getText().isBlank() && tblProductItem.getSelectedRow() >= 0)
@@ -3768,36 +3731,6 @@ public class FrameLogin extends javax.swing.JFrame {
 
         
     }//GEN-LAST:event_btnAddQtyActionPerformed
-
-    private void tblProductItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductItemMouseClicked
-        // TODO add your handling code here:
-        if(tblProductItem.getSelectedRow() >= 0)
-        {
-            String searchedID = tblProductItem.getValueAt(tblProductItem.getSelectedRow(), 0).toString();
-            Product viewedProduct = systemUser.view(searchedID, null);
-            lblProductName.setText(viewedProduct.getName());
-            lblProductPrice.setText(Double.toString(viewedProduct.getProductPrice()));
-            lblProductQuantity.setText(Integer.toString(viewedProduct.getStock()));
-            lblProductDescription.setText(viewedProduct.getDescription());
-            
-            String productID = viewedProduct.getProductID();
-            for(int row = 0; row < tblCart.getRowCount(); row++)
-            {
-                if(productID.equals(tblCart.getValueAt(row, 1).toString()))
-                {
-                    int currentQuantity = Integer.parseInt(lblProductQuantity.getText());
-                    int cartQuantity = Integer.parseInt(tblCart.getValueAt(row, 3).toString());
-                    currentQuantity = currentQuantity - cartQuantity;
-                    lblProductQuantity.setText(Integer.toString(currentQuantity));
-                }
-                
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "Please select a product item.");
-        }
-    }//GEN-LAST:event_tblProductItemMouseClicked
 
     private void lblReduceQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReduceQtyActionPerformed
         // TODO add your handling code here:
@@ -3889,13 +3822,185 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnCartQtyDecActionPerformed
 
-    private void tblOrderItemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderItemMouseClicked
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
+        if(tblOrderItem.getSelectedRow() >= 0)
+        {
+            int choice = JOptionPane.showConfirmDialog(null, "Confirm Remove from Order?",
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
+            if(choice == JOptionPane.YES_OPTION)
+            {
+                double quantity = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 2).toString());
+                double price = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 3).toString());
+                price = price*quantity;
+                double grandTotal = Double.parseDouble(lblGrandTotalOrd.getText());
+                grandTotal = grandTotal - price;
+                lblGrandTotalOrd.setText(new DecimalFormat("##.##").format(grandTotal));
+                
+                DefaultTableModel orderItemTable = (DefaultTableModel)tblOrderItem.getModel();
+                orderItemTable.removeRow(tblOrderItem.getSelectedRow());
+            }
+        }
+        else
+        {
+            
+        }
+    }//GEN-LAST:event_btnRemoveActionPerformed
+
+    private void tblProductItemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductItemMouseReleased
+        if(tblProductItem.getSelectedRow() >= 0)
+        {
+            String searchedID = tblProductItem.getValueAt(tblProductItem.getSelectedRow(), 0).toString();
+            Product viewedProduct = systemUser.view(searchedID, null);
+            lblProductName.setText(viewedProduct.getName());
+            lblProductPrice.setText(Double.toString(viewedProduct.getProductPrice()));
+            lblProductQuantity.setText(Integer.toString(viewedProduct.getStock()));
+            lblProductDescription.setText(viewedProduct.getDescription());
+            
+            String productID = viewedProduct.getProductID();
+            for(int row = 0; row < tblCart.getRowCount(); row++)
+            {
+                if(productID.equals(tblCart.getValueAt(row, 1).toString()))
+                {
+                    int currentQuantity = Integer.parseInt(lblProductQuantity.getText());
+                    int cartQuantity = Integer.parseInt(tblCart.getValueAt(row, 3).toString());
+                    currentQuantity = currentQuantity - cartQuantity;
+                    lblProductQuantity.setText(Integer.toString(currentQuantity));
+                }
+                
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a product item.");
+        }
+    }//GEN-LAST:event_tblProductItemMouseReleased
+
+    private void tblProductTypeMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductTypeMouseReleased
+        String productType = tblProductType.getValueAt(tblProductType.getSelectedRow(), 1).toString();
+        ArrayList<Product> productList = systemUser.getProductBasedOnType(productType);
+        if(!productList.isEmpty())
+        {
+            ArrayList<String[]> productDetailList = new ArrayList<String[]>();
+            for(Product productObject:productList)
+            {
+                String[] productDetail = new String[4];
+                productDetail[0] = productObject.getProductID();
+                productDetail[1] = productObject.getName();
+                productDetail[2] = Double.toString(productObject.getProductPrice());
+                productDetail[3] = Integer.toString(productObject.getStock());
+
+                productDetailList.add(productDetail);
+            }
+            DefaultTableModel productItemTable = (DefaultTableModel)tblProductItem.getModel();
+            productItemTable.setRowCount(0);
+            for(String[] productDetail:productDetailList)
+            {
+                productItemTable.addRow(productDetail);
+            }
+            
+            lblProductName.setText("");
+            lblProductPrice.setText("");
+            lblProductQuantity.setText("");
+            lblProductDescription.setText("");
+            lblQuantityToCart.setText("1");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: No product found with the corresponding type.");
+        }
+    }//GEN-LAST:event_tblProductTypeMouseReleased
+
+    private void tblProductMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblProductMouseReleased
+        if(tblProduct.getSelectedRow() >= 0)
+        {
+            String searchedID = tblProduct.getValueAt(tblProduct.getSelectedRow(), 0).toString();
+            searchedID = searchedID.toLowerCase().trim();
+            // Get Product
+            Product viewedProd = adminUser.view(searchedID, null);
+            if(viewedProd != null)
+            {
+                lblProductViewID.setText(viewedProd.getProductID());
+                lblProdName.setText(viewedProd.getName());
+                lblProdType.setText(viewedProd.getProductType());
+                lblProdPrice.setText(Double.toString(viewedProd.getProductPrice()));
+                lblProdDesc.setText(viewedProd.getDescription());
+                lblProdQuantity.setText(Integer.toString(viewedProd.getStock()));
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Product not found.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Product Table.");
+        }
+    }//GEN-LAST:event_tblProductMouseReleased
+
+    private void tblOrderItemMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderItemMouseReleased
         lblProdID.setText(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 0).toString());
         lblOrdProdName.setText(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 1).toString());
         lblOrdProdQuantity.setText(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 2).toString());
         lblOrdProdPrice.setText(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 3).toString());
-    }//GEN-LAST:event_tblOrderItemMouseClicked
+    }//GEN-LAST:event_tblOrderItemMouseReleased
+
+    private void btnAddQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddQuantityActionPerformed
+        // TODO add your handling code here:
+        if(!lblProdID.getText().isBlank()) // User hasn't selected any product
+        {
+            Product selectedProduct = systemUser.view(lblProdID.getText(), null);
+            int availableQuantity = selectedProduct.getStock(); // Get Quantity from Product.txt
+            int currentQuantity = Integer.parseInt(lblOrdProdQuantity.getText()); // Get Quantity shown to the user
+            int orderQuantity = 0; // Get the quantity as stored in Order.txt
+            
+            // This is to ensure users are unable to order over the available quantity
+            
+            Order orderDetail = systemUser.search(lblOrdID.getText());
+            String[] idList = orderDetail.getItemList().split("\\.");
+            String[] quantityList = orderDetail.getQuantityList().split("\\.");
+            for(int index = 0; index < idList.length; index++)
+            {
+                if(lblProdID.getText().equals(idList[index]))
+                {
+                    orderQuantity = Integer.parseInt(quantityList[index]);
+                }
+            }
+            
+            availableQuantity = availableQuantity - (currentQuantity - orderQuantity);
+            if(availableQuantity > 0)
+            {
+                lblOrdProdQuantity.setText(Integer.toString(currentQuantity + 1));
+                tblOrderItem.setValueAt(currentQuantity+1, tblOrderItem.getSelectedRow(), 2);
+                double price = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 3).toString());
+                double newGrandTotal = Double.parseDouble(lblGrandTotalOrd.getText()) + price;
+                lblGrandTotalOrd.setText(new DecimalFormat("##.##").format(newGrandTotal));
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Order Table.");
+        }
+    }//GEN-LAST:event_btnAddQuantityActionPerformed
+
+    private void btnMinusQuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMinusQuantityActionPerformed
+        if(!lblProdID.getText().isBlank())
+        {
+            int currentQuantity = Integer.parseInt(lblOrdProdQuantity.getText());
+            if(currentQuantity > 1)
+            {
+                lblOrdProdQuantity.setText(Integer.toString(currentQuantity - 1));
+                tblOrderItem.setValueAt(currentQuantity-1, tblOrderItem.getSelectedRow(), 2);
+                double price = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 3).toString());
+                double newGrandTotal = Double.parseDouble(lblGrandTotalOrd.getText()) - price;
+                lblGrandTotalOrd.setText(new DecimalFormat("##.##").format(newGrandTotal));
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a row in the Order Table.");
+        }
+    }//GEN-LAST:event_btnMinusQuantityActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4085,13 +4190,13 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblOrdDate;
     private javax.swing.JLabel lblOrdID;
     private javax.swing.JLabel lblOrdID1;
+    private javax.swing.JLabel lblOrdID10;
     private javax.swing.JLabel lblOrdID2;
-    private javax.swing.JLabel lblOrdID3;
-    private javax.swing.JLabel lblOrdID4;
     private javax.swing.JLabel lblOrdID5;
     private javax.swing.JLabel lblOrdID6;
     private javax.swing.JLabel lblOrdID7;
     private javax.swing.JLabel lblOrdID8;
+    private javax.swing.JLabel lblOrdID9;
     private javax.swing.JLabel lblOrdProdName;
     private javax.swing.JLabel lblOrdProdPrice;
     private javax.swing.JLabel lblOrdProdQuantity;

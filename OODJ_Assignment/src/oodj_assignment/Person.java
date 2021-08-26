@@ -181,6 +181,7 @@ public class Person {
     // Person views an ORDER
     public void view(){}
     
+    // Get Product
     public Product view(String ID, String x)
     {
         Product viewedProd = null;
