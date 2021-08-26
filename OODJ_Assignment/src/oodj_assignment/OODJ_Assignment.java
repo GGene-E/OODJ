@@ -18,7 +18,6 @@ public class OODJ_Assignment {
         //Please Work GITHUB FFS
         //Github dekstoop
         //Git desktop is fking powerful
-        //hi 2.29am time to sleep
         FrameLogin fr = new FrameLogin();
         fr.setVisible(true);
     }
