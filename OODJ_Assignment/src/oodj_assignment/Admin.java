@@ -106,7 +106,7 @@ public class Admin extends Person{
     {
         Customer viewedCustomer = null;
         ID = ID.toLowerCase().trim(); // Reformat for search
-        ArrayList<Customer> matchedCustomer = search(ID);
+        ArrayList<Customer> matchedCustomer = search(ID, null, null);
         for(Customer customerObject:matchedCustomer)
         {
             if(customerObject.getPersonID().toLowerCase().equals(ID))
@@ -123,7 +123,7 @@ public class Admin extends Person{
     }
     
     // Search Customers
-    public ArrayList<Customer> search(String searchParameter) // Massive Search
+    public ArrayList<Customer> search(String searchParameter, String x, String y) // Massive Search
     {
         ArrayList<Customer> foundCustomer = new ArrayList<Customer>();
         searchParameter = searchParameter.toLowerCase().trim(); // Reformat for search

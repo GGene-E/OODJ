@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.text.DecimalFormat;
 import javax.swing.JOptionPane;
+import java.time.LocalDate;
 
 
 public class FileOperator {
@@ -177,7 +178,7 @@ public class FileOperator {
                 String tempOrder = orderScanner.nextLine();
                 String[] tempOrderArray = tempOrder.split(",");
                 Order tempOrderObject = new Order(tempOrderArray[0], tempOrderArray[1], OrderStatus.valueOf(tempOrderArray[2]),
-                        Double.parseDouble(tempOrderArray[3]), tempOrderArray[4], tempOrderArray[5]);
+                        Double.parseDouble(tempOrderArray[3]), tempOrderArray[4], tempOrderArray[5], LocalDate.parse(tempOrderArray[6]));
                 orderList.add(tempOrderObject);
             }
         }
@@ -371,7 +372,7 @@ public class FileOperator {
                         productObject.getName() + "," + 
                         productObject.getDescription() + "," + 
                         productObject.isFragility() + "," +
-                        productObject.stock;
+                        productObject.getStock();
                         
                         printWriter.write(prod);
                         bufferedWriter.newLine();

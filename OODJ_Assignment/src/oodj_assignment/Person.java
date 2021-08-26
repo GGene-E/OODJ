@@ -2,6 +2,7 @@
 package oodj_assignment;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 enum PersonType
@@ -146,11 +147,23 @@ public class Person {
     // Person places an ORDER
     public Boolean add(Order orderObject)
     {
+        String nextUsableOrderID = "OID:1";
         FileOperator fileOperator = new FileOperator();
-        //fileOperator.getOrderList();
-        //lastOrderID = lastOrderID.substring(1);
-        //String newOrderID = Integer.toString(Integer.parseInt(lastOrderID) + 1);
-        //orderObject.setOrderID(String.format("O%s", newOrderID)); // Assign Order ID to new Order
+        ArrayList<Order> orderList = fileOperator.getOrderList();
+        if(!orderList.isEmpty()) // There is order in the textfile, so get the next usable ID
+        {
+            String lastOrderID = "0";
+            for(Order orderCheck:orderList)
+            {
+                lastOrderID = orderCheck.getOrderID().substring(4);
+            }
+            nextUsableOrderID = String.format("OID:%s", Integer.toString(Integer.parseInt(lastOrderID)+1));
+            orderObject.setOrderID(nextUsableOrderID);
+        }
+        else
+        {
+            orderObject.setOrderID(nextUsableOrderID);
+        }
         
         Boolean status = fileOperator.writeOrder(orderObject);
         return status;
@@ -186,8 +199,37 @@ public class Person {
     }
     
     // Person searches for an ORDER
-    public void search(){}
+    public Order search(String orderID)
+    {
+        Order foundOrder = null;
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Order> orderList = fileOperator.getOrderList();
+        for(Order orderObject:orderList)
+        {
+            if(orderObject.getOrderID().equals(orderID))
+            {
+                foundOrder = orderObject;
+            }
+        }
+        return foundOrder;
+    }
 
+    public ArrayList<Order> getOrderListBasedOnID(String ID)
+    {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Order> orderList = fileOperator.getOrderList();
+        Iterator orderIterator= orderList.iterator();
+        while(orderIterator.hasNext())
+        {
+            Order orderObject = (Order)orderIterator.next();
+            if(!orderObject.getCustomerID().equals(ID))
+            {
+                orderIterator.remove();
+            }
+        }
+        return orderList;
+    }
+    
     public ArrayList<Product> getProductList()
     {
         FileOperator fileOperator = new FileOperator();
@@ -209,6 +251,30 @@ public class Person {
             }
         }
         return productTypeList;
+    }
+    
+    public Boolean updateProductQuantity(String idList, String quantityList)
+    {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<String> idArrayList = new ArrayList<String>();
+        for(String id:idList.split("\\."))
+        {
+            idArrayList.add(id);
+        }
+        String[] quantityListArray = quantityList.split("\\.");
+        ArrayList<Product> productList = fileOperator.getProductList();
+        for(Product productObject:productList)
+        {
+            if(idArrayList.contains(productObject.getProductID()))
+            {
+                int matchedIndex = idArrayList.indexOf(productObject.getProductID());
+                int purchasedQuantity = Integer.parseInt(quantityListArray[matchedIndex]);
+                int newQuantity = productObject.getStock() - purchasedQuantity;
+                productObject.setStock(newQuantity);
+            }
+        }
+        Boolean status = fileOperator.overwriteProduct(productList);
+        return status;
     }
     
     // Override Inbuilt Methods
