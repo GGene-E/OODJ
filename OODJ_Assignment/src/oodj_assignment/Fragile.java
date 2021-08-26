@@ -8,8 +8,6 @@ package oodj_assignment;
 public class Fragile extends Product {
 
     private final static double PACKAGEMULTI = 1.12;
-    private double basePrice;
-    private double netPrice = basePrice * PACKAGEMULTI;
     
     public Fragile(){};
     

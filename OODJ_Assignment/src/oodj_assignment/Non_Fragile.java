@@ -3,9 +3,7 @@ package oodj_assignment;
 
 public class Non_Fragile extends Product{
 
-    private final static double PACKAGEMULTI = 1.06;    
-    private double basePrice;
-    private double netPrice = basePrice * PACKAGEMULTI;    
+    private final static double PACKAGEMULTI = 1.06;     
     
     public Non_Fragile() {};
     
