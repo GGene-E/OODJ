@@ -26,6 +26,15 @@ public class Order {
     // Constructor 
     public Order () {} // Default Constructor
     
+    public Order(String orderID, double grandTotal, String productList, String quantityList, OrderStatus orderStatus)
+    {
+        this.orderID = orderID;
+        this.grandTotal = grandTotal;
+        this.itemList = productList;
+        this.quantityList = quantityList;
+        this.orderStatus = orderStatus;
+    }
+    
     public Order(String customerID, OrderStatus orderStatus, double grandTotal, String itemList, String quantityList)
     {
         this.customerID = customerID;

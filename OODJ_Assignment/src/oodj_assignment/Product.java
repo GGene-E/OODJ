@@ -35,9 +35,7 @@ abstract class Product {
     
     //Getters
 
-    public int getStock() {
-        return stock;
-    }
+    public int getStock() {return stock; }
     
     public static int getID() {
         return ID;
@@ -107,9 +105,4 @@ abstract class Product {
     public void setDescription(String description) {
         this.description = description;
     }
-    
-    //Methods
-    public abstract String provideDetail();
-    public abstract double calcPackPrice();
-    public abstract double calcGrandTotal();
 }

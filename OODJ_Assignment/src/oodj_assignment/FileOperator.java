@@ -10,7 +10,7 @@ import java.time.LocalDate;
 
 
 public class FileOperator {
-
+    
     public void addProduct(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
     {
         //Get indexing for ID
@@ -349,6 +349,32 @@ public class FileOperator {
         catch(IOException ex)
         {
             JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while writing to Customer database.");
+        }
+        return status;
+    }
+    
+    public Boolean overwriteOrder(ArrayList<Order> orderList)
+    {
+        Boolean status = false;
+        File orderFile = new File("ORDER.txt");
+        try(FileWriter fileWriter = new FileWriter(orderFile))
+        {
+            try(BufferedWriter bufferedWriter = new BufferedWriter(fileWriter))
+            {
+                try(PrintWriter printWriter = new PrintWriter(bufferedWriter))
+                {
+                    for(Order orderObject:orderList)
+                    {
+                        printWriter.write(orderObject.toString());
+                        bufferedWriter.newLine();
+                    }
+                }
+            }
+            status = true;
+        }
+        catch(IOException ex)
+        {
+            JOptionPane.showMessageDialog(null, "Unexpected IOException encountered while writing to Order database.");
         }
         return status;
     }

@@ -18,5 +18,5 @@ public class Fragile extends Product {
 
     public static double getPACKAGEMULTI() {
         return PACKAGEMULTI;
-    }
+    }    
 }

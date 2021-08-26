@@ -1,10 +1,6 @@
 
 package oodj_assignment;
 
-
-
-
-
 public class Non_Fragile extends Product{
 
     private final static double PACKAGEMULTI = 1.06;     
