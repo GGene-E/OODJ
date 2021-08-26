@@ -173,9 +173,69 @@ public class Person {
     public void delete(){}
     
     // Person edits an ORDER
-    public void edit()
+    public Boolean edit(Order orderObject)
     {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Order> orderList = fileOperator.getOrderList();
+        Order oldOrder = new Order();
+        Boolean checkUpdate = false;
+        Boolean checkOverwrite = false;
+        for(Order orderCheck:orderList)
+        {
+            if(orderCheck.getOrderID().equals(orderObject.getOrderID()))
+            {
+                oldOrder = orderCheck;
+                orderCheck.setGrandTotal(orderObject.getGrandTotal());
+                orderCheck.setItemList(orderObject.getItemList());
+                orderCheck.setQuantityList(orderObject.getQuantityList());
+                orderCheck.setOrderStatus(orderObject.getOrderStatus());
+                checkUpdate = true;
+            }
+        }
+        if(checkUpdate) // Update order textfile
+        {
+            checkOverwrite = fileOperator.overwriteOrder(orderList);
+        }
+        String[] oldProductID = oldOrder.getItemList().split("\\.");
+        String[] oldQuantityList = oldOrder.getQuantityList().split("\\.");
+        String[] newProductID = orderObject.getItemList().split("\\.");
+        String[] newQuantityList = orderObject.getQuantityList().split("\\.");
+        for(int indexOld = 0; indexOld < oldProductID.length; indexOld++)
+        {
+            for(int indexNew = 0; indexNew < newProductID.length; indexNew++)
+            {
+                if(oldProductID[indexOld].equals(newProductID[indexNew]))
+                {
+                    int oldQuantity = Integer.parseInt(oldQuantityList[indexOld]);
+                    int newQuantity = Integer.parseInt(newQuantityList[indexNew]);
+                    oldQuantityList[indexOld] = Integer.toString(oldQuantity - newQuantity);
+                }
+            }
+        }
+        ArrayList<Product> updatedProductList = fileOperator.getProductList();
+        for(int index = 0; index < oldProductID.length; index++)
+        {
+            for(Product updateProduct:updatedProductList)
+            {
+                if(oldProductID[index].equals(updateProduct.getProductID()))
+                {
+                    int newQuantity = Integer.parseInt(oldQuantityList[index]);
+                    updateProduct.setStock(updateProduct.getStock() - newQuantity);
+                }
+            }
+        }
         
+        fileOperator.overwriteProduct(updatedProductList);
+        
+        if(!checkUpdate || !checkOverwrite)
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: Failed to update order. Please contact an admin.");
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
     
     // Person views an ORDER

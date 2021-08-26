@@ -29,7 +29,6 @@ public class FrameLogin extends javax.swing.JFrame {
     // Admin OR Customer object will be assigned to adminUser/customerUser
     Admin adminUser;
     Customer customerUser;
-    
     public FrameLogin() {
         initComponents();
     }
@@ -1795,6 +1794,11 @@ public class FrameLogin extends javax.swing.JFrame {
         lblOrdProdQuantity.setText("1");
 
         btnSave.setText("Save");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         lblProdID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
@@ -1859,22 +1863,17 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(lblOrdID2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 72, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblOrdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(lblOrdDate, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblGrandTotalOrd, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblOrdID10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblOrdStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(lblOrdID1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(lblOrdID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(lblOrdID10, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblOrdStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(lblOrdID1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblOrdID, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1995,9 +1994,9 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addComponent(jPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22)
+                .addComponent(btnCompleteOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnOrdItemBack, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -2758,8 +2757,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 adminUser = new Admin(userDetail[0], userDetail[1]);
                 CardLayout card = (CardLayout)MainPanel.getLayout();
                 card.show(MainPanel, "adminMenu");
-                userType = PersonType.ADMIN;
-                
+                userType = PersonType.ADMIN;   
             }
             else if(PersonType.valueOf(userDetail[2]) == PersonType.CUSTOMER) // Customer User
             {
@@ -3843,7 +3841,7 @@ public class FrameLogin extends javax.swing.JFrame {
         }
         else
         {
-            
+            JOptionPane.showMessageDialog(null, "Please select an order item.");
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
@@ -4001,6 +3999,27 @@ public class FrameLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Please select a row in the Order Table.");
         }
     }//GEN-LAST:event_btnMinusQuantityActionPerformed
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        // TODO add your handling code here:
+        String orderID = lblOrdID.getText();
+        String grandTotal = lblGrandTotalOrd.getText();
+        String productList = tblOrderItem.getValueAt(0, 0).toString();
+        String quantityList = tblOrderItem.getValueAt(0, 2).toString();
+        OrderStatus orderStatus = OrderStatus.valueOf(lblOrdStatus.getText()); 
+        for(int row = 1; row < tblOrderItem.getRowCount(); row++)
+        {
+            productList = String.format("%s.%s", productList, tblOrderItem.getValueAt(row, 0));
+            quantityList = String.format("%s.%s", quantityList, tblOrderItem.getValueAt(row, 2));
+        }
+        Order edittedOrder = new Order(orderID, Double.parseDouble(grandTotal), productList, quantityList, orderStatus);
+        Boolean status = systemUser.edit(edittedOrder);
+        if(status)
+        {
+            JOptionPane.showMessageDialog(null, "Your order has been successfully updated.");
+        }
+        
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments

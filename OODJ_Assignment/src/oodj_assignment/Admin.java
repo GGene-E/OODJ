@@ -43,12 +43,6 @@ public class Admin extends Person{
         return customerList;
     }
     
-    // Get Product List
-    public ArrayList<Product> getProductList()
-    {
-        return super.getProductList();
-    }
-    
     // Registering new Product
     public void add(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
     {
@@ -89,18 +83,6 @@ public class Admin extends Person{
         return status;
     }
     
-    // Registering new Customers from Admin Account
-    public Boolean add(Customer customerObject)
-    {
-        return super.add(customerObject);
-    }
-    
-    // Admin placing an Order
-    public Boolean add(Order orderObject)
-    {
-        return super.add(orderObject);
-    }
-    
     // Viewing Customers
     public Customer view(String ID) //Specialized Finder
     {
@@ -115,11 +97,6 @@ public class Admin extends Person{
             }
         }
         return viewedCustomer;
-    }
-    
-    public Product view(String ID, String x) //JONATHAN -> Overload this with an integer parameter
-    {
-        return super.view(ID, x);
     }
     
     // Search Customers
@@ -223,10 +200,4 @@ public class Admin extends Person{
         fileOperator.overwriteCustomer(customerList);
         return status;
     }
-    
-    //public Boolean 
-    
-    //public String checkInventory(){}
-    
-    public void checkDuplication(){}
 }
