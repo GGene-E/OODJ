@@ -90,7 +90,7 @@ public class Admin extends Person{
     }
     
     // Registering new Customers from Admin Account
-    public Boolean add(Customer customerObject)
+    /*public Boolean add(Customer customerObject)
     {
         return super.add(customerObject);
     }
@@ -100,7 +100,7 @@ public class Admin extends Person{
     {
         return super.add(orderObject);
     }
-    
+    */
     // Viewing Customers
     public Customer view(String ID) //Specialized Finder
     {

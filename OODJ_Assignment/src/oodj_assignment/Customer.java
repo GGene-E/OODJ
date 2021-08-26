@@ -39,7 +39,7 @@ public class Customer extends Person {
     
     // Methods
     // Customer Registering Ownself // Self-Registration
-    public Boolean add(Customer customerObject)
+    /*public Boolean add(Customer customerObject)
     {
         return super.add(customerObject);
     }
@@ -49,7 +49,7 @@ public class Customer extends Person {
     {
         return super.add(orderObject);
     }
-    
+    */
     // Override inbuilt toString
     @Override
     public String toString()
