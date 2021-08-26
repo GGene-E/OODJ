@@ -125,7 +125,7 @@ public class Person {
             }       
         }
         
-        String lastCustomerID = "a";
+        String lastCustomerID = "0";
         ArrayList<Customer> customerList = fileOperator.getCustomerList(); // Check for same username in Customer.txt
         for(Customer customerCheck:customerList)
         {
@@ -147,7 +147,7 @@ public class Person {
     // Person places an ORDER
     public Boolean add(Order orderObject)
     {
-        String nextUsableOrderID = "OID:1";
+        String nextUsableOrderID = "O1";
         FileOperator fileOperator = new FileOperator();
         ArrayList<Order> orderList = fileOperator.getOrderList();
         if(!orderList.isEmpty()) // There is order in the textfile, so get the next usable ID
@@ -155,9 +155,9 @@ public class Person {
             String lastOrderID = "0";
             for(Order orderCheck:orderList)
             {
-                lastOrderID = orderCheck.getOrderID().substring(4);
+                lastOrderID = orderCheck.getOrderID().substring(1);
             }
-            nextUsableOrderID = String.format("OID:%s", Integer.toString(Integer.parseInt(lastOrderID)+1));
+            nextUsableOrderID = String.format("O%s", Integer.toString(Integer.parseInt(lastOrderID)+1));
             orderObject.setOrderID(nextUsableOrderID);
         }
         else
@@ -169,22 +169,35 @@ public class Person {
         return status;
     }
     
-    // Person deletes an ORDER
-    public void delete(){}
+    // Person Cancels an ORDER
+    public Boolean delete(String orderID)
+    {
+        Boolean status = false;
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Order> orderList = fileOperator.getOrderList();
+        for(Order orderObject:orderList)
+        {
+            if(orderObject.getOrderID().equals(orderID))
+            {
+                orderObject.setOrderStatus(OrderStatus.CANCELLED);
+            }
+        }
+        status = fileOperator.overwriteOrder(orderList);
+        return status;
+    }
     
     // Person edits an ORDER
     public Boolean edit(Order orderObject)
     {
         FileOperator fileOperator = new FileOperator();
         ArrayList<Order> orderList = fileOperator.getOrderList();
-        Order oldOrder = new Order();
+        Order oldOrder = search(orderObject.getOrderID());
         Boolean checkUpdate = false;
         Boolean checkOverwrite = false;
         for(Order orderCheck:orderList)
         {
             if(orderCheck.getOrderID().equals(orderObject.getOrderID()))
             {
-                oldOrder = orderCheck;
                 orderCheck.setGrandTotal(orderObject.getGrandTotal());
                 orderCheck.setItemList(orderObject.getItemList());
                 orderCheck.setQuantityList(orderObject.getQuantityList());
@@ -196,8 +209,11 @@ public class Person {
         {
             checkOverwrite = fileOperator.overwriteOrder(orderList);
         }
+        System.out.println(oldOrder.getQuantityList());
+        System.out.println(orderObject.getQuantityList());
         String[] oldProductID = oldOrder.getItemList().split("\\.");
         String[] oldQuantityList = oldOrder.getQuantityList().split("\\.");
+        
         String[] newProductID = orderObject.getItemList().split("\\.");
         String[] newQuantityList = orderObject.getQuantityList().split("\\.");
         for(int indexOld = 0; indexOld < oldProductID.length; indexOld++)
@@ -209,8 +225,13 @@ public class Person {
                     int oldQuantity = Integer.parseInt(oldQuantityList[indexOld]);
                     int newQuantity = Integer.parseInt(newQuantityList[indexNew]);
                     oldQuantityList[indexOld] = Integer.toString(oldQuantity - newQuantity);
+                    
                 }
             }
+        }
+        for(String x:oldQuantityList)
+        {
+            System.out.println(x);
         }
         ArrayList<Product> updatedProductList = fileOperator.getProductList();
         for(int index = 0; index < oldProductID.length; index++)
@@ -219,8 +240,10 @@ public class Person {
             {
                 if(oldProductID[index].equals(updateProduct.getProductID()))
                 {
+                    System.out.println(updateProduct.getStock());
                     int newQuantity = Integer.parseInt(oldQuantityList[index]);
-                    updateProduct.setStock(updateProduct.getStock() - newQuantity);
+                    updateProduct.setStock(updateProduct.getStock() + newQuantity);
+                    System.out.println(updateProduct.getStock());
                 }
             }
         }

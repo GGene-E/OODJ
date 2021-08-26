@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.text.DecimalFormat;
+import java.time.LocalDate;
 
 /**
  *
@@ -180,7 +181,7 @@ public class FrameLogin extends javax.swing.JFrame {
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         tblOrder = new javax.swing.JTable();
-        txtCusSearch1 = new javax.swing.JTextField();
+        txtOrderSearch = new javax.swing.JTextField();
         btnViewOrderSearch = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         lblCustomerID2 = new javax.swing.JLabel();
@@ -279,6 +280,8 @@ public class FrameLogin extends javax.swing.JFrame {
         lblProdDesc = new javax.swing.JLabel();
         lblProductViewID = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        lblProdStatus = new javax.swing.JLabel();
         btnProdSearch = new javax.swing.JButton();
         txtProdSearch = new javax.swing.JTextField();
         btnProdAdd = new javax.swing.JButton();
@@ -490,7 +493,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        btnCusAddClear.setText("Cancel");
+        btnCusAddClear.setText("Back");
         btnCusAddClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCusAddClearActionPerformed(evt);
@@ -868,6 +871,11 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         tblCustomer.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblCustomerMouseReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblCustomer);
         if (tblCustomer.getColumnModel().getColumnCount() > 0) {
             tblCustomer.getColumnModel().getColumn(0).setResizable(false);
@@ -1585,9 +1593,14 @@ public class FrameLogin extends javax.swing.JFrame {
             tblOrder.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        txtCusSearch1.setText("Search for Order");
+        txtOrderSearch.setText("Search for Order");
 
         btnViewOrderSearch.setText("Search");
+        btnViewOrderSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewOrderSearchActionPerformed(evt);
+            }
+        });
 
         jPanel10.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
@@ -1607,6 +1620,11 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCusContact2.setText("Price");
 
         btnCusDelete1.setText("Cancel Order");
+        btnCusDelete1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCusDelete1ActionPerformed(evt);
+            }
+        });
 
         btnViewOrderItems.setText("View Items");
         btnViewOrderItems.addActionListener(new java.awt.event.ActionListener() {
@@ -1687,15 +1705,15 @@ public class FrameLogin extends javax.swing.JFrame {
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addComponent(jScrollPane4)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnViewOrderModify, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnViewOrderNew, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewOrderSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(txtCusSearch1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnViewOrderBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnViewOrderBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnViewOrderSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtOrderSearch))
                 .addContainerGap())
         );
         jPanel9Layout.setVerticalGroup(
@@ -1706,7 +1724,7 @@ public class FrameLogin extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCusSearch1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnViewOrderSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -2382,12 +2400,19 @@ public class FrameLogin extends javax.swing.JFrame {
         lblProdPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         lblProdDesc.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblProdDesc.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
         lblProductViewID.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel25.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel25.setText("ID :");
+
+        jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel26.setText("Price :");
+
+        lblProdStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -2400,6 +2425,7 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addComponent(lblProdDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel16Layout.createSequentialGroup()
                         .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel25, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2411,13 +2437,14 @@ public class FrameLogin extends javax.swing.JFrame {
                             .addComponent(lblProdName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblProdQuantity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(lblProdPrice, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblProductViewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblProductViewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblProdStatus, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel16Layout.setVerticalGroup(
             jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel16Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblProductViewID, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2438,9 +2465,13 @@ public class FrameLogin extends javax.swing.JFrame {
                     .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblProdPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel16Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblProdStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblProdDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblProdDesc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -3015,39 +3046,47 @@ public class FrameLogin extends javax.swing.JFrame {
             {
                 String orderID = tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString();
                 Order orderObject = systemUser.search(orderID);
-                lblOrdID.setText(orderObject.getOrderID());
-                lblOrdDate.setText(orderObject.getOrderDate().toString());
-                lblGrandTotalOrd.setText(Double.toString(orderObject.getGrandTotal()));
-                lblOrdStatus.setText(orderObject.getOrderStatus().toString());
-                String[] idList = orderObject.getItemList().split("\\.");
-                String[] quantityList = orderObject.getQuantityList().split("\\.");
-                DefaultTableModel orderItemTable = (DefaultTableModel)tblOrderItem.getModel();
-                orderItemTable.setRowCount(0);
-                
-                for(int index = 0; index < idList.length; index++)
+                if(!(LocalDate.now().compareTo(orderObject.getOrderDate().plusDays(2))> 2))
                 {
-                    Product productObject = systemUser.view(idList[index], null);
-                    String[] productDetail = new String[4];
-                    productDetail[0] = productObject.getProductID();
-                    productDetail[1] = productObject.getName();
-                    productDetail[2] = quantityList[index];
-                    productDetail[3] = Double.toString(productObject.getProductPrice());
-                    orderItemTable.addRow(productDetail);
+                    lblOrdID.setText(orderObject.getOrderID());
+                    lblOrdDate.setText(orderObject.getOrderDate().toString());
+                    lblGrandTotalOrd.setText(Double.toString(orderObject.getGrandTotal()));
+                    lblOrdStatus.setText(orderObject.getOrderStatus().toString());
+                    String[] idList = orderObject.getItemList().split("\\.");
+                    String[] quantityList = orderObject.getQuantityList().split("\\.");
+                    DefaultTableModel orderItemTable = (DefaultTableModel)tblOrderItem.getModel();
+                    orderItemTable.setRowCount(0);
+                    for(int index = 0; index < idList.length; index++)
+                    {
+                        Product productObject = systemUser.view(idList[index], null);
+                        String[] productDetail = new String[4];
+                        productDetail[0] = productObject.getProductID();
+                        productDetail[1] = productObject.getName();
+                        productDetail[2] = quantityList[index];
+                        productDetail[3] = Double.toString(productObject.getProductPrice());
+                        orderItemTable.addRow(productDetail);
+                    }
+                    CardLayout card = (CardLayout)MainPanel.getLayout();
+                    card.show(MainPanel, "orderItem");
                 }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "You cant modify orders that are older than 2 days.");
+                }
+ 
             }
             else
             {
-                // Choose something
+                JOptionPane.showMessageDialog(null, "Please select a row.");
             }
         }
         else
         {
-            //Chooseitem
+            JOptionPane.showMessageDialog(null, "Customer has not place an order.");
         }
         
         
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "orderItem");
+
         
         
     }//GEN-LAST:event_btnViewOrderModifyActionPerformed
@@ -3229,10 +3268,16 @@ public class FrameLogin extends javax.swing.JFrame {
     private void btnRegRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegRegisterActionPerformed
         // TODO add your handling code here:
         if(txtRegName.getText().isBlank() || txtRegContact.getText().isBlank() || 
-                txtRegEmail.getText().isBlank() || txtRegAge.getText().isBlank() || 
-                txtRegUsername.getText().isBlank() || txtRegPassword.getText().isBlank())
+           txtRegEmail.getText().isBlank() || txtRegAge.getText().isBlank() || 
+           txtRegUsername.getText().isBlank() || txtRegPassword.getText().isBlank())
         {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else if(txtRegName.getText().contains(",") || txtRegContact.getText().contains(",") ||
+                txtRegEmail.getText().contains(",") || txtRegAge.getText().contains(",") ||
+                txtRegUsername.getText().contains(",") || txtRegPassword.getText().contains(","))
+        {
+            JOptionPane.showMessageDialog(null, "Inputs cannot contain commas (,).");
         }
         else
         {
@@ -3245,16 +3290,12 @@ public class FrameLogin extends javax.swing.JFrame {
                 String contact = txtRegContact.getText().trim();
                 String email = txtRegEmail.getText().trim();
                 Customer customerObject = new Customer(name, username, password, age, contact, email);
-                Boolean state = customerObject.add(customerObject);
+                System.out.println("asd");
+                Boolean state = systemUser.add(customerObject);
                 if(state) // True = writes to file
                 {
                     JOptionPane.showMessageDialog(null, "Successfully registered.");
-                    txtRegName.setText("");
-                    txtRegUsername.setText("");
-                    txtRegPassword.setText("");
-                    txtRegAge.setText("");
-                    txtRegContact.setText("");
-                    txtRegEmail.setText("");
+                    btnRegBack.doClick();
                 }
                 else if (!state)// Invalid Password
                 {
@@ -3271,10 +3312,16 @@ public class FrameLogin extends javax.swing.JFrame {
     private void btnUserAddNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUserAddNewActionPerformed
         // TODO add your handling code here:
         if(txtUserAddName.getText().isBlank() || txtUserAddContact.getText().isBlank() || 
-                txtUserAddEmail.getText().isBlank() || txtUserAddAge.getText().isBlank() || 
-                txtUserAddUsername.getText().isBlank() || txtUserAddPassword.getText().isBlank())
+           txtUserAddEmail.getText().isBlank() || txtUserAddAge.getText().isBlank() || 
+           txtUserAddUsername.getText().isBlank() || txtUserAddPassword.getText().isBlank())
         {
             JOptionPane.showMessageDialog(null, "Please fill in all the fields.");
+        }
+        else if(txtUserAddName.getText().contains(",") || txtUserAddContact.getText().contains(",") ||
+                txtUserAddEmail.getText().contains(",") || txtUserAddAge.getText().contains(",") ||
+                txtUserAddUsername.getText().contains(",") || txtUserAddPassword.getText().contains(","))
+        {
+            JOptionPane.showMessageDialog(null, "Inputs cannot contain commas (,).");
         }
         else
         {
@@ -3924,6 +3971,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 lblProdPrice.setText(Double.toString(viewedProd.getProductPrice()));
                 lblProdDesc.setText(viewedProd.getDescription());
                 lblProdQuantity.setText(Integer.toString(viewedProd.getStock()));
+                lblProdStatus.setText(viewedProd.getProductStat().toString());
             }
             else
             {
@@ -4020,6 +4068,77 @@ public class FrameLogin extends javax.swing.JFrame {
         }
         
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnViewOrderSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderSearchActionPerformed
+        // TODO add your handling code here:
+        if(txtOrderSearch.getText().isBlank() || 
+                txtOrderSearch.getText().equals("Search for Order"))
+        {
+            btnAdminManageOrder.doClick();
+            txtOrderSearch.setText("");
+        }
+        else
+        {
+            Order searchedOrder = systemUser.search(txtOrderSearch.getText().trim().toUpperCase());
+            if(!(searchedOrder == null))
+            {
+                DefaultTableModel orderTable = (DefaultTableModel)tblOrder.getModel();
+                orderTable.setRowCount(0);
+                String[] orderDetails = new String[4];
+                orderDetails[0] = searchedOrder.getOrderID();
+                orderDetails[1] = searchedOrder.getOrderDate().toString();
+                orderDetails[2] = Double.toString(searchedOrder.getGrandTotal());
+                orderDetails[3] = searchedOrder.getOrderStatus().toString();
+                orderTable.addRow(orderDetails);
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Order not found.");
+            }
+        }
+    }//GEN-LAST:event_btnViewOrderSearchActionPerformed
+
+    private void btnCusDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusDelete1ActionPerformed
+        // TODO add your handling code here:
+        if(tblOrder.getSelectedRow() >= 0)
+        {
+            int choice = JOptionPane.showConfirmDialog(null, "Confirm delete?",
+                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
+            if(choice == JOptionPane.YES_OPTION)
+            {
+                String orderID = tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString();
+                Boolean status = systemUser.delete(orderID);
+                if(status)
+                {
+                    JOptionPane.showMessageDialog(null, "Your order has been cancelled.");
+                    btnAdminManageOrder.doClick();
+                }
+                else
+                {
+                    JOptionPane.showMessageDialog(null, "Your order failed to updated. Please contact admin");
+                }
+            }
+        }
+    }//GEN-LAST:event_btnCusDelete1ActionPerformed
+
+    private void tblCustomerMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCustomerMouseReleased
+        String searchedID = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 0).toString();
+        searchedID = searchedID.toLowerCase().trim();
+        // Get Customer
+        Customer viewedCustomer = adminUser.view(searchedID);
+        if(viewedCustomer != null)
+        {
+            lblCusViewID.setText(viewedCustomer.getPersonID());
+            lblCusViewName.setText(viewedCustomer.getName());
+            lblCusViewContact.setText(viewedCustomer.getContact());
+            lblCusViewEmail.setText(viewedCustomer.getEmail());
+            lblCusViewAge.setText(Integer.toString(viewedCustomer.getAge()));
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Customer not found.");
+        }
+    }//GEN-LAST:event_tblCustomerMouseReleased
 
     /**
      * @param args the command line arguments
@@ -4132,6 +4251,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -4229,6 +4349,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblProdName;
     private javax.swing.JLabel lblProdPrice;
     private javax.swing.JLabel lblProdQuantity;
+    private javax.swing.JLabel lblProdStatus;
     private javax.swing.JLabel lblProdType;
     private javax.swing.JLabel lblProductDescription;
     private javax.swing.JLabel lblProductName;
@@ -4288,7 +4409,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtCusEditEmail;
     private javax.swing.JTextField txtCusEditName;
     private javax.swing.JTextField txtCusSearch;
-    private javax.swing.JTextField txtCusSearch1;
     private javax.swing.JTextField txtEditProdDescription;
     private javax.swing.JTextField txtEditProdName;
     private javax.swing.JTextField txtEditProdPrice;
@@ -4299,6 +4419,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTextField txtNewProdName;
     private javax.swing.JTextField txtNewProdPrice;
     private javax.swing.JTextField txtNewProdQuantity;
+    private javax.swing.JTextField txtOrderSearch;
     private javax.swing.JTextField txtProdSearch;
     private javax.swing.JTextField txtRegAge;
     private javax.swing.JTextField txtRegContact;
