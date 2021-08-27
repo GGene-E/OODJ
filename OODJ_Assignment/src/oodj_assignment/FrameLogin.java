@@ -3181,6 +3181,7 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "orderView");
+        refreshOrderTable();
     }//GEN-LAST:event_btnOrdItemBackActionPerformed
 
     private void btnViewOrderNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderNewActionPerformed
