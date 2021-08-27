@@ -30,6 +30,65 @@ public class FrameLogin extends javax.swing.JFrame {
     // Admin OR Customer object will be assigned to adminUser/customerUser
     Admin adminUser;
     Customer customerUser;
+    
+    public void refreshOrderView() // This method will be used to refresh order mades by users
+    {
+        ArrayList<Order> orderList = new ArrayList<Order>();
+        String userID = "";
+        if(userType == PersonType.ADMIN)
+        {
+            orderList = adminUser.getOrderListBasedOnID(adminUser.getPersonID());
+            userID = adminUser.getPersonID();
+        }
+        else if(userType == PersonType.CUSTOMER)
+        {
+            orderList = customerUser.getOrderListBasedOnID(customerUser.getPersonID());
+            userID = adminUser.getPersonID();
+        }
+        
+        if(!orderList.isEmpty())
+        {
+            DefaultTableModel orderTable = (DefaultTableModel)tblOrder.getModel();
+            orderTable.setRowCount(0);
+            lblCusIDOrdView.setText(userID);
+            for(Order orderObject:orderList)
+            {
+                String[] orderDetails = new String[4];
+                orderDetails[0] = orderObject.getOrderID();
+                orderDetails[1] = orderObject.getOrderDate().toString();
+                orderDetails[2] = new DecimalFormat("##.##").format(orderObject.getGrandTotal());
+                orderDetails[3] = orderObject.getOrderStatus().toString();
+                orderTable.addRow(orderDetails);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "User has not ordered anything.");
+        }
+    }
+    
+    public void refreshCustomer()
+    {
+        ArrayList<Product> productList = adminUser.getProductList();
+        if(!productList.isEmpty())
+        {
+            DefaultTableModel productTable = (DefaultTableModel)tblProduct.getModel();
+            productTable.setRowCount(0);
+            for(Product prod : productList)
+            {
+                String[] productDetails = new String[3];
+                productDetails[0] = prod.getProductID();
+                productDetails[1] = prod.getName();
+                productDetails[2] = Integer.toString(prod.getStock());
+                productTable.addRow(productDetails);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: Product Database is detached or empty.");
+        }  
+    }
+    
     public FrameLogin() {
         initComponents();
     }
@@ -225,6 +284,10 @@ public class FrameLogin extends javax.swing.JFrame {
         btnCompleteOrder = new javax.swing.JButton();
         btnRemove = new javax.swing.JButton();
         lblTitleOrderItems = new javax.swing.JLabel();
+        pnlOrderViewItem = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tblOrderItem1 = new javax.swing.JTable();
+        btnOrderViewItemBack = new javax.swing.JButton();
         pnlProductAdd = new javax.swing.JPanel();
         lblTitleNewProduct = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
@@ -2045,6 +2108,77 @@ public class FrameLogin extends javax.swing.JFrame {
 
         MainPanel.add(pnlOrderItem, "orderItem");
 
+        tblOrderItem1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Item ID", "Item Name", "Quantity", "Price(Each)"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Short.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblOrderItem1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblOrderItem1.getTableHeader().setReorderingAllowed(false);
+        tblOrderItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblOrderItem1MouseReleased(evt);
+            }
+        });
+        jScrollPane9.setViewportView(tblOrderItem1);
+        if (tblOrderItem1.getColumnModel().getColumnCount() > 0) {
+            tblOrderItem1.getColumnModel().getColumn(0).setResizable(false);
+            tblOrderItem1.getColumnModel().getColumn(1).setResizable(false);
+            tblOrderItem1.getColumnModel().getColumn(2).setResizable(false);
+            tblOrderItem1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        btnOrderViewItemBack.setText("Back");
+        btnOrderViewItemBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOrderViewItemBackActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlOrderViewItemLayout = new javax.swing.GroupLayout(pnlOrderViewItem);
+        pnlOrderViewItem.setLayout(pnlOrderViewItemLayout);
+        pnlOrderViewItemLayout.setHorizontalGroup(
+            pnlOrderViewItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlOrderViewItemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlOrderViewItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnOrderViewItemBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 722, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        pnlOrderViewItemLayout.setVerticalGroup(
+            pnlOrderViewItemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlOrderViewItemLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.DEFAULT_SIZE, 426, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnOrderViewItemBack, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        MainPanel.add(pnlOrderViewItem, "orderViewItem");
+
         pnlProductAdd.setPreferredSize(new java.awt.Dimension(710, 422));
 
         lblTitleNewProduct.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
@@ -3182,9 +3316,8 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCusCartActionPerformed
 
     private void btnViewOrderItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderItemsActionPerformed
-        // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "orderItem");
+        card.show(MainPanel, "orderViewItem");
     }//GEN-LAST:event_btnViewOrderItemsActionPerformed
 
     private void btnViewOrderBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderBackActionPerformed
@@ -3211,6 +3344,7 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "orderView");
+        //JONATHANOWENPANG
     }//GEN-LAST:event_btnCusManageOrderActionPerformed
 
     private void btnCusLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusLogoutActionPerformed
@@ -4074,8 +4208,16 @@ public class FrameLogin extends javax.swing.JFrame {
         if(txtOrderSearch.getText().isBlank() || 
                 txtOrderSearch.getText().equals("Search for Order"))
         {
-            btnAdminManageOrder.doClick();
-            txtOrderSearch.setText("");
+            if(userType.equals(PersonType.ADMIN))
+            {
+                refreshOrderView();
+                txtOrderSearch.setText("");
+            }
+            else if (userType.equals(PersonType.CUSTOMER))
+            {
+                refreshOrderView();
+                txtOrderSearch.setText("");
+            }
         }
         else
         {
@@ -4111,7 +4253,7 @@ public class FrameLogin extends javax.swing.JFrame {
                 if(status)
                 {
                     JOptionPane.showMessageDialog(null, "Your order has been cancelled.");
-                    btnAdminManageOrder.doClick();
+                    refreshOrderView(); // Refresh the appearance of the order
                 }
                 else
                 {
@@ -4139,6 +4281,15 @@ public class FrameLogin extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Customer not found.");
         }
     }//GEN-LAST:event_tblCustomerMouseReleased
+
+    private void tblOrderItem1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderItem1MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblOrderItem1MouseReleased
+
+    private void btnOrderViewItemBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewItemBackActionPerformed
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "orderView");
+    }//GEN-LAST:event_btnOrderViewItemBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -4217,6 +4368,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnNewProdCancel;
     private javax.swing.JButton btnOrdItemBack;
     private javax.swing.JButton btnOrderAddBack;
+    private javax.swing.JButton btnOrderViewItemBack;
     private javax.swing.JButton btnProdAdd;
     private javax.swing.JButton btnProdEdit;
     private javax.swing.JButton btnProdEdit1;
@@ -4281,6 +4433,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblContact;
     private javax.swing.JLabel lblCusContact2;
@@ -4385,6 +4538,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JPanel pnlOrderCart;
     private javax.swing.JPanel pnlOrderItem;
     private javax.swing.JPanel pnlOrderView;
+    private javax.swing.JPanel pnlOrderViewItem;
     private javax.swing.JPanel pnlProductAdd;
     private javax.swing.JPanel pnlProductEdit;
     private javax.swing.JPanel pnlProductView;
@@ -4401,6 +4555,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomer;
     private javax.swing.JTable tblOrder;
     private javax.swing.JTable tblOrderItem;
+    private javax.swing.JTable tblOrderItem1;
     private javax.swing.JTable tblProduct;
     private javax.swing.JTable tblProductItem;
     private javax.swing.JTable tblProductType;
