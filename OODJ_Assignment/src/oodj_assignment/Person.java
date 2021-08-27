@@ -1,6 +1,7 @@
 
 package oodj_assignment;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
@@ -83,6 +84,25 @@ public class Person {
 
     // Methods
     // Person Logins to the system
+    public void updateOrderStatus()
+    {
+        FileOperator fileOperator = new FileOperator();
+        ArrayList<Order> orderList = fileOperator.getOrderList();
+        for(Order orderObject:orderList)
+        {
+            if(orderObject.getOrderStatus().equals(OrderStatus.ONGOING))
+            {
+                LocalDate orderDate = orderObject.getOrderDate();
+                if(LocalDate.now().compareTo(orderDate) > 5)
+                {
+                    orderObject.setOrderStatus(OrderStatus.COMPLETED);
+                }
+            }
+
+        }
+        fileOperator.overwriteOrder(orderList);
+    }
+    
     public String[] login(String username, String password)
     {
         String[] foundUser = new String[0];

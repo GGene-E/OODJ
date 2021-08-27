@@ -31,7 +31,28 @@ public class FrameLogin extends javax.swing.JFrame {
     Admin adminUser;
     Customer customerUser;
     
-    public void refreshOrderView() // This method will be used to refresh order mades by users
+    public void refreshCustomerTable() // This method will be used to refresh customer tables
+    {
+        ArrayList<Customer> customerList = adminUser.getCustomerList();
+        if(!customerList.isEmpty())
+        {
+            DefaultTableModel customerTable = (DefaultTableModel)tblCustomer.getModel();
+            customerTable.setRowCount(0);
+            for(Customer customerObject:customerList)
+            {
+                String[] customerDetails = new String[2];
+                customerDetails[0] = customerObject.getPersonID();
+                customerDetails[1] = customerObject.getName();
+                customerTable.addRow(customerDetails);
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: Customer Database is detached or empty.");
+        }
+    }
+    
+    public void refreshOrderTable() // This method will be used to refresh order mades by users
     {
         ArrayList<Order> orderList = new ArrayList<Order>();
         String userID = "";
@@ -43,7 +64,7 @@ public class FrameLogin extends javax.swing.JFrame {
         else if(userType == PersonType.CUSTOMER)
         {
             orderList = customerUser.getOrderListBasedOnID(customerUser.getPersonID());
-            userID = adminUser.getPersonID();
+            userID = customerUser.getPersonID();
         }
         
         if(!orderList.isEmpty())
@@ -51,6 +72,8 @@ public class FrameLogin extends javax.swing.JFrame {
             DefaultTableModel orderTable = (DefaultTableModel)tblOrder.getModel();
             orderTable.setRowCount(0);
             lblCusIDOrdView.setText(userID);
+            lblOrderViewID.setText("");
+            lblOrdViewTotal.setText("");
             for(Order orderObject:orderList)
             {
                 String[] orderDetails = new String[4];
@@ -67,7 +90,7 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }
     
-    public void refreshCustomer()
+    public void refreshProductTable() // This method will be used to refresh product table
     {
         ArrayList<Product> productList = adminUser.getProductList();
         if(!productList.isEmpty())
@@ -89,8 +112,67 @@ public class FrameLogin extends javax.swing.JFrame {
         }  
     }
     
+    public void refreshOrderingTable() // Loads Product Types into the Product Type Table
+    {
+        ArrayList<Product> productList = systemUser.getProductList();
+        if(!productList.isEmpty())
+        {          
+            ArrayList<String> productTypeArray = new ArrayList<String>();
+            for(Product productObject:productList)
+            {
+                if( !(productTypeArray.contains(productObject.getProductType())||
+                        productObject.getProductStat() == productStatus.DISCONTINUED)) // Product is SALES and is not in the list
+                {
+                    productTypeArray.add(productObject.getProductType());
+                }
+            }
+            
+            if(!productTypeArray.isEmpty())
+            {
+                DefaultTableModel productTypeTable = (DefaultTableModel)tblProductType.getModel();
+                productTypeTable.setRowCount(0);
+                int count = 1;
+                for(String productType:productTypeArray)
+                {
+                    String[] productDetails = new String[2];
+                    productDetails[0] = Integer.toString(count);
+                    productDetails[1] = productType;
+                    productTypeTable.addRow(productDetails);
+                    count = count + 1;
+                }
+                DefaultTableModel productItemTable = (DefaultTableModel)tblProductItem.getModel();
+                productItemTable.setRowCount(0);
+                
+                lblProductName.setText("");
+                lblProductPrice.setText("");
+                lblProductQuantity.setText("");
+                lblProductDescription.setText("");
+                if(!btnCheckout.isEnabled()) // Re-enable cart buttons if its disabled for user's next order
+                {
+                    DefaultTableModel cartTable = (DefaultTableModel)tblCart.getModel();
+                    cartTable.setRowCount(0);
+                    lblGrandTotal.setText("0");
+                    btnCheckout.setEnabled(true);
+                    btnCartAdd.setEnabled(true);
+                    btnCartRemove.setEnabled(true);
+                    btnCartQtyAdd.setEnabled(true);
+                    btnCartQtyDec.setEnabled(true); 
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "ERROR: Failed to load product type list.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "ERROR: Customer Database is detached or empty.");
+        }
+    }
+    
     public FrameLogin() {
         initComponents();
+        systemUser.updateOrderStatus();
     }
 
     /**
@@ -247,9 +329,9 @@ public class FrameLogin extends javax.swing.JFrame {
         lblCustomerName4 = new javax.swing.JLabel();
         lblCustomerContact4 = new javax.swing.JLabel();
         lblCusIDOrdView = new javax.swing.JLabel();
-        lblCusName2 = new javax.swing.JLabel();
-        lblCusContact2 = new javax.swing.JLabel();
-        btnCusDelete1 = new javax.swing.JButton();
+        lblOrderViewID = new javax.swing.JLabel();
+        lblOrdViewTotal = new javax.swing.JLabel();
+        btnCancelOrder = new javax.swing.JButton();
         btnViewOrderItems = new javax.swing.JButton();
         btnViewOrderNew = new javax.swing.JButton();
         btnViewOrderModify = new javax.swing.JButton();
@@ -286,7 +368,7 @@ public class FrameLogin extends javax.swing.JFrame {
         lblTitleOrderItems = new javax.swing.JLabel();
         pnlOrderViewItem = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
-        tblOrderItem1 = new javax.swing.JTable();
+        tblOrderItemView = new javax.swing.JTable();
         btnOrderViewItemBack = new javax.swing.JButton();
         pnlProductAdd = new javax.swing.JPanel();
         lblTitleNewProduct = new javax.swing.JLabel();
@@ -1646,6 +1728,11 @@ public class FrameLogin extends javax.swing.JFrame {
         });
         tblOrder.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         tblOrder.getTableHeader().setReorderingAllowed(false);
+        tblOrder.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                tblOrderMouseReleased(evt);
+            }
+        });
         jScrollPane4.setViewportView(tblOrder);
         if (tblOrder.getColumnModel().getColumnCount() > 0) {
             tblOrder.getColumnModel().getColumn(0).setResizable(false);
@@ -1678,14 +1765,16 @@ public class FrameLogin extends javax.swing.JFrame {
 
         lblCusIDOrdView.setText("ID");
 
-        lblCusName2.setText("ID");
+        lblOrderViewID.setText("ID");
 
-        lblCusContact2.setText("Price");
+        lblOrdViewTotal.setText("Price");
 
-        btnCusDelete1.setText("Cancel Order");
-        btnCusDelete1.addActionListener(new java.awt.event.ActionListener() {
+        btnCancelOrder.setText("Cancel Order");
+        btnCancelOrder.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnCancelOrder.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCusDelete1ActionPerformed(evt);
+                btnCancelOrderActionPerformed(evt);
             }
         });
 
@@ -1705,19 +1794,19 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCusDelete1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnViewOrderItems, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
-                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(lblCustomerID2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCustomerName4)
                             .addComponent(lblCustomerContact4))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblCusName2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusContact2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblCusIDOrdView, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(lblOrderViewID, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblOrdViewTotal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblCusIDOrdView, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCancelOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnViewOrderItems, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(36, 36, 36)))
                 .addContainerGap())
         );
         jPanel10Layout.setVerticalGroup(
@@ -1730,16 +1819,16 @@ public class FrameLogin extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerName4)
-                    .addComponent(lblCusName2))
+                    .addComponent(lblOrderViewID))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCustomerContact4)
-                    .addComponent(lblCusContact2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
-                .addComponent(btnViewOrderItems)
+                    .addComponent(lblOrdViewTotal))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnCusDelete1)
-                .addGap(17, 17, 17))
+                .addComponent(btnViewOrderItems, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCancelOrder, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
         );
 
         btnViewOrderNew.setText("Place New Order");
@@ -1830,10 +1919,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         tblOrderItem.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Item ID", "Item Name", "Quantity", "Price(Each)"
@@ -2108,22 +2194,19 @@ public class FrameLogin extends javax.swing.JFrame {
 
         MainPanel.add(pnlOrderItem, "orderItem");
 
-        tblOrderItem1.setModel(new javax.swing.table.DefaultTableModel(
+        tblOrderItemView.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Item ID", "Item Name", "Quantity", "Price(Each)"
+                "Item ID", "Item Name", "Quantity", "Price(Each)", "Price(Total)"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Short.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -2134,19 +2217,25 @@ public class FrameLogin extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tblOrderItem1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        tblOrderItem1.getTableHeader().setReorderingAllowed(false);
-        tblOrderItem1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tblOrderItemView.setRowSelectionAllowed(false);
+        tblOrderItemView.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblOrderItemView.getTableHeader().setReorderingAllowed(false);
+        tblOrderItemView.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
-                tblOrderItem1MouseReleased(evt);
+                tblOrderItemViewMouseReleased(evt);
             }
         });
-        jScrollPane9.setViewportView(tblOrderItem1);
-        if (tblOrderItem1.getColumnModel().getColumnCount() > 0) {
-            tblOrderItem1.getColumnModel().getColumn(0).setResizable(false);
-            tblOrderItem1.getColumnModel().getColumn(1).setResizable(false);
-            tblOrderItem1.getColumnModel().getColumn(2).setResizable(false);
-            tblOrderItem1.getColumnModel().getColumn(3).setResizable(false);
+        jScrollPane9.setViewportView(tblOrderItemView);
+        if (tblOrderItemView.getColumnModel().getColumnCount() > 0) {
+            tblOrderItemView.getColumnModel().getColumn(0).setResizable(false);
+            tblOrderItemView.getColumnModel().getColumn(0).setPreferredWidth(1);
+            tblOrderItemView.getColumnModel().getColumn(1).setResizable(false);
+            tblOrderItemView.getColumnModel().getColumn(2).setResizable(false);
+            tblOrderItemView.getColumnModel().getColumn(2).setPreferredWidth(1);
+            tblOrderItemView.getColumnModel().getColumn(3).setResizable(false);
+            tblOrderItemView.getColumnModel().getColumn(3).setPreferredWidth(2);
+            tblOrderItemView.getColumnModel().getColumn(4).setResizable(false);
+            tblOrderItemView.getColumnModel().getColumn(4).setPreferredWidth(2);
         }
 
         btnOrderViewItemBack.setText("Back");
@@ -2940,32 +3029,15 @@ public class FrameLogin extends javax.swing.JFrame {
             txtLoginUsername.setText("");
             txtLoginPassword.setText("");
         }
-        //Later Change This ##JONATHAN
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnManageCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageCustomerActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "customerView");
-        //Code Here
-        // Get Customer List
-        ArrayList<Customer> customerList = adminUser.getCustomerList();
-        if(!customerList.isEmpty())
-        {
-            DefaultTableModel customerTable = (DefaultTableModel)tblCustomer.getModel();
-            customerTable.setRowCount(0);
-            for(Customer customerObject:customerList)
-            {
-                String[] customerDetails = new String[2];
-                customerDetails[0] = customerObject.getPersonID();
-                customerDetails[1] = customerObject.getName();
-                customerTable.addRow(customerDetails);
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "ERROR: Customer Database is detached or empty.");
-        }
+
+        // Reload Customer List
+        refreshCustomerTable();
     }//GEN-LAST:event_btnManageCustomerActionPerformed
 
     private void btnManageProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageProductActionPerformed
@@ -2974,70 +3046,28 @@ public class FrameLogin extends javax.swing.JFrame {
         card.show(MainPanel, "productView");
         
         // Adds data into table
-
-        ArrayList<Product> productList = adminUser.getProductList();
-        if(!productList.isEmpty())
-        {
-            DefaultTableModel productTable = (DefaultTableModel)tblProduct.getModel();
-            productTable.setRowCount(0);
-            for(Product prod : productList)
-            {
-                String[] productDetails = new String[3];
-                productDetails[0] = prod.getProductID();
-                productDetails[1] = prod.getName();
-                productDetails[2] = Integer.toString(prod.getStock());
-                productTable.addRow(productDetails);
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "ERROR: Product Database is detached or empty.");
-        }  
+        refreshProductTable();
     }//GEN-LAST:event_btnManageProductActionPerformed
 
     private void btnAdminManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminManageOrderActionPerformed
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "orderView");
-        ArrayList<Order> orderList = new ArrayList<Order>();
-        String userID = "";
-        if(userType == PersonType.ADMIN)
-        {
-            orderList = adminUser.getOrderListBasedOnID(adminUser.getPersonID());
-            userID = adminUser.getPersonID();
-        }
-        else if(userType == PersonType.CUSTOMER)
-        {
-            orderList = customerUser.getOrderListBasedOnID(customerUser.getPersonID());
-            userID = adminUser.getPersonID();
-        }
-        
-        if(!orderList.isEmpty())
-        {
-            DefaultTableModel orderTable = (DefaultTableModel)tblOrder.getModel();
-            orderTable.setRowCount(0);
-            lblCusIDOrdView.setText(userID);
-            for(Order orderObject:orderList)
-            {
-                String[] orderDetails = new String[4];
-                orderDetails[0] = orderObject.getOrderID();
-                orderDetails[1] = orderObject.getOrderDate().toString();
-                orderDetails[2] = new DecimalFormat("##.##").format(orderObject.getGrandTotal());
-                orderDetails[3] = orderObject.getOrderStatus().toString();
-                orderTable.addRow(orderDetails);
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "User has not ordered anything.");
-        }
-        
+        refreshOrderTable();        
     }//GEN-LAST:event_btnAdminManageOrderActionPerformed
 
     private void btnAdminLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminLogoutActionPerformed
         // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "login"); //JONATHAN
+        int choice = JOptionPane.showConfirmDialog(null, "Confirm Logout?",
+                "Confirm Logout", JOptionPane.YES_NO_OPTION);
+        if(choice == JOptionPane.YES_OPTION)
+        {
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "login");
+            // Discard user's details and credentials
+            userType = null;
+            adminUser = null;
+        }   
     }//GEN-LAST:event_btnAdminLogoutActionPerformed
 
     private void btnProdEdit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdEdit1ActionPerformed
@@ -3048,10 +3078,10 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnEditProdBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditProdBackActionPerformed
         // TODO add your handling code here:
-        //CardLayout card = (CardLayout)MainPanel.getLayout();
-        //card.show(MainPanel, "productView");
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "productView");
         
-        btnManageProduct.doClick();
+        refreshProductTable();
     }//GEN-LAST:event_btnEditProdBackActionPerformed
 
     private void btnProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdAddActionPerformed
@@ -3100,7 +3130,9 @@ public class FrameLogin extends javax.swing.JFrame {
         txtNewProdQuantity.setText("");
         cboNewProdType.setSelectedItem("Hammers");
         
-        btnManageProduct.doClick();
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "productView");
+        refreshProductTable();
     }//GEN-LAST:event_btnNewProdCancelActionPerformed
 
     private void btnOrdItemBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrdItemBackActionPerformed
@@ -3111,65 +3143,10 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnViewOrderNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderNewActionPerformed
         // TODO add your handling code here:
-        Person tempPerson = new Person();
-        ArrayList<Product> productList = tempPerson.getProductList();
-        if(!productList.isEmpty())
-        {
-            addOrderSource = 2;
-            CardLayout card = (CardLayout)MainPanel.getLayout();
-            card.show(MainPanel, "orderAdd");
-            
-            ArrayList<String> productTypeArray = new ArrayList<String>();
-            for(Product productObject:productList)
-            {
-                if( !(productTypeArray.contains(productObject.getProductType())||
-                        productObject.getProductStat() == productStatus.DISCONTINUED)) // Product is SALES and is not in the list
-                {
-                    productTypeArray.add(productObject.getProductType());
-                }
-            }
-            
-            if(!productTypeArray.isEmpty())
-            {
-                DefaultTableModel productTypeTable = (DefaultTableModel)tblProductType.getModel();
-                productTypeTable.setRowCount(0);
-                int count = 1;
-                for(String productType:productTypeArray)
-                {
-                    String[] productDetails = new String[2];
-                    productDetails[0] = Integer.toString(count);
-                    productDetails[1] = productType;
-                    productTypeTable.addRow(productDetails);
-                    count = count + 1;
-                }
-                DefaultTableModel productItemTable = (DefaultTableModel)tblProductItem.getModel();
-                productItemTable.setRowCount(0);
-                
-                lblProductName.setText("");
-                lblProductPrice.setText("");
-                lblProductQuantity.setText("");
-                lblProductDescription.setText("");
-                if(!btnCheckout.isEnabled()) // Re-enable cart buttons if its disabled for user's next order
-                {
-                    DefaultTableModel cartTable = (DefaultTableModel)tblCart.getModel();
-                    cartTable.setRowCount(0);
-                    lblGrandTotal.setText("0");
-                    btnCheckout.setEnabled(true);
-                    btnCartAdd.setEnabled(true);
-                    btnCartRemove.setEnabled(true);
-                    btnCartQtyAdd.setEnabled(true);
-                    btnCartQtyDec.setEnabled(true); 
-                }
-            }
-            else
-            {
-                JOptionPane.showMessageDialog(null, "ERROR: Failed to load product type list.");
-            }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "ERROR: Customer Database is detached or empty.");
-        }
+        refreshOrderingTable();
+        addOrderSource = 2;
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "orderAdd");
     }//GEN-LAST:event_btnViewOrderNewActionPerformed
 
     private void btnViewOrderModifyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderModifyActionPerformed
@@ -3180,7 +3157,7 @@ public class FrameLogin extends javax.swing.JFrame {
             {
                 String orderID = tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString();
                 Order orderObject = systemUser.search(orderID);
-                if(!(LocalDate.now().compareTo(orderObject.getOrderDate().plusDays(2))> 2))
+                if(!(LocalDate.now().compareTo(orderObject.getOrderDate())> 2))
                 {
                     lblOrdID.setText(orderObject.getOrderID());
                     lblOrdDate.setText(orderObject.getOrderDate().toString());
@@ -3218,11 +3195,6 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Customer has not place an order.");
         }
-        
-        
-
-        
-        
     }//GEN-LAST:event_btnViewOrderModifyActionPerformed
 
     private void btnNewOrdViewCartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewOrdViewCartActionPerformed
@@ -3282,7 +3254,13 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnCusAddClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusAddClearActionPerformed
         // TODO add your handling code here:
-        btnManageCustomer.doClick();
+        txtUserAddName.setText("");
+        txtUserAddContact.setText("");
+        txtUserAddEmail.setText("");
+        txtUserAddAge.setText("");
+        txtUserAddUsername.setText("");
+        txtUserAddPassword.setText("");
+        rbgAddUser.clearSelection();
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "customerView");
     }//GEN-LAST:event_btnCusAddClearActionPerformed
@@ -3304,7 +3282,10 @@ public class FrameLogin extends javax.swing.JFrame {
         }
         else
         {
-            btnViewOrderNew.doClick();
+            refreshOrderingTable();
+            addOrderSource = 2;
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "orderAdd");
         }
     }//GEN-LAST:event_btnCartBackActionPerformed
 
@@ -3316,6 +3297,40 @@ public class FrameLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCusCartActionPerformed
 
     private void btnViewOrderItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderItemsActionPerformed
+        if(tblOrder.getRowCount() != 0)
+        {
+            if(tblOrder.getSelectedRow() >= 0)
+            {
+                String orderID = tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString();
+                Order orderObject = systemUser.search(orderID);
+                String[] idList = orderObject.getItemList().split("\\.");
+                String[] quantityList = orderObject.getQuantityList().split("\\.");
+                
+                DefaultTableModel orderItemViewTable = (DefaultTableModel)tblOrderItemView.getModel();
+                orderItemViewTable.setRowCount(0);
+                for(int index = 0; index < idList.length; index++)
+                {
+                    Product productObject = systemUser.view(idList[index], null);
+                    String[] productDetail = new String[5];
+                    productDetail[0] = productObject.getProductID();
+                    productDetail[1] = productObject.getName();
+                    productDetail[2] = quantityList[index];
+                    productDetail[3] = Double.toString(productObject.getProductPrice());
+                    productDetail[4] = new DecimalFormat("##.##").format(productObject.getProductPrice()*Integer.parseInt(quantityList[index]));
+                    orderItemViewTable.addRow(productDetail);
+                }
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "orderItem");
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please select a row.");
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Customer has not place an order.");
+        }
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "orderViewItem");
     }//GEN-LAST:event_btnViewOrderItemsActionPerformed
@@ -3336,7 +3351,9 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnCusPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusPlaceOrderActionPerformed
         // TODO add your handling code here:
-        btnViewOrderNew.doClick();
+        refreshOrderingTable();
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "orderAdd");
         addOrderSource = 1;
     }//GEN-LAST:event_btnCusPlaceOrderActionPerformed
 
@@ -3344,13 +3361,20 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "orderView");
-        //JONATHANOWENPANG
+        refreshOrderTable();  
     }//GEN-LAST:event_btnCusManageOrderActionPerformed
 
     private void btnCusLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusLogoutActionPerformed
-        // TODO add your handling code here:
-        CardLayout card = (CardLayout)MainPanel.getLayout();
-        card.show(MainPanel, "login"); //JONATHAN
+        int choice = JOptionPane.showConfirmDialog(null, "Confirm Logout?",
+                "Confirm Logout", JOptionPane.YES_NO_OPTION);
+        if(choice == JOptionPane.YES_OPTION)
+        {
+            CardLayout card = (CardLayout)MainPanel.getLayout();
+            card.show(MainPanel, "login");
+            // Discard user's details and credentials
+            userType = null;
+            customerUser = null;
+        }   
     }//GEN-LAST:event_btnCusLogoutActionPerformed
 
     private void btnNewProdAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewProdAddActionPerformed
@@ -3480,7 +3504,11 @@ public class FrameLogin extends javax.swing.JFrame {
                         txtUserAddAge.setText("");
                         txtUserAddContact.setText("");
                         txtUserAddEmail.setText("");
-                        btnManageCustomer.doClick();
+
+                        rbgAddUser.clearSelection();
+                        CardLayout card = (CardLayout)MainPanel.getLayout();
+                        card.show(MainPanel, "customerView");
+                        refreshCustomerTable();
                     }
                     else if (!state)// Invalid Password
                     {
@@ -3513,7 +3541,11 @@ public class FrameLogin extends javax.swing.JFrame {
                         txtUserAddAge.setText("");
                         txtUserAddContact.setText("");
                         txtUserAddEmail.setText("");
-                        btnManageCustomer.doClick();
+                        
+                        rbgAddUser.clearSelection();
+                        CardLayout card = (CardLayout)MainPanel.getLayout();
+                        card.show(MainPanel, "customerView");
+                        refreshCustomerTable();
                     }
                     else if (!state)// Invalid Password
                     {
@@ -3530,13 +3562,13 @@ public class FrameLogin extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Please select a radiobutton.");
             }        
         }
-        
-
     }//GEN-LAST:event_btnUserAddNewActionPerformed
 
     private void btnCartAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartAddActionPerformed
         // TODO add your handling code here:
-        btnViewOrderNew.doClick();
+        refreshOrderingTable();
+        CardLayout card = (CardLayout)MainPanel.getLayout();
+        card.show(MainPanel, "orderAdd");
         addOrderSource = 3;
 
     }//GEN-LAST:event_btnCartAddActionPerformed
@@ -3628,9 +3660,10 @@ public class FrameLogin extends javax.swing.JFrame {
                 txtCusEditContact.setText("");
                 txtCusEditEmail.setText("");
                 txtCusEditAge.setText("");
-                //CardLayout card = (CardLayout)MainPanel.getLayout();
-                //card.show(MainPanel, "customerView"); JONATHAN
-                btnManageCustomer.doClick();
+                
+                CardLayout card = (CardLayout)MainPanel.getLayout();
+                card.show(MainPanel, "customerView");
+                refreshCustomerTable();
             }
             catch(NumberFormatException ex)
             {
@@ -3655,7 +3688,7 @@ public class FrameLogin extends javax.swing.JFrame {
             if(status) // Status is TRUE
             {
                 JOptionPane.showMessageDialog(null, "Customer Data has been completely deleted.");
-                btnManageCustomer.doClick();
+                refreshCustomerTable();
             }
         }
         else
@@ -3667,7 +3700,8 @@ public class FrameLogin extends javax.swing.JFrame {
     private void btnProdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdSearchActionPerformed
         if(txtProdSearch.getText().isBlank())
         {
-            btnManageProduct.doClick();
+            // Refreshes the Product Table
+            refreshProductTable();
         }
         else if(!txtProdSearch.getText().toLowerCase().trim().equals("search for product"))
         {
@@ -3732,8 +3766,12 @@ public class FrameLogin extends javax.swing.JFrame {
                             txtEditProdQuantity.setText("");
                             txtEditProdDescription.setText("");
                             rbSale.setSelected(true);
-
-                            btnManageProduct.doClick();
+                            
+                            // Bring users to product table and refreshes the product table
+                            // To display updated product details
+                            CardLayout card = (CardLayout)MainPanel.getLayout();
+                            card.show(MainPanel, "productView");
+                            refreshProductTable();
                         }
                     }
                 }
@@ -3757,7 +3795,11 @@ public class FrameLogin extends javax.swing.JFrame {
                         txtEditProdDescription.setText("");
                         rbSale.setSelected(true);
 
-                        btnManageProduct.doClick();
+                        // Brings up Product Panel and refreshes the Product Table
+                        // to show users the updated product details
+                        CardLayout card = (CardLayout)MainPanel.getLayout();
+                        card.show(MainPanel, "productView");
+                        refreshProductTable();
                     }
                 }
             }
@@ -3776,7 +3818,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnSearchRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchRefreshActionPerformed
         // TODO add your handling code here:
-        btnManageCustomer.doClick();
+        refreshCustomerTable();
         txtCusSearch.setText("");
     }//GEN-LAST:event_btnSearchRefreshActionPerformed
 
@@ -3885,10 +3927,6 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please select a product item.");
         }
-
-
-        //JONATHAN
-        
     }//GEN-LAST:event_btnAddToCartActionPerformed
 
     private void btnAddQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddQtyActionPerformed
@@ -4184,23 +4222,27 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        String orderID = lblOrdID.getText();
-        String grandTotal = lblGrandTotalOrd.getText();
-        String productList = tblOrderItem.getValueAt(0, 0).toString();
-        String quantityList = tblOrderItem.getValueAt(0, 2).toString();
-        OrderStatus orderStatus = OrderStatus.valueOf(lblOrdStatus.getText()); 
-        for(int row = 1; row < tblOrderItem.getRowCount(); row++)
+        int choice = JOptionPane.showConfirmDialog(null, "Confirm Modifying your Order?",
+                "Confirm Order Modify", JOptionPane.YES_NO_OPTION);
+        if(choice == JOptionPane.YES_OPTION)
         {
-            productList = String.format("%s.%s", productList, tblOrderItem.getValueAt(row, 0));
-            quantityList = String.format("%s.%s", quantityList, tblOrderItem.getValueAt(row, 2));
-        }
-        Order edittedOrder = new Order(orderID, Double.parseDouble(grandTotal), productList, quantityList, orderStatus);
-        Boolean status = systemUser.edit(edittedOrder);
-        if(status)
-        {
-            JOptionPane.showMessageDialog(null, "Your order has been successfully updated.");
-        }
-        
+            String orderID = lblOrdID.getText();
+            String grandTotal = lblGrandTotalOrd.getText();
+            String productList = tblOrderItem.getValueAt(0, 0).toString();
+            String quantityList = tblOrderItem.getValueAt(0, 2).toString();
+            OrderStatus orderStatus = OrderStatus.valueOf(lblOrdStatus.getText()); 
+            for(int row = 1; row < tblOrderItem.getRowCount(); row++)
+            {
+                productList = String.format("%s.%s", productList, tblOrderItem.getValueAt(row, 0));
+                quantityList = String.format("%s.%s", quantityList, tblOrderItem.getValueAt(row, 2));
+            }
+            Order edittedOrder = new Order(orderID, Double.parseDouble(grandTotal), productList, quantityList, orderStatus);
+            Boolean status = systemUser.edit(edittedOrder);
+            if(status)
+            {
+                JOptionPane.showMessageDialog(null, "Your order has been successfully updated.");
+            }
+        }   
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnViewOrderSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderSearchActionPerformed
@@ -4210,12 +4252,12 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             if(userType.equals(PersonType.ADMIN))
             {
-                refreshOrderView();
+                refreshOrderTable();
                 txtOrderSearch.setText("");
             }
             else if (userType.equals(PersonType.CUSTOMER))
             {
-                refreshOrderView();
+                refreshOrderTable();
                 txtOrderSearch.setText("");
             }
         }
@@ -4240,28 +4282,36 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnViewOrderSearchActionPerformed
 
-    private void btnCusDelete1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCusDelete1ActionPerformed
+    private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
         // TODO add your handling code here:
         if(tblOrder.getSelectedRow() >= 0)
         {
-            int choice = JOptionPane.showConfirmDialog(null, "Confirm delete?",
-                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
-            if(choice == JOptionPane.YES_OPTION)
+            String orderID = tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString(); // Search ID
+            Order orderSelected = systemUser.search(orderID); // Get Order to check Date
+            if(!(LocalDate.now().compareTo(orderSelected.getOrderDate()) > 3)) // Less than 3 days order
             {
-                String orderID = tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString();
-                Boolean status = systemUser.delete(orderID);
-                if(status)
+                int choice = JOptionPane.showConfirmDialog(null, "Confirm Cancel?",
+                        "Confirm Cancel", JOptionPane.YES_NO_OPTION);
+                if(choice == JOptionPane.YES_OPTION)
                 {
-                    JOptionPane.showMessageDialog(null, "Your order has been cancelled.");
-                    refreshOrderView(); // Refresh the appearance of the order
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Your order failed to updated. Please contact admin");
+                    Boolean status = systemUser.delete(orderID); // Delete
+                    if(status)
+                    {
+                        JOptionPane.showMessageDialog(null, "Your order has been cancelled.");
+                        refreshOrderTable(); // Refresh the appearance of the order
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "Your order failed to cancel. Please contact admin");
+                    }
                 }
             }
         }
-    }//GEN-LAST:event_btnCusDelete1ActionPerformed
+        else
+        {
+            JOptionPane.showMessageDialog(null, "You cant cancel order older than 3 days.");
+        }
+    }//GEN-LAST:event_btnCancelOrderActionPerformed
 
     private void tblCustomerMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblCustomerMouseReleased
         String searchedID = tblCustomer.getValueAt(tblCustomer.getSelectedRow(), 0).toString();
@@ -4282,14 +4332,31 @@ public class FrameLogin extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tblCustomerMouseReleased
 
-    private void tblOrderItem1MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderItem1MouseReleased
+    private void tblOrderItemViewMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderItemViewMouseReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_tblOrderItem1MouseReleased
+    }//GEN-LAST:event_tblOrderItemViewMouseReleased
 
     private void btnOrderViewItemBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderViewItemBackActionPerformed
         CardLayout card = (CardLayout)MainPanel.getLayout();
         card.show(MainPanel, "orderView");
     }//GEN-LAST:event_btnOrderViewItemBackActionPerformed
+
+    private void tblOrderMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblOrderMouseReleased
+        // TODO add your handling code here:
+        lblOrderViewID.setText(tblOrder.getValueAt(tblOrder.getSelectedRow(), 0).toString());
+        lblOrdViewTotal.setText(tblOrder.getValueAt(tblOrder.getSelectedRow(), 2).toString());
+        OrderStatus orderStatus = OrderStatus.valueOf(tblOrder.getValueAt(tblOrder.getSelectedRow(), 3).toString());
+        if(orderStatus.equals(OrderStatus.CANCELLED) || orderStatus.equals(OrderStatus.COMPLETED))
+        {
+            btnViewOrderModify.setEnabled(false);
+            btnCancelOrder.setEnabled(false);
+        }
+        else if(orderStatus.equals(OrderStatus.ONGOING))
+        {
+            btnViewOrderModify.setEnabled(true);
+            btnCancelOrder.setEnabled(true);
+        }
+    }//GEN-LAST:event_tblOrderMouseReleased
 
     /**
      * @param args the command line arguments
@@ -4336,6 +4403,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnAdminCart;
     private javax.swing.JButton btnAdminLogout;
     private javax.swing.JButton btnAdminManageOrder;
+    private javax.swing.JButton btnCancelOrder;
     private javax.swing.JButton btnCartAdd;
     private javax.swing.JButton btnCartBack;
     private javax.swing.JButton btnCartQtyAdd;
@@ -4345,7 +4413,6 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JButton btnCompleteOrder;
     private javax.swing.JButton btnCusAddClear;
     private javax.swing.JButton btnCusCart;
-    private javax.swing.JButton btnCusDelete1;
     private javax.swing.JButton btnCusEditCancel;
     private javax.swing.JButton btnCusEditSave;
     private javax.swing.JButton btnCusLogout;
@@ -4436,14 +4503,12 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblContact;
-    private javax.swing.JLabel lblCusContact2;
     private javax.swing.JLabel lblCusEditAge;
     private javax.swing.JLabel lblCusEditContact;
     private javax.swing.JLabel lblCusEditEmail;
     private javax.swing.JLabel lblCusEditID;
     private javax.swing.JLabel lblCusEditName;
     private javax.swing.JLabel lblCusIDOrdView;
-    private javax.swing.JLabel lblCusName2;
     private javax.swing.JLabel lblCusViewAge;
     private javax.swing.JLabel lblCusViewContact;
     private javax.swing.JLabel lblCusViewEmail;
@@ -4493,6 +4558,8 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel lblOrdProdPrice;
     private javax.swing.JLabel lblOrdProdQuantity;
     private javax.swing.JLabel lblOrdStatus;
+    private javax.swing.JLabel lblOrdViewTotal;
+    private javax.swing.JLabel lblOrderViewID;
     private javax.swing.JLabel lblPassword;
     private javax.swing.JLabel lblPassword1;
     private javax.swing.JLabel lblPassword2;
@@ -4555,7 +4622,7 @@ public class FrameLogin extends javax.swing.JFrame {
     private javax.swing.JTable tblCustomer;
     private javax.swing.JTable tblOrder;
     private javax.swing.JTable tblOrderItem;
-    private javax.swing.JTable tblOrderItem1;
+    private javax.swing.JTable tblOrderItemView;
     private javax.swing.JTable tblProduct;
     private javax.swing.JTable tblProductItem;
     private javax.swing.JTable tblProductType;

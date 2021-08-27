@@ -2064,6 +2064,9 @@
                           <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                         </Property>
                       </Properties>
+                      <Events>
+                        <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblOrderMouseReleased"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
@@ -2097,23 +2100,23 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="btnCusDelete1" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
-                                          <Component id="btnViewOrderItems" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="1" attributes="0">
-                                      <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="lblCustomerID2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblCustomerName4" alignment="1" min="-2" max="-2" attributes="0"/>
                                           <Component id="lblCustomerContact4" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="lblCusName2" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="lblCusContact2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblOrderViewID" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="lblOrdViewTotal" alignment="0" max="32767" attributes="0"/>
                                           <Component id="lblCusIDOrdView" alignment="0" min="-2" pref="88" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Component id="btnCancelOrder" alignment="1" min="-2" pref="106" max="-2" attributes="0"/>
+                                          <Component id="btnViewOrderItems" min="-2" pref="106" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2131,18 +2134,18 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerName4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusName2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblOrderViewID" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="lblCustomerContact4" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCusContact2" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblOrdViewTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
-                              <Component id="btnViewOrderItems" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="btnCusDelete1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="btnViewOrderItems" pref="25" max="32767" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnCancelOrder" min="-2" pref="27" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -2177,22 +2180,26 @@
                         <Property name="text" type="java.lang.String" value="ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusName2">
+                    <Component class="javax.swing.JLabel" name="lblOrderViewID">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="ID"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JLabel" name="lblCusContact2">
+                    <Component class="javax.swing.JLabel" name="lblOrdViewTotal">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Price"/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="btnCusDelete1">
+                    <Component class="javax.swing.JButton" name="btnCancelOrder">
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Cancel Order"/>
+                        <Property name="horizontalTextPosition" type="int" value="0"/>
+                        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+                          <Insets value="[0, 0, 0, 0]"/>
+                        </Property>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCusDelete1ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelOrderActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="btnViewOrderItems">
@@ -2326,7 +2333,7 @@
                     <Component class="javax.swing.JTable" name="tblOrderItem">
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                          <Table columnCount="4" rowCount="4">
+                          <Table columnCount="4" rowCount="0">
                             <Column editable="false" title="Item ID" type="java.lang.String"/>
                             <Column editable="false" title="Item Name" type="java.lang.String"/>
                             <Column editable="false" title="Quantity" type="java.lang.String"/>
@@ -2705,19 +2712,20 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tblOrderItem1">
+                <Component class="javax.swing.JTable" name="tblOrderItemView">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
+                      <Table columnCount="5" rowCount="0">
                         <Column editable="false" title="Item ID" type="java.lang.String"/>
                         <Column editable="false" title="Item Name" type="java.lang.String"/>
                         <Column editable="false" title="Quantity" type="java.lang.String"/>
-                        <Column editable="false" title="Price(Each)" type="java.lang.Short"/>
+                        <Column editable="false" title="Price(Each)" type="java.lang.String"/>
+                        <Column editable="false" title="Price(Total)" type="java.lang.String"/>
                       </Table>
                     </Property>
                     <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                       <TableColumnModel selectionModel="0">
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -2727,25 +2735,31 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="1" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="2" resizable="false">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="2" resizable="false">
                           <Title/>
                           <Editor/>
                           <Renderer/>
                         </Column>
                       </TableColumnModel>
                     </Property>
+                    <Property name="rowSelectionAllowed" type="boolean" value="false"/>
                     <Property name="selectionMode" type="int" value="0"/>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblOrderItem1MouseReleased"/>
+                    <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tblOrderItemViewMouseReleased"/>
                   </Events>
                 </Component>
               </SubComponents>
