@@ -56,7 +56,7 @@ public class Admin extends Person{
         //Returns FALSE if there are same username
         FileOperator fileOperator = new FileOperator();
         //Compare for username
-        String lastAdminID = "a";
+        String lastAdminID = "A0";
         ArrayList<Admin> adminList = fileOperator.getAdminList(); // Check for same username in Admin.txt
         for(Admin adminCheck:adminList)
         {

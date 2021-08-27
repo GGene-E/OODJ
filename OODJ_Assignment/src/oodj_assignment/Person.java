@@ -145,7 +145,7 @@ public class Person {
             }       
         }
         
-        String lastCustomerID = "0";
+        String lastCustomerID = "C0";
         ArrayList<Customer> customerList = fileOperator.getCustomerList(); // Check for same username in Customer.txt
         for(Customer customerCheck:customerList)
         {
