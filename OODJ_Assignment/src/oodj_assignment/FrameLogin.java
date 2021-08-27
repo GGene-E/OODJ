@@ -3340,6 +3340,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnViewOrderBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewOrderBackActionPerformed
         // TODO add your handling code here:
+
         if(userType == PersonType.ADMIN) //User is admin
         {
             CardLayout card = (CardLayout)MainPanel.getLayout();
@@ -3377,6 +3378,10 @@ public class FrameLogin extends javax.swing.JFrame {
             // Discard user's details and credentials
             userType = null;
             customerUser = null;
+            DefaultTableModel cartTable = (DefaultTableModel)tblCart.getModel();
+            cartTable.setRowCount(0);
+            DefaultTableModel orderTable = (DefaultTableModel)tblOrder.getModel();
+            orderTable.setRowCount(0);
         }   
     }//GEN-LAST:event_btnCusLogoutActionPerformed
 
