@@ -229,8 +229,6 @@ public class Person {
         {
             checkOverwrite = fileOperator.overwriteOrder(orderList);
         }
-        System.out.println(oldOrder.getQuantityList());
-        System.out.println(orderObject.getQuantityList());
         String[] oldProductID = oldOrder.getItemList().split("\\.");
         String[] oldQuantityList = oldOrder.getQuantityList().split("\\.");
         
@@ -245,13 +243,8 @@ public class Person {
                     int oldQuantity = Integer.parseInt(oldQuantityList[indexOld]);
                     int newQuantity = Integer.parseInt(newQuantityList[indexNew]);
                     oldQuantityList[indexOld] = Integer.toString(oldQuantity - newQuantity);
-                    
                 }
             }
-        }
-        for(String x:oldQuantityList)
-        {
-            System.out.println(x);
         }
         ArrayList<Product> updatedProductList = fileOperator.getProductList();
         for(int index = 0; index < oldProductID.length; index++)
@@ -260,10 +253,8 @@ public class Person {
             {
                 if(oldProductID[index].equals(updateProduct.getProductID()))
                 {
-                    System.out.println(updateProduct.getStock());
                     int newQuantity = Integer.parseInt(oldQuantityList[index]);
                     updateProduct.setStock(updateProduct.getStock() + newQuantity);
-                    System.out.println(updateProduct.getStock());
                 }
             }
         }
