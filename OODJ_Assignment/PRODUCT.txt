@@ -3,3 +3,5 @@
 3,4.47,Bulbs,SALE,Bulb1,This is bulb 1,true,0
 4,12.3,Glass,SALE,NewerGlass,This is Glass 1,true,7
 5,33.6,Glass,DISCONTINUED,BlueGlass,This is blue Glass,true,10
+6,1120.0,Hammers,SALE,Mjolnir,It has "retired" in the making of Thor 3:Ragnarok.,true,1
+7,1.12,Hammers,SALE,Your feelings,Very fragile.,true,1

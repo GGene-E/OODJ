@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 public class FileOperator {
     
-    public void addProduct(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
+    public void add(Product newProduct)
     {
         //Get indexing for ID
         int count = 1;
@@ -37,17 +37,19 @@ public class FileOperator {
         // Calculate net price
         double netPrice;
         
-        if(frag == true)
+        if(newProduct.isFragility())
         {
-            netPrice = price * Fragile.getPACKAGEMULTI();
+            netPrice = newProduct.getProductPrice() * Fragile.getPACKAGEMULTI();
         }
         else
         {
-            netPrice = price * Non_Fragile.getPACKAGEMULTI();            
+            netPrice = newProduct.getProductPrice() * Non_Fragile.getPACKAGEMULTI();            
         }
-        
-        DecimalFormat df = new DecimalFormat("###.##");
-        df.format(netPrice);
+
+        String price = new DecimalFormat("##.##").format(netPrice);
+        double updatedPrice = Double.parseDouble(price);
+        System.out.println(updatedPrice);
+        newProduct.setProductPrice(updatedPrice);
         //Add into textfile
         File file = new File("PRODUCT.txt");
         try
@@ -55,16 +57,7 @@ public class FileOperator {
             FileWriter fw = new FileWriter(file, true);
             BufferedWriter bw = new BufferedWriter(fw);
             PrintWriter pw = new PrintWriter(bw);
-            String prod = newID + "," + 
-                          df.format(netPrice) + "," + 
-                          type + "," + 
-                          status + "," + 
-                          name + "," + 
-                          description + "," + 
-                          frag + "," +
-                          stock;
-
-            pw.write(prod);
+            pw.write(newProduct.toString());
             bw.newLine();                    
             pw.close();
             bw.close();

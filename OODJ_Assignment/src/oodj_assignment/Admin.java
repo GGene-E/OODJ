@@ -44,10 +44,18 @@ public class Admin extends Person{
     }
     
     // Registering new Product
-    public void add(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
+    public void add(Product newProduct)
     {
         FileOperator fo = new FileOperator();
-        fo.addProduct(price, type, status, name, description, frag, stock);
+        ArrayList<Product> productList = fo.getProductList();
+        String lastUsableID = "0";
+        for(Product productObject:productList)
+        {
+            lastUsableID = productObject.getProductID();
+        }
+        int newIDInt = Integer.parseInt(lastUsableID) + 1;
+        newProduct.setProductID(Integer.toString(newIDInt));
+        fo.add(newProduct);
     }
     
     // Registering new Admin from Admin Account -> Overloaded add()
@@ -186,7 +194,7 @@ public class Admin extends Person{
         FileOperator fileOperator = new FileOperator();
         ArrayList<Customer> customerList = fileOperator.getCustomerList();
         
-        Iterator customerIterator = customerList.iterator();
+        Iterator customerIterator = customerList.iterator(); // Create an Iterator
         while(customerIterator.hasNext())
         {
             Customer customerObject = (Customer)customerIterator.next();

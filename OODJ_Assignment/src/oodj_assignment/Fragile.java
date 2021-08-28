@@ -11,6 +11,11 @@ public class Fragile extends Product {
     
     public Fragile(){};
     
+    public Fragile(double price, String type, productStatus status, String name, String description, boolean frag, int stock)
+    {
+        super(price, type, status, name, description, frag, stock);
+    }
+    
     public Fragile(String ID, double price, String type, productStatus status, String name, String description, boolean frag, int stock)
     {
         super(ID, price, type, status, name, description, frag, stock);

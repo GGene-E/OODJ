@@ -2677,7 +2677,7 @@ public class FrameLogin extends javax.swing.JFrame {
 
         jLabel26.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel26.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel26.setText("Price :");
+        jLabel26.setText("Status :");
 
         lblProdStatus.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
 
@@ -3398,6 +3398,10 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Inputs cannot contain commas (,).");
         }
+        else if(txtNewProdPrice.getText().length()> 4 || txtNewProdQuantity.getText().length() > 4)
+        {
+            JOptionPane.showMessageDialog(null, "Please enter a valid price or stock quantity.(Less than 5 digits)");
+        }
         else
         {
             //Construct file operator
@@ -3412,9 +3416,19 @@ public class FrameLogin extends javax.swing.JFrame {
                 String desc = txtNewProdDescription.getText();
                 boolean frag = rbFragile.isSelected();
                 int stock = Integer.parseInt(txtNewProdQuantity.getText());
+                Product newProduct = null;
+                if(frag)
+                {
+                    newProduct = new Fragile(price, type, sale, name, desc, frag, stock);
+                }
+                else
+                {
+                    newProduct = new Non_Fragile(price, type, sale, name, desc, frag, stock);
+                }
+                
                 
                 //Call file operator method
-                admin.add(price, type, sale, name, desc, frag, stock);
+                admin.add(newProduct);
                 JOptionPane.showMessageDialog(null, "Item Successfully Added");
                 
                 txtNewProdPrice.setText("");
