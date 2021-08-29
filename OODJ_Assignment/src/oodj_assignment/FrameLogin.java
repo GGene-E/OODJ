@@ -1013,6 +1013,7 @@ public class FrameLogin extends javax.swing.JFrame {
             }
         });
         tblCustomer.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        tblCustomer.getTableHeader().setReorderingAllowed(false);
         tblCustomer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 tblCustomerMouseReleased(evt);
