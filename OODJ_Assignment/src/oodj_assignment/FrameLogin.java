@@ -4060,26 +4060,33 @@ public class FrameLogin extends javax.swing.JFrame {
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-        if(tblOrderItem.getSelectedRow() >= 0)
+        if(tblOrderItem.getRowCount() > 2)
         {
-            int choice = JOptionPane.showConfirmDialog(null, "Confirm Remove from Order?",
-                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
-            if(choice == JOptionPane.YES_OPTION)
+            if(tblOrderItem.getSelectedRow() >= 0)
             {
-                double quantity = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 2).toString());
-                double price = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 3).toString());
-                price = price*quantity;
-                double grandTotal = Double.parseDouble(lblGrandTotalOrd.getText());
-                grandTotal = grandTotal - price;
-                lblGrandTotalOrd.setText(new DecimalFormat("##.##").format(grandTotal));
-                
-                DefaultTableModel orderItemTable = (DefaultTableModel)tblOrderItem.getModel();
-                orderItemTable.removeRow(tblOrderItem.getSelectedRow());
+                int choice = JOptionPane.showConfirmDialog(null, "Confirm Remove from Order?",
+                        "Confirm Delete", JOptionPane.YES_NO_OPTION);
+                if(choice == JOptionPane.YES_OPTION)
+                {
+                    double quantity = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 2).toString());
+                    double price = Double.parseDouble(tblOrderItem.getValueAt(tblOrderItem.getSelectedRow(), 3).toString());
+                    price = price*quantity;
+                    double grandTotal = Double.parseDouble(lblGrandTotalOrd.getText());
+                    grandTotal = grandTotal - price;
+                    lblGrandTotalOrd.setText(new DecimalFormat("##.##").format(grandTotal));
+
+                    DefaultTableModel orderItemTable = (DefaultTableModel)tblOrderItem.getModel();
+                    orderItemTable.removeRow(tblOrderItem.getSelectedRow());
+                }
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please select an order item.");
             }
         }
         else
         {
-            JOptionPane.showMessageDialog(null, "Please select an order item.");
+                JOptionPane.showMessageDialog(null, "Your order must have at least one product.");
         }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
