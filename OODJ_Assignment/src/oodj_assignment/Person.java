@@ -93,12 +93,11 @@ public class Person {
             if(orderObject.getOrderStatus().equals(OrderStatus.ONGOING))
             {
                 LocalDate orderDate = orderObject.getOrderDate();
-                if(LocalDate.now().compareTo(orderDate) > 5)
+                if(LocalDate.now().compareTo(orderDate.plusDays(5)) > 1)
                 {
                     orderObject.setOrderStatus(OrderStatus.COMPLETED);
                 }
             }
-
         }
         fileOperator.overwriteOrder(orderList);
     }
