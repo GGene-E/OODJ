@@ -3942,6 +3942,10 @@ public class FrameLogin extends javax.swing.JFrame {
                 lblGrandTotal.setText(new DecimalFormat("##.##").format(grandTotal));
                 lblQuantityToCart.setText("1");
             }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Product is out of quantity.");
+            }
         }
         else
         {
@@ -3965,36 +3969,55 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             JOptionPane.showMessageDialog(null, "Please select a product item.");
         }
-
-        
     }//GEN-LAST:event_btnAddQtyActionPerformed
 
     private void lblReduceQtyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblReduceQtyActionPerformed
         // TODO add your handling code here:
-        int currentQuantity = Integer.parseInt(lblQuantityToCart.getText());
-        if(currentQuantity > 1)
+        if(tblProductItem.getSelectedRow() >= 0 && !(lblProductName.getText().isBlank()))
         {
-            currentQuantity = currentQuantity - 1;
-            lblQuantityToCart.setText(Integer.toString(currentQuantity));
+            int currentQuantity = Integer.parseInt(lblQuantityToCart.getText());
+            if(currentQuantity > 1)
+            {
+                currentQuantity = currentQuantity - 1;
+                lblQuantityToCart.setText(Integer.toString(currentQuantity));
+            }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "Please select a product item.");
         }
     }//GEN-LAST:event_lblReduceQtyActionPerformed
 
     private void btnCartRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartRemoveActionPerformed
         // TODO add your handling code here:
-            int choice = JOptionPane.showConfirmDialog(null, "Confirm Remove from Cart?",
-                    "Confirm Delete", JOptionPane.YES_NO_OPTION);
-            if(choice == JOptionPane.YES_OPTION)
+        if(tblCart.getRowCount()== 0)
+        {
+            JOptionPane.showMessageDialog(null, "Please add items into your cart.");
+        }
+        else
+        {
+            if(tblCart.getSelectedRow() >= 0)
             {
-                double quantity = Double.parseDouble(tblCart.getValueAt(tblCart.getSelectedRow(), 3).toString());
-                double price = Double.parseDouble(tblCart.getValueAt(tblCart.getSelectedRow(), 4).toString());
-                price = price*quantity;
-                double grandTotal = Double.parseDouble(lblGrandTotal.getText());
-                grandTotal = grandTotal - price;
-                lblGrandTotal.setText(new DecimalFormat("##.##").format(grandTotal));
-                
-                DefaultTableModel cartTable = (DefaultTableModel)tblCart.getModel();
-                cartTable.removeRow(tblCart.getSelectedRow());
+                int choice = JOptionPane.showConfirmDialog(null, "Confirm Remove from Cart?",
+                        "Confirm Delete", JOptionPane.YES_NO_OPTION);
+                if(choice == JOptionPane.YES_OPTION)
+                {
+                    double quantity = Double.parseDouble(tblCart.getValueAt(tblCart.getSelectedRow(), 3).toString());
+                    double price = Double.parseDouble(tblCart.getValueAt(tblCart.getSelectedRow(), 4).toString());
+                    price = price*quantity;
+                    double grandTotal = Double.parseDouble(lblGrandTotal.getText());
+                    grandTotal = grandTotal - price;
+                    lblGrandTotal.setText(new DecimalFormat("##.##").format(grandTotal));
+
+                    DefaultTableModel cartTable = (DefaultTableModel)tblCart.getModel();
+                    cartTable.removeRow(tblCart.getSelectedRow());
+                }
             }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Please select an item to remove.");
+            }
+        }
     }//GEN-LAST:event_btnCartRemoveActionPerformed
 
     private void btnCartQtyAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCartQtyAddActionPerformed
@@ -4346,11 +4369,13 @@ public class FrameLogin extends javax.swing.JFrame {
         {
             btnViewOrderModify.setEnabled(false);
             btnCancelOrder.setEnabled(false);
+            btnCompleteOrder.setEnabled(false);
         }
         else if(orderStatus.equals(OrderStatus.ONGOING))
         {
             btnViewOrderModify.setEnabled(true);
             btnCancelOrder.setEnabled(true);
+            btnCompleteOrder.setEnabled(true);
         }
     }//GEN-LAST:event_tblOrderMouseReleased
 
@@ -4494,11 +4519,13 @@ public class FrameLogin extends javax.swing.JFrame {
             {
                 btnViewOrderModify.setEnabled(false);
                 btnCancelOrder.setEnabled(false);
+                btnCompleteOrder.setEnabled(false);
             }
             else if(orderStatus.equals(OrderStatus.ONGOING))
             {
                 btnViewOrderModify.setEnabled(true);
                 btnCancelOrder.setEnabled(true);
+                btnCompleteOrder.setEnabled(true);
             }
         }
     }//GEN-LAST:event_tblOrderKeyReleased
@@ -4548,8 +4575,8 @@ public class FrameLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!lblOrderViewID.getText().isBlank())
         {
-            int choice = JOptionPane.showConfirmDialog(null, "Confirm Cancel?",
-                "Confirm Cancel", JOptionPane.YES_NO_OPTION);
+            int choice = JOptionPane.showConfirmDialog(null, "Confirm Complete Order?",
+                "Confirm Complete Order", JOptionPane.YES_NO_OPTION);
             if(choice == JOptionPane.YES_OPTION)
             {
                 Boolean updateStatus = false; // Ensure there are changes
@@ -4646,10 +4673,10 @@ public class FrameLogin extends javax.swing.JFrame {
                     }
                 }
             }
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null, "You cant cancel order older than 3 days.");
+            else
+            {
+                JOptionPane.showMessageDialog(null, "You cant cancel order older than 3 days.");
+            }
         }
     }//GEN-LAST:event_btnCancelOrderActionPerformed
 
